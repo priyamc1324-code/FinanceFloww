@@ -171,7 +171,7 @@ export default function Home() {
           <div className="container grid items-center gap-8 px-4 md:px-6 lg:grid-cols-2 lg:gap-16">
             <div className="flex justify-center">
               <Image
-                src="/priyam_profile_photo_.jpeg"
+                src="/priyam_profile_photo.jpeg"
                 width={400}
                 height={400}
                 alt="About Me"
@@ -393,3 +393,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
