@@ -37,6 +37,7 @@ import FinancialBackground from "@/components/financial-background";
 import Header from "@/components/header";
 import ContactForm from "@/components/contact-form";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
+import Link from "next/link";
 
 const aboutImage = PlaceHolderImages.find((img) => img.id === 'profile-about');
 const contactImage = PlaceHolderImages.find((img) => img.id === 'profile-contact');
@@ -118,31 +119,21 @@ export default function Home() {
               Finance &bull; Valuation &bull; Equity Research
             </p>
             <p className="mx-auto mt-8 max-w-2xl text-lg text-gray-400 md:text-xl">
-              Data-driven investment analysis through financial modeling and Python-based analytics.
+              Building data-driven investment insights through financial modeling, valuation frameworks, and Python-based analytics.
+Focused on analyzing risk–return dynamics and equity performance using structured, data-backed approaches.
             </p>
             
-            <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
-              <div className="rounded-lg border border-gray-700 bg-gray-900/50 p-6 text-left backdrop-blur-sm">
-                <h3 className="font-headline text-lg font-bold text-white">VALUATION</h3>
-                <ul className="mt-4 space-y-2 text-gray-400">
-                  <li>DCF &bull; Relative Valuation</li>
-                  <li>Sensitivity Analysis</li>
-                </ul>
-              </div>
-              <div className="rounded-lg border border-gray-700 bg-gray-900/50 p-6 text-left backdrop-blur-sm">
-                <h3 className="font-headline text-lg font-bold text-white">MARKETS</h3>
-                <ul className="mt-4 space-y-2 text-gray-400">
-                  <li>Equity Research</li>
-                  <li>Risk-Return Analysis</li>
-                </ul>
-              </div>
-               <div className="rounded-lg border border-gray-700 bg-gray-900/50 p-6 text-left backdrop-blur-sm">
-                <h3 className="font-headline text-lg font-bold text-white">QUANT</h3>
-                <ul className="mt-4 space-y-2 text-gray-400">
-                  <li>Python &bull; Monte Carlo</li>
-                  <li>Quant Models</li>
-                </ul>
-              </div>
+            <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
+              <Link href="#projects" passHref>
+                <Button size="lg" className="w-48 bg-blue-600 text-white hover:bg-blue-700">
+                  View Projects
+                </Button>
+              </Link>
+              <Link href="#contact" passHref>
+                <Button size="lg" variant="outline" className="w-48 border-white bg-white text-black hover:bg-gray-200">
+                  Contact Me
+                </Button>
+              </Link>
             </div>
             
           </div>
@@ -164,7 +155,7 @@ export default function Home() {
               <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-black">
                 About Me
               </h2>
-              <p className="text-secondary-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              <p className="text-black md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed font-bold">
                 I am a passionate and driven finance student with a strong
                 quantitative background and a keen interest in the intersection
                 of finance and technology. My journey has equipped me with a
@@ -173,7 +164,7 @@ export default function Home() {
                 problems and building models that provide clear, actionable
                 insights.
               </p>
-              <p className="text-secondary-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              <p className="text-black md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed font-bold">
                 What sets me apart is my ability to bridge the gap between
                 traditional finance principles and modern analytical techniques.
                 This portfolio showcases my key projects, skills, and the
@@ -236,7 +227,7 @@ export default function Home() {
                     <CardDescription>{project.description}</CardDescription>
                   </CardHeader>
                   <CardFooter className="mt-auto">
-                    <Button asChild variant="link" className="p-0 h-auto text-foreground">
+                    <Button asChild variant="link" className="p-0 h-auto text-white">
                       <a href={project.link} target="_blank" rel="noopener noreferrer">
                         View Project <ArrowUpRight className="ml-2 h-4 w-4" />
                       </a>
@@ -256,7 +247,7 @@ export default function Home() {
               </h2>
               <div className="flex flex-wrap gap-2">
                 {skills.map((skill, index) => (
-                  <Badge key={index} variant="secondary" className="text-foreground bg-background">{skill}</Badge>
+                  <Badge key={index} variant="secondary" className="text-white bg-background">{skill}</Badge>
                 ))}
               </div>
             </div>
@@ -287,7 +278,7 @@ export default function Home() {
               <TabsContent value="certifications" className="mt-6">
                 <ul className="space-y-4">
                   {certifications.map((cert, i) => (
-                     <li key={i} className="flex items-center justify-between rounded-lg bg-background p-4 text-foreground">
+                     <li key={i} className="flex items-center justify-between rounded-lg bg-background p-4 text-white">
                         <div>
                           <p className="font-medium">{cert.name}</p>
                           <p className="text-sm text-muted-foreground">{cert.issuer}</p>
@@ -300,7 +291,7 @@ export default function Home() {
                <TabsContent value="education" className="mt-6">
                 <ul className="space-y-4">
                   {education.map((edu, i) => (
-                     <li key={i} className="flex items-center rounded-lg bg-background p-4 text-foreground">
+                     <li key={i} className="flex items-center rounded-lg bg-background p-4 text-white">
                         <p className="font-medium">{edu.name} - <span className="text-muted-foreground">{edu.institution}</span></p>
                      </li>
                   ))}
@@ -309,7 +300,7 @@ export default function Home() {
               <TabsContent value="awards" className="mt-6">
                 <ul className="space-y-4">
                   {awards.map((award, i) => (
-                     <li key={i} className="flex items-center rounded-lg bg-background p-4 text-foreground">
+                     <li key={i} className="flex items-center rounded-lg bg-background p-4 text-white">
                         <p className="font-medium">{award.name} - <span className="text-muted-foreground">{award.event}</span></p>
                      </li>
                   ))}
