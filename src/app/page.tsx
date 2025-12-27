@@ -175,7 +175,7 @@ export default function Home() {
                 width={400}
                 height={400}
                 alt="About Me"
-                className="rounded-lg shadow-lg"
+                className="rounded-full shadow-lg"
               />
             </div>
             <div className="space-y-4">
@@ -393,5 +393,7 @@ export default function Home() {
     </div>
   );
 }
+
+    
 
     
