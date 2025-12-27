@@ -117,10 +117,11 @@ export default function Home() {
             <p className="mt-4 font-headline text-lg text-white md:text-xl">
               Finance & Analytics | Valuation | Equity Research | Financial Modelling | Python For Financial Analysis
             </p>
-            <p className="mx-auto mt-6 max-w-2xl text-base text-foreground md:text-lg">
-              BBA Decision Science student at Christ University with hands-on
-              experience in financial modeling, valuation, and equity research,
-              supported by Python-based analytics.
+            <p className="mx-auto mt-6 max-w-3xl text-base text-foreground md:text-lg">
+              Building data-driven investment insights through financial modeling, valuation frameworks, and Python-based analytics.
+            </p>
+             <p className="mx-auto mt-4 max-w-3xl text-base text-foreground md:text-lg">
+              Focused on analyzing risk–return dynamics and equity performance using structured, data-backed approaches.
             </p>
             <a href="#about" className="absolute bottom-10 animate-bounce">
               <ArrowDown className="h-8 w-8 text-foreground" />
@@ -141,7 +142,7 @@ export default function Home() {
               />}
             </div>
             <div className="space-y-4">
-              <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+              <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-black">
                 About Me
               </h2>
               <p className="text-secondary-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -246,7 +247,7 @@ export default function Home() {
               </h2>
               <div className="flex flex-wrap gap-2">
                 {tools.map((tool, index) => (
-                  <Badge key={index} variant="secondary" className="text-secondary-foreground">{tool}</Badge>
+                  <Badge key={index} variant="secondary" className="text-black bg-white">{tool}</Badge>
                 ))}
               </div>
             </div>
