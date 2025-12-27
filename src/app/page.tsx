@@ -145,7 +145,7 @@ export default function Home() {
               <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                 About Me
               </h2>
-              <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              <p className="font-bold text-black md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 I am a passionate and driven finance student with a strong
                 quantitative background and a keen interest in the intersection
                 of finance and technology. My journey has equipped me with a
@@ -154,7 +154,7 @@ export default function Home() {
                 problems and building models that provide clear, actionable
                 insights.
               </p>
-              <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              <p className="font-bold text-black md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 What sets me apart is my ability to bridge the gap between
                 traditional finance principles and modern analytical techniques.
                 This portfolio showcases my key projects, skills, and the
