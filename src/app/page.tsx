@@ -247,7 +247,7 @@ export default function Home() {
               </h2>
               <div className="flex flex-wrap gap-2">
                 {tools.map((tool, index) => (
-                  <Badge key={index}>{tool}</Badge>
+                  <Badge key={index} variant="secondary">{tool}</Badge>
                 ))}
               </div>
             </div>
