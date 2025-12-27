@@ -1,4 +1,6 @@
 
+"use client";
+
 import Image from "next/image";
 import {
   ArrowUpRight,
@@ -395,7 +397,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
-
-    
