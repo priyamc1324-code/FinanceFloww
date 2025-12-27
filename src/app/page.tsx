@@ -119,8 +119,7 @@ export default function Home() {
               Finance &bull; Valuation &bull; Equity Research
             </p>
             <p className="mx-auto mt-8 max-w-2xl text-lg text-gray-400 md:text-xl">
-              Building data-driven investment insights through financial modeling, valuation frameworks, and Python-based analytics.
-Focused on analyzing risk–return dynamics and equity performance using structured, data-backed approaches.
+              Building data-driven investment insights through financial modeling, valuation frameworks, and Python-based analytics. Focused on analyzing risk–return dynamics and equity performance using structured, data-backed approaches.
             </p>
             
             <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
