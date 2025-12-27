@@ -13,86 +13,87 @@ const FinancialBackground = () => {
     if (!ctx) return;
 
     let animationFrameId: number;
-    let particles: Particle[] = [];
-    const symbols = "0123456789$€£¥↑↓<>📈📉";
+    let lines: MovingLine[] = [];
 
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      createParticles();
+      createLines();
     };
 
-    class Particle {
-      x: number;
+    class MovingLine {
       y: number;
-      char: string;
-      size: number;
-      speedY: number;
+      points: { x: number; yOffset: number }[];
+      speed: number;
       opacity: number;
-      life: number;
-      maxLife: number;
+      lineWidth: number;
+      segmentLength: number;
+      currentX: number;
+      color: string;
 
       constructor() {
-        this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.char = symbols[Math.floor(Math.random() * symbols.length)];
-        this.size = Math.random() * 12 + 8;
-        this.speedY = Math.random() * 0.5 + 0.1;
-        this.opacity = 0;
-        this.life = 0;
-        this.maxLife = Math.random() * 300 + 200;
+        this.speed = Math.random() * 0.5 + 0.2;
+        this.opacity = Math.random() * 0.2 + 0.05;
+        this.lineWidth = Math.random() * 1.5 + 0.5;
+        this.segmentLength = 80;
+        this.points = [];
+        this.currentX = 0;
+        this.color = "hsl(var(--foreground))";
+        this.generatePoints();
+      }
+
+      generatePoints() {
+        this.points = [];
+        const numPoints = Math.ceil(canvas.width / this.segmentLength) + 2;
+        let currentYOffset = (Math.random() - 0.5) * 100;
+        for (let i = 0; i < numPoints; i++) {
+          this.points.push({ x: i * this.segmentLength, yOffset: currentYOffset });
+          currentYOffset += (Math.random() - 0.5) * 50;
+        }
       }
 
       update() {
-        this.y -= this.speedY;
-        this.life++;
-
-        if (this.life < 50) {
-          this.opacity = this.life / 50 * 0.3;
+        this.currentX -= this.speed;
+        if (this.currentX < -this.segmentLength) {
+            this.currentX = 0;
+            this.points.shift();
+            const lastPoint = this.points[this.points.length - 1];
+            const newYOffset = lastPoint.yOffset + (Math.random() - 0.5) * 50;
+            this.points.push({ x: lastPoint.x + this.segmentLength, yOffset: newYOffset});
         }
-
-        if (this.life > this.maxLife - 50) {
-          this.opacity = (this.maxLife - this.life) / 50 * 0.3;
-        }
-
-        if (this.y < -this.size || this.life > this.maxLife) {
-          this.reset();
-        }
-      }
-
-      reset() {
-        this.x = Math.random() * canvas.width;
-        this.y = canvas.height + this.size;
-        this.char = symbols[Math.floor(Math.random() * symbols.length)];
-        this.size = Math.random() * 12 + 8;
-        this.speedY = Math.random() * 0.5 + 0.1;
-        this.opacity = 0;
-        this.life = 0;
-        this.maxLife = Math.random() * 300 + 200;
       }
 
       draw(context: CanvasRenderingContext2D) {
+        context.save();
         context.globalAlpha = this.opacity;
-        // Using foreground color to ensure visibility in both light and dark modes.
-        context.fillStyle = "hsl(var(--foreground))"; 
-        context.font = `${this.size}px 'Space Grotesk', monospace`;
-        context.fillText(this.char, this.x, this.y);
+        context.strokeStyle = this.color;
+        context.lineWidth = this.lineWidth;
+        context.beginPath();
+        context.moveTo(this.currentX + this.points[0].x, this.y + this.points[0].yOffset);
+
+        for (let i = 1; i < this.points.length; i++) {
+          context.lineTo(this.currentX + this.points[i].x, this.y + this.points[i].yOffset);
+        }
+
+        context.stroke();
+        context.restore();
       }
     }
 
-    const createParticles = () => {
-        const particleCount = Math.floor((canvas.width * canvas.height) / 8000);
-        particles = [];
-        for (let i = 0; i < particleCount; i++) {
-            particles.push(new Particle());
+    const createLines = () => {
+        const lineCount = Math.floor(canvas.height / 50);
+        lines = [];
+        for (let i = 0; i < lineCount; i++) {
+            lines.push(new MovingLine());
         }
     };
     
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(p => {
-        p.update();
-        p.draw(ctx);
+      lines.forEach(l => {
+        l.update();
+        l.draw(ctx);
       });
       animationFrameId = requestAnimationFrame(animate);
     };
