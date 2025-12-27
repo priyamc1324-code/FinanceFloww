@@ -1,4 +1,5 @@
 
+
 "use client";
 
 import Image from "next/image";
@@ -43,7 +44,6 @@ import {
   DialogDescription,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import FinancialBackground from "@/components/financial-background";
 import Header from "@/components/header";
 import ContactForm from "@/components/contact-form";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
