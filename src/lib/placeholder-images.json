@@ -1,3 +1,16 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "profile-about",
+      "description": "A professional headshot for the about section.",
+      "imageUrl": "https://images.unsplash.com/photo-1610631066894-62452ccb927c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwcm9mZXNzaW9uYWwlMjBwZXJzb258ZW58MHx8fHwxNzY2NzEzOTQ0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "professional person"
+    },
+    {
+      "id": "profile-contact",
+      "description": "A smaller, friendly profile picture for the contact section.",
+      "imageUrl": "https://images.unsplash.com/photo-1737642872807-9669a744de5a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxmcmllbmRseSUyMHBlcnNvbnxlbnwwfHx8fDE3NjY4MDQ3NzB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "friendly person"
+    }
+  ]
 }
