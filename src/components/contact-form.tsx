@@ -56,14 +56,8 @@ export default function ContactForm() {
   }
 
   return (
-    <Card className="bg-background text-foreground">
-      <CardHeader>
-        <CardTitle>Contact Me</CardTitle>
-        <CardDescription>
-          For opportunities or a quick chat.
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
+    <Card className="bg-transparent border-0 shadow-none">
+      <CardContent className="p-0">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
             <FormField

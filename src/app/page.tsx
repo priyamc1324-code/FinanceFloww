@@ -1,6 +1,5 @@
 import Image from "next/image";
 import {
-  ArrowDown,
   ArrowUpRight,
   BookOpen,
   Briefcase,
@@ -33,6 +32,13 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import FinancialBackground from "@/components/financial-background";
 import Header from "@/components/header";
 import ContactForm from "@/components/contact-form";
@@ -116,23 +122,28 @@ export default function Home() {
               Priyam Chandan
             </h1>
             <p className="mt-4 font-body text-sm uppercase tracking-widest text-gray-300 md:text-base">
-              Finance &bull; Valuation &bull; Equity Research
-            </p>
-            <p className="mx-auto mt-8 max-w-2xl text-lg text-gray-400 md:text-xl">
-              Building data-driven investment insights through financial modeling, valuation frameworks, and Python-based analytics. Focused on analyzing risk–return dynamics and equity performance using structured, data-backed approaches.
+              Finance & Analytics | Valuation | Equity Research | Financial Modelling | Python For Financial Analysis
             </p>
             
             <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
               <Link href="#projects" passHref>
-                <Button size="lg" className="w-48 bg-blue-600 text-white hover:bg-blue-700">
+                <Button size="lg" className="w-48 bg-primary text-primary-foreground hover:bg-primary/90">
                   View Projects
                 </Button>
               </Link>
-              <Link href="#contact" passHref>
-                <Button size="lg" variant="outline" className="w-48 border-white bg-white text-black hover:bg-gray-200">
-                  Contact Me
-                </Button>
-              </Link>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button size="lg" variant="outline" className="w-48 border-white bg-transparent text-white hover:bg-white hover:text-black">
+                    Contact Me
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="bg-card text-card-foreground">
+                  <DialogHeader>
+                    <DialogTitle>Contact Me</DialogTitle>
+                  </DialogHeader>
+                  <ContactForm />
+                </DialogContent>
+              </Dialog>
             </div>
             
           </div>
