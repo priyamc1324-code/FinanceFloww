@@ -112,7 +112,7 @@ export default function Home() {
           <FinancialBackground />
           <div className="container relative z-10 flex h-full flex-col items-center justify-center text-center">
             <h1 className="font-headline text-5xl font-bold tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl">
-              Priyam Chadan
+              Priyam Chandan
             </h1>
             <p className="mt-4 font-body text-sm uppercase tracking-widest text-gray-300 md:text-base">
               Finance &bull; Valuation &bull; Equity Research
