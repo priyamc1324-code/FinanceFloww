@@ -306,7 +306,7 @@ export default function Home() {
                 <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
                     Interested in a more detailed look at my experience? Download my full resume.
                 </p>
-                <Button asChild size="lg" className="mt-6 bg-primary hover:bg-primary/90 text-primary-foreground">
+                <Button asChild size="lg" className="mt-6">
                     <a href="/resume.pdf" download>Download CV / Resume</a>
                 </Button>
             </div>
