@@ -111,21 +111,40 @@ export default function Home() {
         <section id="home" className="relative h-screen w-full bg-background text-foreground">
           <FinancialBackground />
           <div className="container relative z-10 flex h-full flex-col items-center justify-center text-center">
-            <h1 className="font-headline text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
+            <h1 className="font-headline text-5xl font-bold tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl">
               Priyam Chadan
             </h1>
-            <p className="mt-4 font-headline text-lg text-white md:text-xl">
-              Finance & Analytics | Valuation | Equity Research | Financial Modelling | Python For Financial Analysis
+            <p className="mt-4 font-body text-sm uppercase tracking-widest text-gray-300 md:text-base">
+              Finance &bull; Valuation &bull; Equity Research
             </p>
-            <p className="mx-auto mt-6 max-w-3xl text-base text-foreground md:text-lg">
-              Building data-driven investment insights through financial modeling, valuation frameworks, and Python-based analytics.
+            <p className="mx-auto mt-8 max-w-2xl text-lg text-gray-400 md:text-xl">
+              Data-driven investment analysis through financial modeling and Python-based analytics.
             </p>
-             <p className="mx-auto mt-4 max-w-3xl text-base text-foreground md:text-lg">
-              Focused on analyzing risk–return dynamics and equity performance using structured, data-backed approaches.
-            </p>
-            <a href="#about" className="absolute bottom-10 animate-bounce">
-              <ArrowDown className="h-8 w-8 text-foreground" />
-            </a>
+            
+            <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
+              <div className="rounded-lg border border-gray-700 bg-gray-900/50 p-6 text-left backdrop-blur-sm">
+                <h3 className="font-headline text-lg font-bold text-white">VALUATION</h3>
+                <ul className="mt-4 space-y-2 text-gray-400">
+                  <li>DCF &bull; Relative Valuation</li>
+                  <li>Sensitivity Analysis</li>
+                </ul>
+              </div>
+              <div className="rounded-lg border border-gray-700 bg-gray-900/50 p-6 text-left backdrop-blur-sm">
+                <h3 className="font-headline text-lg font-bold text-white">MARKETS</h3>
+                <ul className="mt-4 space-y-2 text-gray-400">
+                  <li>Equity Research</li>
+                  <li>Risk-Return Analysis</li>
+                </ul>
+              </div>
+               <div className="rounded-lg border border-gray-700 bg-gray-900/50 p-6 text-left backdrop-blur-sm">
+                <h3 className="font-headline text-lg font-bold text-white">QUANT</h3>
+                <ul className="mt-4 space-y-2 text-gray-400">
+                  <li>Python &bull; Monte Carlo</li>
+                  <li>Quant Models</li>
+                </ul>
+              </div>
+            </div>
+            
           </div>
         </section>
 
