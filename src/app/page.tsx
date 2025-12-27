@@ -118,13 +118,13 @@ export default function Home() {
               Finance & Analytics | Valuation, Equity Research, Financial
               Modeling
             </p>
-            <p className="mx-auto mt-6 max-w-2xl text-base text-muted-foreground md:text-lg">
+            <p className="mx-auto mt-6 max-w-2xl text-base text-foreground md:text-lg">
               BBA Decision Science student at Christ University with hands-on
               experience in financial modeling, valuation, and equity research,
               supported by Python-based analytics.
             </p>
             <a href="#about" className="absolute bottom-10 animate-bounce">
-              <ArrowDown className="h-8 w-8 text-primary-foreground" />
+              <ArrowDown className="h-8 w-8 text-foreground" />
             </a>
           </div>
         </section>
@@ -145,7 +145,7 @@ export default function Home() {
               <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                 About Me
               </h2>
-              <p className="font-bold text-black md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              <p className="font-bold text-secondary-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 I am a passionate and driven finance student with a strong
                 quantitative background and a keen interest in the intersection
                 of finance and technology. My journey has equipped me with a
@@ -154,7 +154,7 @@ export default function Home() {
                 problems and building models that provide clear, actionable
                 insights.
               </p>
-              <p className="font-bold text-black md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              <p className="font-bold text-secondary-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 What sets me apart is my ability to bridge the gap between
                 traditional finance principles and modern analytical techniques.
                 This portfolio showcases my key projects, skills, and the
@@ -211,13 +211,13 @@ export default function Home() {
             </h2>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {projects.map((project, index) => (
-                <Card key={index} className="flex flex-col bg-card">
+                <Card key={index} className="flex flex-col bg-background text-foreground">
                   <CardHeader>
                     <CardTitle>{project.title}</CardTitle>
                     <CardDescription>{project.description}</CardDescription>
                   </CardHeader>
                   <CardFooter className="mt-auto">
-                    <Button asChild variant="link" className="p-0 h-auto text-card-foreground">
+                    <Button asChild variant="link" className="p-0 h-auto text-foreground">
                       <a href={project.link} target="_blank" rel="noopener noreferrer">
                         View Project <ArrowUpRight className="ml-2 h-4 w-4" />
                       </a>
@@ -237,7 +237,7 @@ export default function Home() {
               </h2>
               <div className="flex flex-wrap gap-2">
                 {skills.map((skill, index) => (
-                  <Badge key={index} variant="secondary">{skill}</Badge>
+                  <Badge key={index} variant="secondary" className="text-secondary-foreground">{skill}</Badge>
                 ))}
               </div>
             </div>
@@ -247,7 +247,7 @@ export default function Home() {
               </h2>
               <div className="flex flex-wrap gap-2">
                 {tools.map((tool, index) => (
-                  <Badge key={index} variant="secondary">{tool}</Badge>
+                  <Badge key={index} variant="secondary" className="text-secondary-foreground">{tool}</Badge>
                 ))}
               </div>
             </div>
@@ -268,7 +268,7 @@ export default function Home() {
               <TabsContent value="certifications" className="mt-6">
                 <ul className="space-y-4">
                   {certifications.map((cert, i) => (
-                     <li key={i} className="flex items-center justify-between rounded-lg bg-card p-4">
+                     <li key={i} className="flex items-center justify-between rounded-lg bg-background p-4 text-foreground">
                         <div>
                           <p className="font-medium">{cert.name}</p>
                           <p className="text-sm text-muted-foreground">{cert.issuer}</p>
@@ -281,7 +281,7 @@ export default function Home() {
                <TabsContent value="education" className="mt-6">
                 <ul className="space-y-4">
                   {education.map((edu, i) => (
-                     <li key={i} className="flex items-center rounded-lg bg-card p-4">
+                     <li key={i} className="flex items-center rounded-lg bg-background p-4 text-foreground">
                         <p className="font-medium">{edu.name} - <span className="text-muted-foreground">{edu.institution}</span></p>
                      </li>
                   ))}
@@ -290,7 +290,7 @@ export default function Home() {
               <TabsContent value="awards" className="mt-6">
                 <ul className="space-y-4">
                   {awards.map((award, i) => (
-                     <li key={i} className="flex items-center rounded-lg bg-card p-4">
+                     <li key={i} className="flex items-center rounded-lg bg-background p-4 text-foreground">
                         <p className="font-medium">{award.name} - <span className="text-muted-foreground">{award.event}</span></p>
                      </li>
                   ))}

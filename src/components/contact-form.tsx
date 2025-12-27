@@ -56,7 +56,7 @@ export default function ContactForm() {
   }
 
   return (
-    <Card className="bg-card">
+    <Card className="bg-background text-foreground">
       <CardHeader>
         <CardTitle>Contact Me</CardTitle>
         <CardDescription>
