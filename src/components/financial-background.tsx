@@ -29,7 +29,7 @@ const FinancialBackground = () => {
         data-ai-hint={heroImage.imageHint}
         priority
       />
-      <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-900/80 to-amber-900/70 -z-10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-900/80 to-amber-500/50 -z-10" />
     </>
   );
 };
