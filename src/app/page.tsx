@@ -37,6 +37,7 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
+  DialogDescription,
   DialogTrigger,
 } from "@/components/ui/dialog";
 import FinancialBackground from "@/components/financial-background";
@@ -139,9 +140,25 @@ export default function Home() {
                 </DialogTrigger>
                 <DialogContent className="bg-card text-card-foreground">
                   <DialogHeader>
-                    <DialogTitle>Contact Me</DialogTitle>
+                    <DialogTitle>Get in Touch</DialogTitle>
+                    <DialogDescription>
+                      I&apos;d love to hear from you!
+                    </DialogDescription>
                   </DialogHeader>
-                  <ContactForm />
+                  <div className="space-y-4 py-4">
+                    <a href="mailto:priyamc1324@gmail.com" className="flex items-center gap-4 text-lg hover:text-primary transition-colors">
+                      <Mail className="h-6 w-6"/>
+                      <span>priyamc1324@gmail.com</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/priyam-chandan-568835285?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-lg hover:text-primary transition-colors">
+                      <Linkedin className="h-6 w-6"/>
+                      <span>Connect on LinkedIn</span>
+                    </a>
+                    <a href="tel:+916360840120" className="flex items-center gap-4 text-lg hover:text-primary transition-colors">
+                      <Phone className="h-6 w-6"/>
+                      <span>+91 6360840120</span>
+                    </a>
+                  </div>
                 </DialogContent>
               </Dialog>
             </div>
@@ -349,17 +366,17 @@ export default function Home() {
                 <p className="text-muted-foreground">I’d love to hear from you! Whether you have a question or just want to connect.</p>
               </div>
               <div className="space-y-4">
-                <a href="mailto:your.email@gmail.com" className="flex items-center gap-4 text-lg hover:text-primary transition-colors">
+                <a href="mailto:priyamc1324@gmail.com" className="flex items-center gap-4 text-lg hover:text-primary transition-colors">
                   <Mail className="h-6 w-6"/>
-                  <span>your.email@gmail.com</span>
+                  <span>priyamc1324@gmail.com</span>
                 </a>
-                 <a href="#" className="flex items-center gap-4 text-lg hover:text-primary transition-colors">
+                 <a href="https://www.linkedin.com/in/priyam-chandan-568835285?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-lg hover:text-primary transition-colors">
                   <Linkedin className="h-6 w-6"/>
                   <span>Connect on LinkedIn</span>
                 </a>
-                 <a href="#" className="flex items-center gap-4 text-lg hover:text-primary transition-colors">
+                 <a href="tel:+916360840120" className="flex items-center gap-4 text-lg hover:text-primary transition-colors">
                   <Phone className="h-6 w-6"/>
-                  <span>+91 12345 67890</span>
+                  <span>+91 6360840120</span>
                 </a>
               </div>
             </div>
