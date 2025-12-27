@@ -56,7 +56,7 @@ const projects = [
   {
     title: "A Three Statement Financial Model",
     description: "The foundational interconnected model of the Income Statement, Balance Sheet, and Cash Flow Statement.",
-    link: "/A Three - Statement Financial Model.pdf",
+    link: "/3 - Statement Financial Model.xlsx",
   },
   {
     title: "Comparable Comps Valuation",
@@ -267,7 +267,7 @@ export default function Home() {
                   <CardFooter className="mt-auto">
                     <Button asChild variant="link" className="p-0 h-auto text-white">
                       <a href={project.link} target="_blank" rel="noopener noreferrer">
-                        {project.title === "A Three Statement Financial Model" ? "View Details" : "View Project"} <ArrowUpRight className="ml-2 h-4 w-4" />
+                        View Project <ArrowUpRight className="ml-2 h-4 w-4" />
                       </a>
                     </Button>
                   </CardFooter>
@@ -426,5 +426,7 @@ export default function Home() {
     </div>
   );
 }
+
+    
 
     
