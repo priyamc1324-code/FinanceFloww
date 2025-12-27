@@ -54,9 +54,9 @@ const contactImage = PlaceHolderImages.find((img) => img.id === 'profile-contact
 
 const projects = [
   {
-    title: "DCF Valuation",
-    description: "In-depth discounted cash flow analysis for various public companies.",
-    link: "#",
+    title: "A Three Statement Financial Model",
+    description: "The foundational interconnected model of the Income Statement, Balance Sheet, and Cash Flow Statement.",
+    link: "/A Three - Statement Financial Model.pdf",
   },
   {
     title: "Comparable Comps Valuation",
@@ -262,7 +262,7 @@ export default function Home() {
                   <CardFooter className="mt-auto">
                     <Button asChild variant="link" className="p-0 h-auto text-white">
                       <a href={project.link} target="_blank" rel="noopener noreferrer">
-                        View Project <ArrowUpRight className="ml-2 h-4 w-4" />
+                        {project.title === "A Three Statement Financial Model" ? "View Details" : "View Project"} <ArrowUpRight className="ml-2 h-4 w-4" />
                       </a>
                     </Button>
                   </CardFooter>
