@@ -92,7 +92,7 @@ const skills = [
   "Machine Learning for Predictive Analytics",
 ];
 
-const tools = ["Python", "Microsoft Excel", "SQL", "Tableau", "Power BI"];
+const tools = ["Python", "Microsoft Excel", "SQL", "Tableau"];
 
 const certifications = [
   { name: "Microsoft Advanced Excel", issuer: "Microsoft" },
@@ -118,7 +118,7 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <section id="home" className="relative h-screen w-full bg-background text-foreground">
-          <FinancialBackground />
+          <div className="absolute inset-0 -z-10 bg-gradient-to-br from-gray-900 via-black to-gray-800" />
           <div className="container relative z-10 flex h-full flex-col items-center justify-center text-center">
             <h1 className="font-headline text-5xl font-bold tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl">
               Priyam Chandan
@@ -274,7 +274,7 @@ export default function Home() {
               </h2>
               <div className="flex flex-wrap gap-2">
                 {skills.map((skill, index) => (
-                  <Badge key={index} variant="secondary" className="text-white bg-background">{skill}</Badge>
+                  <Badge key={index} variant="outline" className="border-gray-600 text-gray-300">{skill}</Badge>
                 ))}
               </div>
             </div>
@@ -393,7 +393,5 @@ export default function Home() {
     </div>
   );
 }
-
-    
 
     
