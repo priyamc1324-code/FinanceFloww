@@ -8,74 +8,73 @@ html {
 
 @layer base {
   :root {
-    --background: 240 10% 3.9%; /* Dark Blue-Gray */
-    --foreground: 0 0% 98%; /* Almost White */
-    --card: 240 4.8% 12%; /* Darker Card Background */
-    --card-foreground: 0 0% 98%; /* Almost White */
-    --popover: 240 10% 3.9%; /* Dark Blue-Gray */
-    --popover-foreground: 0 0% 98%; /* Almost White */
-    --primary: 210 40% 96.1%; /* Light Blue/White for primary actions */
-    --primary-foreground: 240 5.9% 10%; /* Dark text on primary */
-    --secondary: 240 3.7% 15.9%; /* Darker Gray for secondary elements */
-    --secondary-foreground: 0 0% 98%; /* White text on secondary */
-    --muted: 240 3.7% 15.9%; /* Darker Gray */
-    --muted-foreground: 240 5% 64.9%; /* Lighter Gray for muted text */
-    --accent: 240 3.7% 15.9%; /* Darker Gray */
-    --accent-foreground: 0 0% 98%; /* White text on accent */
+    --background: 0 0% 0%; /* Black */
+    --foreground: 0 0% 96%; /* Pearl White */
+    --card: 0 0% 8%; /* Dark Gray Card */
+    --card-foreground: 0 0% 96%; /* Pearl White */
+    --popover: 0 0% 0%; /* Black */
+    --popover-foreground: 0 0% 96%; /* Pearl White */
+    --primary: 0 0% 96%; /* Pearl White */
+    --primary-foreground: 0 0% 4%; /* Near Black */
+    --secondary: 0 0% 15%; /* Lighter Gray for secondary elements */
+    --secondary-foreground: 0 0% 96%; /* Pearl White */
+    --muted: 0 0% 15%; /* Lighter Gray */
+    --muted-foreground: 0 0% 60%; /* Lighter Gray for muted text */
+    --accent: 0 0% 15%; /* Lighter Gray */
+    --accent-foreground: 0 0% 96%; /* Pearl White */
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%; /* Dark Gray Border */
-    --input: 240 3.7% 15.9%; /* Dark Gray Input */
-    --ring: 210 40% 96.1%;
-    --radius: 0.5rem;
+    --border: 0 0% 15%; /* Lighter Gray Border */
+    --input: 0 0% 15%; /* Lighter Gray Input */
+    --ring: 0 0% 96%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
-    --sidebar-background: 240 10% 3.9%;
-    --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 210 40% 96.1%;
-    --sidebar-primary-foreground: 240 5.9% 10%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 210 40% 96.1%;
+    --sidebar-background: 0 0% 0%;
+    --sidebar-foreground: 0 0% 96%;
+    --sidebar-primary: 0 0% 96%;
+    --sidebar-primary-foreground: 0 0% 4%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 0 0% 96%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 0 0% 96%;
   }
 
   .dark {
-    --background: 240 10% 3.9%; /* Dark Blue-Gray */
-    --foreground: 0 0% 98%; /* Almost White */
-    --card: 240 4.8% 12%; /* Darker Card Background */
-    --card-foreground: 0 0% 98%; /* Almost White */
-    --popover: 240 10% 3.9%; /* Dark Blue-Gray */
-    --popover-foreground: 0 0% 98%; /* Almost White */
-    --primary: 210 40% 96.1%; /* Light Blue/White for primary actions */
-    --primary-foreground: 240 5.9% 10%; /* Dark text on primary */
-    --secondary: 240 3.7% 15.9%; /* Darker Gray for secondary elements */
-    --secondary-foreground: 0 0% 98%; /* White text on secondary */
-    --muted: 240 3.7% 15.9%; /* Darker Gray */
-    --muted-foreground: 240 5% 64.9%; /* Lighter Gray for muted text */
-    --accent: 240 3.7% 15.9%; /* Darker Gray */
-    --accent-foreground: 0 0% 98%; /* White text on accent */
+    --background: 0 0% 0%; /* Black */
+    --foreground: 0 0% 96%; /* Pearl White */
+    --card: 0 0% 8%; /* Dark Gray Card */
+    --card-foreground: 0 0% 96%; /* Pearl White */
+    --popover: 0 0% 0%; /* Black */
+    --popover-foreground: 0 0% 96%; /* Pearl White */
+    --primary: 0 0% 96%; /* Pearl White */
+    --primary-foreground: 0 0% 4%; /* Near Black */
+    --secondary: 0 0% 15%; /* Lighter Gray for secondary elements */
+    --secondary-foreground: 0 0% 96%; /* Pearl White */
+    --muted: 0 0% 15%; /* Lighter Gray */
+    --muted-foreground: 0 0% 60%; /* Lighter Gray for muted text */
+    --accent: 0 0% 15%; /* Lighter Gray */
+    --accent-foreground: 0 0% 96%; /* Pearl White */
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%; /* Dark Gray Border */
-    --input: 240 3.7% 15.9%; /* Dark Gray Input */
-    --ring: 210 40% 96.1%;
+    --border: 0 0% 15%; /* Lighter Gray Border */
+    --input: 0 0% 15%; /* Lighter Gray Input */
+    --ring: 0 0% 96%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
-    --sidebar-background: 240 10% 3.9%;
-    --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 210 40% 96.1%;
-    --sidebar-primary-foreground: 240 5.9% 10%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 210 40% 96.1%;
+    --sidebar-background: 0 0% 0%;
+    --sidebar-foreground: 0 0% 96%;
+    --sidebar-primary: 0 0% 96%;
+    --sidebar-primary-foreground: 0 0% 4%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 0 0% 96%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 0 0% 96%;
   }
 }
 
