@@ -19,8 +19,10 @@ const navLinks = [
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
+    setIsClient(true);
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
@@ -63,18 +65,20 @@ export default function Header() {
           <NavLinks />
         </nav>
         <div className="md:hidden">
-          <Sheet open={isMobileMenuOpen} onOpenChange={setMobileMenuOpen}>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <Menu />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right">
-              <nav className="flex flex-col gap-4 pt-8">
-                <NavLinks isMobile />
-              </nav>
-            </SheetContent>
-          </Sheet>
+         {isClient && (
+            <Sheet open={isMobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon">
+                  <Menu />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right">
+                <nav className="flex flex-col gap-4 pt-8">
+                  <NavLinks isMobile />
+                </nav>
+              </SheetContent>
+            </Sheet>
+          )}
         </div>
       </div>
     </header>
