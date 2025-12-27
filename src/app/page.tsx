@@ -113,6 +113,10 @@ const awards = [
   { name: "Featured in Times of India", event: "Academic Achievement" },
 ];
 
+const workExperience: { name: string, issuer: string }[] = [
+  // Add your work experience here
+];
+
 
 export default function Home() {
   return (
@@ -300,12 +304,32 @@ export default function Home() {
              <h2 className="mb-12 text-center font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
               Education & Achievements
             </h2>
-            <Tabs defaultValue="certifications" className="mx-auto max-w-4xl">
-              <TabsList className="grid w-full grid-cols-3 bg-muted text-muted-foreground">
+            <Tabs defaultValue="work-experience" className="mx-auto max-w-4xl">
+              <TabsList className="grid w-full grid-cols-4 bg-muted text-muted-foreground">
+                <TabsTrigger value="work-experience"><Briefcase className="mr-2 h-4 w-4"/>Work Experience</TabsTrigger>
                 <TabsTrigger value="certifications"><Briefcase className="mr-2 h-4 w-4"/>Certifications</TabsTrigger>
                 <TabsTrigger value="education"><BookOpen className="mr-2 h-4 w-4"/>Education</TabsTrigger>
                 <TabsTrigger value="awards"><Trophy className="mr-2 h-4 w-4"/>Awards</TabsTrigger>
               </TabsList>
+              <TabsContent value="work-experience" className="mt-6">
+                 {workExperience.length > 0 ? (
+                  <ul className="space-y-4">
+                    {workExperience.map((exp, i) => (
+                      <li key={i} className="flex items-center justify-between rounded-lg bg-background p-4 text-white">
+                        <div>
+                          <p className="font-medium">{exp.name}</p>
+                          <p className="text-sm text-muted-foreground">{exp.issuer}</p>
+                        </div>
+                        <Button variant="ghost" size="icon" asChild><a href="#"><ArrowUpRight/></a></Button>
+                      </li>
+                    ))}
+                  </ul>
+                 ) : (
+                  <div className="flex items-center justify-center rounded-lg bg-background p-4 text-white">
+                    <p className="text-muted-foreground">Your work experiences will appear here.</p>
+                  </div>
+                 )}
+              </TabsContent>
               <TabsContent value="certifications" className="mt-6">
                 <ul className="space-y-4">
                   {certifications.map((cert, i) => (
