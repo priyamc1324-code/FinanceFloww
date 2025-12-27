@@ -20,94 +20,133 @@ const FinancialBackground = () => {
     if (!ctx) return;
 
     let animationFrameId: number;
-    let lines: MovingLine[] = [];
+    let candleLines: CandleLine[] = [];
 
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      createLines();
+      createCandleLines();
     };
 
-    class MovingLine {
+    class Candle {
+      open: number;
+      high: number;
+      low: number;
+      close: number;
+      x: number;
+
+      constructor(x: number, lastClose: number) {
+        this.x = x;
+        this.open = lastClose;
+        const move = (Math.random() - 0.5) * 20;
+        this.close = this.open + move;
+        const highFluctuation = Math.random() * 10;
+        const lowFluctuation = Math.random() * 10;
+        this.high = Math.max(this.open, this.close) + highFluctuation;
+        this.low = Math.min(this.open, this.close) - lowFluctuation;
+      }
+    }
+
+    class CandleLine {
       y: number;
-      points: { x: number; yOffset: number }[];
+      candles: Candle[];
       speed: number;
       opacity: number;
-      lineWidth: number;
-      segmentLength: number;
       currentX: number;
-      color: string;
+      candleWidth: number;
+      candleSpacing: number;
 
       constructor() {
         this.y = Math.random() * canvas.height;
-        this.speed = Math.random() * 0.5 + 0.2;
+        this.speed = Math.random() * 0.8 + 0.2;
         this.opacity = Math.random() * 0.2 + 0.05;
-        this.lineWidth = Math.random() * 1.5 + 0.5;
-        this.segmentLength = 80;
-        this.points = [];
+        this.candleWidth = 8;
+        this.candleSpacing = 12;
+        this.candles = [];
         this.currentX = 0;
-        this.color = "hsl(var(--foreground))";
-        this.generatePoints();
+        this.generateCandles();
       }
 
-      generatePoints() {
-        this.points = [];
-        const numPoints = Math.ceil(canvas.width / this.segmentLength) + 2;
-        let currentYOffset = (Math.random() - 0.5) * 100;
-        for (let i = 0; i < numPoints; i++) {
-          this.points.push({ x: i * this.segmentLength, yOffset: currentYOffset });
-          currentYOffset += (Math.random() - 0.5) * 50;
+      generateCandles() {
+        this.candles = [];
+        const numCandles = Math.ceil(canvas.width / this.candleSpacing) + 5;
+        let lastClose = 0;
+        for (let i = 0; i < numCandles; i++) {
+          const candle = new Candle(i * this.candleSpacing, lastClose);
+          this.candles.push(candle);
+          lastClose = candle.close;
         }
       }
 
       update() {
         this.currentX -= this.speed;
-        if (this.currentX < -this.segmentLength) {
-            this.currentX = 0;
-            this.points.shift();
-            const lastPoint = this.points[this.points.length - 1];
-            const newYOffset = lastPoint.yOffset + (Math.random() - 0.5) * 50;
-            this.points.push({ x: lastPoint.x + this.segmentLength, yOffset: newYOffset});
+        if (this.currentX < -this.candleSpacing) {
+          this.currentX = 0;
+          this.candles.shift();
+          const lastCandle = this.candles[this.candles.length - 1];
+          const newCandle = new Candle(
+            lastCandle.x + this.candleSpacing,
+            lastCandle.close
+          );
+          this.candles.push(newCandle);
         }
       }
 
       draw(context: CanvasRenderingContext2D) {
         context.save();
         context.globalAlpha = this.opacity;
-        context.strokeStyle = this.color;
-        context.lineWidth = this.lineWidth;
-        context.beginPath();
-        context.moveTo(this.currentX + this.points[0].x, this.y + this.points[0].yOffset);
 
-        for (let i = 1; i < this.points.length; i++) {
-          context.lineTo(this.currentX + this.points[i].x, this.y + this.points[i].yOffset);
-        }
+        this.candles.forEach((candle) => {
+          const x = this.currentX + candle.x;
+          
+          if (x < -this.candleWidth || x > context.canvas.width) return;
 
-        context.stroke();
+          const isUp = candle.close >= candle.open;
+          const color = isUp ? "hsl(var(--primary))" : "hsl(var(--destructive))";
+
+          // Draw wick
+          context.strokeStyle = color;
+          context.lineWidth = 1;
+          context.beginPath();
+          context.moveTo(x + this.candleWidth / 2, this.y - candle.high);
+          context.lineTo(x + this.candleWidth / 2, this.y - candle.low);
+          context.stroke();
+          
+          // Draw body
+          context.fillStyle = color;
+          const bodyY = this.y - Math.max(candle.open, candle.close);
+          const bodyHeight = Math.abs(candle.open - candle.close);
+          context.fillRect(
+            x,
+            bodyY,
+            this.candleWidth,
+            Math.max(1, bodyHeight) // Ensure body is at least 1px tall
+          );
+        });
         context.restore();
       }
     }
 
-    const createLines = () => {
-        const lineCount = Math.floor(canvas.height / 50);
-        lines = [];
-        for (let i = 0; i < lineCount; i++) {
-            lines.push(new MovingLine());
-        }
+    const createCandleLines = () => {
+      const lineCount = Math.floor(canvas.height / 80);
+      candleLines = [];
+      for (let i = 0; i < lineCount; i++) {
+        candleLines.push(new CandleLine());
+      }
     };
-    
+
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      lines.forEach(l => {
-        l.update();
-        l.draw(ctx);
+      candleLines.forEach((line) => {
+        line.update();
+        line.draw(ctx);
       });
       animationFrameId = requestAnimationFrame(animate);
     };
-    
+
     resizeCanvas();
     animate();
-    
+
     window.addEventListener("resize", resizeCanvas);
 
     return () => {
@@ -115,11 +154,10 @@ const FinancialBackground = () => {
       cancelAnimationFrame(animationFrameId);
     };
   }, [isClient]);
-  
-  if (!isClient) {
-    return  <div className="absolute top-0 left-0 w-full h-full -z-10 bg-background" />;
-  }
 
+  if (!isClient) {
+    return <div className="absolute top-0 left-0 w-full h-full -z-10 bg-background" />;
+  }
 
   return (
     <canvas
