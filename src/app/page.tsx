@@ -142,7 +142,7 @@ export default function Home() {
                 <DialogContent className="bg-white text-black">
                   <DialogHeader className="text-center">
                     <DialogTitle className="font-bold">Get in Touch</DialogTitle>
-                    <DialogDescription className="text-black">
+                    <DialogDescription className="text-black font-bold">
                       I&apos;d love to hear from you!
                     </DialogDescription>
                   </DialogHeader>
@@ -267,25 +267,27 @@ export default function Home() {
         </section>
 
         <section id="skills" className="w-full py-12 md:py-24 lg:py-32 bg-background text-foreground">
-          <div className="container grid items-start gap-12 px-4 md:px-6 lg:grid-cols-2">
-            <div className="space-y-4">
-              <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
-                Skills & Expertise
-              </h2>
-              <div className="flex flex-wrap gap-2">
-                {skills.map((skill, index) => (
-                  <Badge key={index} variant="outline" className="border-gray-600 text-gray-300">{skill}</Badge>
-                ))}
+          <div className="container px-4 md:px-6">
+            <div className="space-y-12">
+              <div className="space-y-4">
+                <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
+                  Skills & Expertise
+                </h2>
+                <div className="flex flex-wrap gap-2">
+                  {skills.map((skill, index) => (
+                    <Badge key={index} variant="outline" className="border-gray-600 text-gray-300">{skill}</Badge>
+                  ))}
+                </div>
               </div>
-            </div>
-            <div className="space-y-4">
-              <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
-                Tools I Use
-              </h2>
-              <div className="flex flex-wrap gap-2">
-                {tools.map((tool, index) => (
-                  <Badge key={index} variant="secondary" className="text-black bg-white">{tool}</Badge>
-                ))}
+              <div className="space-y-4">
+                <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
+                  Tools I Use
+                </h2>
+                <div className="flex flex-wrap gap-2">
+                  {tools.map((tool, index) => (
+                    <Badge key={index} variant="secondary" className="text-black bg-white">{tool}</Badge>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
