@@ -56,7 +56,7 @@ export default function ContactForm() {
   }
 
   return (
-    <Card className="bg-gray-100">
+    <Card className="bg-card">
       <CardHeader>
         <CardTitle>Contact Me</CardTitle>
         <CardDescription>
@@ -105,7 +105,7 @@ export default function ContactForm() {
                 </FormItem>
               )}
             />
-            <Button type="submit" className="w-full bg-gray-900 text-white hover:bg-gray-800">
+            <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
               Send Message
             </Button>
           </form>

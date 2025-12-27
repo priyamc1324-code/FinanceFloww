@@ -29,7 +29,7 @@ const FinancialBackground = () => {
         data-ai-hint={heroImage.imageHint}
         priority
       />
-      <div className="absolute inset-0 bg-gray-900/60 -z-10" />
+      <div className="absolute inset-0 bg-background/80 -z-10" />
     </>
   );
 };
