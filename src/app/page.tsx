@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import {
   ArrowUpRight,
@@ -168,18 +169,15 @@ export default function Home() {
 
         <section id="about" className="w-full py-12 md:py-24 lg:py-32 bg-secondary text-secondary-foreground">
           <div className="container grid items-center gap-8 px-4 md:px-6 lg:grid-cols-2 lg:gap-16">
-            {aboutImage && (
-              <div className="flex justify-center">
-                <Image
-                  src={aboutImage.imageUrl}
-                  width={400}
-                  height={400}
-                  alt="About Me"
-                  className="rounded-lg shadow-lg"
-                  data-ai-hint={aboutImage.imageHint}
-                />
-              </div>
-            )}
+            <div className="flex justify-center">
+              <Image
+                src="/priyam_profile_photo_.jpeg"
+                width={400}
+                height={400}
+                alt="About Me"
+                className="rounded-lg shadow-lg"
+              />
+            </div>
             <div className="space-y-4">
               <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-black">
                 About Me
