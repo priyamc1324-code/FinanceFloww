@@ -111,12 +111,11 @@ export default function Home() {
         <section id="home" className="relative h-screen w-full bg-background text-foreground">
           <FinancialBackground />
           <div className="container relative z-10 flex h-full flex-col items-center justify-center text-center">
-            <h1 className="font-headline text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-              Your Name Here
+            <h1 className="font-headline text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
+              Priyam Chadan
             </h1>
-            <p className="mt-4 font-headline text-lg text-primary-foreground md:text-xl">
-              Finance & Analytics | Valuation, Equity Research, Financial
-              Modeling
+            <p className="mt-4 font-headline text-lg text-white md:text-xl">
+              Finance & Analytics | Valuation | Equity Research | Financial Modelling | Python For Financial Analysis
             </p>
             <p className="mx-auto mt-6 max-w-2xl text-base text-foreground md:text-lg">
               BBA Decision Science student at Christ University with hands-on
@@ -145,7 +144,7 @@ export default function Home() {
               <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                 About Me
               </h2>
-              <p className="font-bold text-secondary-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              <p className="text-secondary-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 I am a passionate and driven finance student with a strong
                 quantitative background and a keen interest in the intersection
                 of finance and technology. My journey has equipped me with a
@@ -154,7 +153,7 @@ export default function Home() {
                 problems and building models that provide clear, actionable
                 insights.
               </p>
-              <p className="font-bold text-secondary-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              <p className="text-secondary-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 What sets me apart is my ability to bridge the gap between
                 traditional finance principles and modern analytical techniques.
                 This portfolio showcases my key projects, skills, and the
@@ -237,7 +236,7 @@ export default function Home() {
               </h2>
               <div className="flex flex-wrap gap-2">
                 {skills.map((skill, index) => (
-                  <Badge key={index} variant="secondary" className="text-secondary-foreground">{skill}</Badge>
+                  <Badge key={index} variant="secondary" className="text-foreground bg-background">{skill}</Badge>
                 ))}
               </div>
             </div>
