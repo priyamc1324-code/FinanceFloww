@@ -42,13 +42,18 @@ export default function Header() {
   }, []);
   
   const getLinkClass = (section: string) => {
+    if (!isClient) return 'text-white';
     const sectionEl = document.getElementById(section);
     if (!sectionEl) return 'text-white';
-    const bg = window.getComputedStyle(sectionEl).backgroundColor;
-    const isDark = bg === 'rgb(0, 0, 0)';
-    
+
+    const style = window.getComputedStyle(sectionEl);
+    const bgColor = style.backgroundColor;
+
+    // Simplified check for dark background
+    const isDark = bgColor === 'rgb(31, 41, 55)'; // Corresponds to gray-900
+
     if (activeSection === section) {
-      return isDark ? 'text-white font-bold' : 'text-black font-bold';
+      return isDark ? 'text-white font-bold' : 'text-gray-900 font-bold';
     }
     return isDark ? 'text-gray-300' : 'text-gray-600';
   };
@@ -62,10 +67,10 @@ export default function Header() {
           variant="link"
           className={cn(
             "transition-colors",
-             scrolled || activeSection !== 'home' 
-              ? (activeSection === href.substring(1) ? 'text-black font-bold underline' : 'text-gray-600')
-              : 'text-white',
-            isMobile && "w-full justify-start text-black"
+            isClient && (scrolled || activeSection !== 'home' 
+              ? (activeSection === href.substring(1) ? 'text-gray-900 font-bold underline' : 'text-gray-600')
+              : (activeSection === href.substring(1) ? 'text-white font-bold underline' : 'text-gray-300')),
+            isMobile && "w-full justify-start text-gray-900"
           )}
           onClick={() => isMobile && setMobileMenuOpen(false)}
         >
@@ -76,7 +81,7 @@ export default function Header() {
   );
 
   const headerBgClass = scrolled ? "bg-white/80 shadow-md backdrop-blur-sm" : "bg-transparent";
-  const headerTextClass = scrolled || activeSection !== 'home' ? "text-black" : "text-white";
+  const headerTextClass = scrolled || activeSection !== 'home' ? "text-gray-900" : "text-white";
 
   return (
     <header
@@ -87,7 +92,7 @@ export default function Header() {
     >
       <div className="container mx-auto flex h-16 items-center justify-between">
         <Link href="/" className={cn("flex items-center gap-2 font-headline text-xl font-bold", headerTextClass)}>
-          <BarChart2 className={cn("h-6 w-6", scrolled || activeSection !== 'home' ? 'text-black' : 'text-white')} />
+          <BarChart2 className={cn("h-6 w-6", scrolled || activeSection !== 'home' ? 'text-gray-900' : 'text-white')} />
           <span>FinanceFlow</span>
         </Link>
         <nav className="hidden items-center gap-2 md:flex">

@@ -1,13 +1,22 @@
 "use client";
-
-import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 const FinancialBackground = () => {
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   const heroImage = PlaceHolderImages.find((img) => img.id === 'hero-background');
 
   if (!heroImage) {
     return <div className="absolute inset-0 -z-10 bg-background" />;
+  }
+  
+  if (!isClient) {
+    return null;
   }
 
   return (
@@ -20,7 +29,7 @@ const FinancialBackground = () => {
         data-ai-hint={heroImage.imageHint}
         priority
       />
-      <div className="absolute inset-0 bg-black/60 -z-10" />
+      <div className="absolute inset-0 bg-gray-900/60 -z-10" />
     </>
   );
 };

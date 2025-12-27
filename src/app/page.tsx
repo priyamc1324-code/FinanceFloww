@@ -105,10 +105,10 @@ const awards = [
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen w-full flex-col">
+    <div className="flex min-h-screen w-full flex-col bg-gray-900 text-white">
       <Header />
       <main className="flex-1">
-        <section id="home" className="relative h-screen w-full bg-black text-white">
+        <section id="home" className="relative h-screen w-full bg-gray-900 text-white">
           <FinancialBackground />
           <div className="container relative z-10 flex h-full flex-col items-center justify-center text-center">
             <h1 className="font-headline text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
@@ -129,7 +129,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="about" className="w-full py-12 md:py-24 lg:py-32 bg-white text-black">
+        <section id="about" className="w-full py-12 md:py-24 lg:py-32 bg-white text-gray-900">
           <div className="container grid items-center gap-8 px-4 md:px-6 lg:grid-cols-2 lg:gap-16">
             <div className="flex justify-center">
               {aboutImage && <Image
@@ -164,7 +164,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="journey" className="w-full py-12 md:py-24 lg:py-32 bg-black text-white">
+        <section id="journey" className="w-full py-12 md:py-24 lg:py-32 bg-gray-900 text-white">
           <div className="container px-4 md:px-6">
             <h2 className="mb-12 text-center font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
               My Learning Journey
@@ -204,7 +204,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="projects" className="w-full py-12 md:py-24 lg:py-32 bg-white text-black">
+        <section id="projects" className="w-full py-12 md:py-24 lg:py-32 bg-white text-gray-900">
           <div className="container px-4 md:px-6">
             <h2 className="mb-12 text-center font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
               Featured Projects
@@ -217,7 +217,7 @@ export default function Home() {
                     <CardDescription>{project.description}</CardDescription>
                   </CardHeader>
                   <CardFooter className="mt-auto">
-                    <Button asChild variant="link" className="p-0 h-auto text-black">
+                    <Button asChild variant="link" className="p-0 h-auto text-gray-900">
                       <a href={project.link} target="_blank" rel="noopener noreferrer">
                         View Project <ArrowUpRight className="ml-2 h-4 w-4" />
                       </a>
@@ -229,7 +229,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="skills" className="w-full py-12 md:py-24 lg:py-32 bg-black text-white">
+        <section id="skills" className="w-full py-12 md:py-24 lg:py-32 bg-gray-900 text-white">
           <div className="container grid items-start gap-12 px-4 md:px-6 lg:grid-cols-2">
             <div className="space-y-4">
               <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
@@ -254,13 +254,13 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="education" className="w-full py-12 md:py-24 lg:py-32 bg-white text-black">
+        <section id="education" className="w-full py-12 md:py-24 lg:py-32 bg-white text-gray-900">
           <div className="container px-4 md:px-6">
              <h2 className="mb-12 text-center font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
               Education & Achievements
             </h2>
             <Tabs defaultValue="certifications" className="mx-auto max-w-4xl">
-              <TabsList className="grid w-full grid-cols-3 bg-gray-200 text-black">
+              <TabsList className="grid w-full grid-cols-3 bg-gray-200 text-gray-900">
                 <TabsTrigger value="certifications"><Briefcase className="mr-2 h-4 w-4"/>Certifications</TabsTrigger>
                 <TabsTrigger value="education"><BookOpen className="mr-2 h-4 w-4"/>Education</TabsTrigger>
                 <TabsTrigger value="awards"><Trophy className="mr-2 h-4 w-4"/>Awards</TabsTrigger>
@@ -300,20 +300,20 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="resume" className="w-full py-12 md:py-24 lg:py-32 bg-black text-white">
+        <section id="resume" className="w-full py-12 md:py-24 lg:py-32 bg-gray-900 text-white">
             <div className="container text-center">
                 <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">My Resume</h2>
                 <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
                     Interested in a more detailed look at my experience? Download my full resume.
                 </p>
-                <Button asChild size="lg" className="mt-6 bg-white text-black hover:bg-gray-200">
+                <Button asChild size="lg" className="mt-6 bg-white text-gray-900 hover:bg-gray-200">
                     <a href="/resume.pdf" download>Download CV / Resume</a>
                 </Button>
             </div>
         </section>
 
 
-        <section id="contact" className="w-full py-12 md:py-24 lg:py-32 bg-white text-black">
+        <section id="contact" className="w-full py-12 md:py-24 lg:py-32 bg-white text-gray-900">
           <div className="container grid items-center gap-8 px-4 md:px-6 lg:grid-cols-2 lg:gap-16">
             <div className="space-y-8">
               <div className="space-y-2">
@@ -350,7 +350,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="flex w-full shrink-0 flex-col items-center justify-center gap-2 border-t px-4 py-6 sm:flex-row md:px-6 bg-black text-white">
+      <footer className="flex w-full shrink-0 flex-col items-center justify-center gap-2 border-t px-4 py-6 sm:flex-row md:px-6 bg-gray-900 text-white">
         <p className="text-xs text-muted-foreground">&copy; {new Date().getFullYear()} FinanceFlow Portfolio. All rights reserved.</p>
       </footer>
     </div>
