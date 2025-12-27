@@ -20,12 +20,17 @@ const FinancialBackground = () => {
     if (!ctx) return;
 
     let animationFrameId: number;
-    let candleLines: CandleLine[] = [];
+    let elements: (CandleLine | FloatingText)[] = [];
+
+    const financialTerms = [
+      "P/E Ratio", "EV/EBITDA", "DCF Valuation", "WACC", 
+      "ROE", "Beta", "Alpha", "Sharpe Ratio", "EPS", "Market Cap"
+    ];
 
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      createCandleLines();
+      createElements();
     };
 
     class Candle {
@@ -59,7 +64,7 @@ const FinancialBackground = () => {
       constructor() {
         this.y = Math.random() * canvas.height;
         this.speed = Math.random() * 0.8 + 0.2;
-        this.opacity = Math.random() * 0.2 + 0.05;
+        this.opacity = Math.random() * 0.15 + 0.05;
         this.candleWidth = 8;
         this.candleSpacing = 12;
         this.candles = [];
@@ -102,7 +107,7 @@ const FinancialBackground = () => {
           if (x < -this.candleWidth || x > context.canvas.width) return;
 
           const isUp = candle.close >= candle.open;
-          const color = isUp ? "hsl(var(--primary))" : "hsl(var(--destructive))";
+          const color = isUp ? "hsl(0, 0%, 10%)" : "hsl(0, 84.2%, 60.2%)"; // Black and Red
 
           // Draw wick
           context.strokeStyle = color;
@@ -126,20 +131,61 @@ const FinancialBackground = () => {
         context.restore();
       }
     }
+    
+    class FloatingText {
+      x: number;
+      y: number;
+      text: string;
+      speed: number;
+      opacity: number;
+      fontSize: number;
 
-    const createCandleLines = () => {
-      const lineCount = Math.floor(canvas.height / 80);
-      candleLines = [];
-      for (let i = 0; i < lineCount; i++) {
-        candleLines.push(new CandleLine());
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.text = financialTerms[Math.floor(Math.random() * financialTerms.length)];
+        this.speed = Math.random() * 0.5 + 0.1;
+        this.opacity = Math.random() * 0.1 + 0.05;
+        this.fontSize = Math.random() * 8 + 12; // 12px to 20px
       }
+
+      update() {
+        this.x -= this.speed;
+        if (this.x < -150) { // Reset when off-screen
+          this.x = canvas.width;
+          this.y = Math.random() * canvas.height;
+        }
+      }
+
+      draw(context: CanvasRenderingContext2D) {
+        context.save();
+        context.globalAlpha = this.opacity;
+        context.font = `${this.fontSize}px 'Space Grotesk', sans-serif`;
+        context.fillStyle = 'hsl(var(--muted-foreground))';
+        context.fillText(this.text, this.x, this.y);
+        context.restore();
+      }
+    }
+
+
+    const createElements = () => {
+      elements = [];
+      const lineCount = Math.floor(canvas.height / 100);
+      const textCount = 15;
+      for (let i = 0; i < lineCount; i++) {
+        elements.push(new CandleLine());
+      }
+      for (let i = 0; i < textCount; i++) {
+        elements.push(new FloatingText());
+      }
+      elements.sort(() => Math.random() - 0.5); // Randomize draw order
     };
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      candleLines.forEach((line) => {
-        line.update();
-        line.draw(ctx);
+      elements.forEach((elem) => {
+        elem.update();
+        elem.draw(ctx);
       });
       animationFrameId = requestAnimationFrame(animate);
     };
