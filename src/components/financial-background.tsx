@@ -73,7 +73,8 @@ const FinancialBackground = () => {
 
       draw(context: CanvasRenderingContext2D) {
         context.globalAlpha = this.opacity;
-        context.fillStyle = "hsl(var(--primary))";
+        // Using foreground color to ensure visibility in both light and dark modes.
+        context.fillStyle = "hsl(var(--foreground))"; 
         context.font = `${this.size}px 'Space Grotesk', monospace`;
         context.fillText(this.char, this.x, this.y);
       }
