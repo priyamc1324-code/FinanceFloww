@@ -1,6 +1,12 @@
 {
   "placeholderImages": [
     {
+      "id": "hero-background",
+      "description": "A dark, stylish background image with financial charts for the hero section.",
+      "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxmaW5hbmNpYWwlMjBkYXRhJTIwYW5hbHlzaXN8ZW58MHx8fHwxNzE3NjExOTg5fDA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "financial analysis"
+    },
+    {
       "id": "profile-about",
       "description": "A professional headshot for the about section.",
       "imageUrl": "https://images.unsplash.com/photo-1610631066894-62452ccb927c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwcm9mZXNzaW9uYWwlMjBwZXJzb258ZW58MHx8fHwxNzY2NzEzOTQ0fDA&ixlib=rb-4.1.0&q=80&w=1080",

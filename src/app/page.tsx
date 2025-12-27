@@ -105,13 +105,13 @@ const awards = [
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen w-full flex-col">
+    <div className="flex min-h-screen w-full flex-col bg-background">
       <Header />
       <main className="flex-1">
         <section id="home" className="relative h-screen w-full">
           <FinancialBackground />
           <div className="container relative z-10 flex h-full flex-col items-center justify-center text-center">
-            <h1 className="font-headline text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
+            <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
               Your Name Here
             </h1>
             <p className="mt-4 font-headline text-lg text-primary md:text-xl">
