@@ -140,13 +140,13 @@ export default function Home() {
                   </Button>
                 </DialogTrigger>
                 <DialogContent className="bg-card text-card-foreground">
-                  <DialogHeader>
+                  <DialogHeader className="text-center">
                     <DialogTitle>Get in Touch</DialogTitle>
                     <DialogDescription>
                       I&apos;d love to hear from you!
                     </DialogDescription>
                   </DialogHeader>
-                  <div className="space-y-4 py-4">
+                  <div className="flex flex-col items-center space-y-4 py-4">
                     <a href="mailto:priyamc1324@gmail.com" className="flex items-center gap-4 text-lg hover:text-primary transition-colors">
                       <Mail className="h-6 w-6"/>
                       <span>priyamc1324@gmail.com</span>
