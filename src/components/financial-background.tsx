@@ -25,11 +25,11 @@ const FinancialBackground = () => {
         src={heroImage.imageUrl}
         alt="Financial data analysis background"
         fill
-        className="object-cover -z-20"
+        className="object-cover -z-20 opacity-30"
         data-ai-hint={heroImage.imageHint}
         priority
       />
-      <div className="absolute inset-0 bg-background/80 -z-10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-stone-900 to-amber-950/80 -z-10" />
     </>
   );
 };
