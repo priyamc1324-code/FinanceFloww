@@ -9,8 +9,8 @@
     {
       "id": "profile-about",
       "description": "A professional headshot for the about section.",
-      "imageUrl": "https://images.unsplash.com/photo-1610631066894-62452ccb927c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwcm9mZXNzaW9uYWwlMjBwZXJzb258ZW58MHx8fHwxNzY2NzEzOTQ0fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "professional person"
+      "imageUrl": "https://images.unsplash.com/photo-1542596594-649ed6e6b342?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxwcm9mZXNzaW9uYWwlMjB3b21hbnxlbnwwfHx8fDE3MjE4OTc0OTh8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "professional woman"
     },
     {
       "id": "profile-contact",
