@@ -139,23 +139,23 @@ export default function Home() {
                     Contact Me
                   </Button>
                 </DialogTrigger>
-                <DialogContent className="bg-card text-card-foreground">
+                <DialogContent className="bg-white text-black">
                   <DialogHeader className="text-center">
-                    <DialogTitle>Get in Touch</DialogTitle>
-                    <DialogDescription>
+                    <DialogTitle className="font-bold">Get in Touch</DialogTitle>
+                    <DialogDescription className="text-black">
                       I&apos;d love to hear from you!
                     </DialogDescription>
                   </DialogHeader>
                   <div className="flex flex-col items-center space-y-4 py-4">
-                    <a href="mailto:priyamc1324@gmail.com" className="flex items-center gap-4 text-lg hover:text-primary transition-colors">
+                    <a href="mailto:priyamc1324@gmail.com" className="flex items-center gap-4 text-lg font-bold text-black hover:text-gray-700 transition-colors">
                       <Mail className="h-6 w-6"/>
                       <span>priyamc1324@gmail.com</span>
                     </a>
-                    <a href="https://www.linkedin.com/in/priyam-chandan-568835285?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-lg hover:text-primary transition-colors">
+                    <a href="https://www.linkedin.com/in/priyam-chandan-568835285?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-lg font-bold text-black hover:text-gray-700 transition-colors">
                       <Linkedin className="h-6 w-6"/>
                       <span>Connect on LinkedIn</span>
                     </a>
-                    <a href="tel:+916360840120" className="flex items-center gap-4 text-lg hover:text-primary transition-colors">
+                    <a href="tel:+916360840120" className="flex items-center gap-4 text-lg font-bold text-black hover:text-gray-700 transition-colors">
                       <Phone className="h-6 w-6"/>
                       <span>+91 6360840120</span>
                     </a>
@@ -393,5 +393,7 @@ export default function Home() {
     </div>
   );
 }
+
+    
 
     
