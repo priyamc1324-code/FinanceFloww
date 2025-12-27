@@ -214,9 +214,14 @@ export default function Home() {
             </h2>
             <Accordion type="single" collapsible className="mx-auto max-w-3xl">
               <AccordionItem value="item-1">
-                <AccordionTrigger>WACC vs. Cost of Equity</AccordionTrigger>
+                <AccordionTrigger>A Three Statement Financial Model</AccordionTrigger>
                 <AccordionContent>
-                  Understanding the critical difference between Weighted Average Cost of Capital (WACC) and Cost of Equity, and mastering the appropriate contexts for using each in valuation and investment appraisal. WACC is used for valuing the entire firm, while Cost of Equity is for valuing the equity portion.
+                  <p>The foundational interconnected model of the Income Statement, Balance Sheet, and Cash Flow Statement.</p>
+                  <Button asChild variant="link" className="p-0 h-auto text-white mt-2">
+                      <a href="/A Three - Statement Financial Model.pdf" target="_blank" rel="noopener noreferrer">
+                        View Details <ArrowUpRight className="ml-2 h-4 w-4" />
+                      </a>
+                  </Button>
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-2">
@@ -421,3 +426,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
