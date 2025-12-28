@@ -328,7 +328,7 @@ export default function Home() {
 
         <section id="skills" className="w-full bg-background py-12 text-foreground md:py-24 lg:py-32">
           <div className="container flex justify-center items-center px-4 md:px-6">
-            <div className="relative w-full max-w-4xl">
+            <div className="relative w-full max-w-6xl">
               <Image
                 src="/Skills_tools.jpeg"
                 alt="Skills and Tools"
@@ -469,4 +469,3 @@ export default function Home() {
     
 
     
-
