@@ -370,7 +370,7 @@ export default function Home() {
                                 onClick={() => handleAccordionClick("tools")}
                                 className="text-xl font-bold flex items-center"
                             >
-                                <ChevronDown className={cn("mr-2 h-5 w-5 transition-transform", activeAccordion === 'tools' && "rotate-180")} /> Tools I Use
+                                Tools I Use <ChevronDown className={cn("ml-2 h-5 w-5 transition-transform", activeAccordion === 'tools' && "rotate-180")} />
                             </button>
                         </div>
                         
@@ -399,7 +399,9 @@ export default function Home() {
                 ) : (
                     <div className="grid w-full max-w-5xl grid-cols-1 md:grid-cols-2 gap-16 items-start mx-auto">
                         <div className="space-y-6 animate-fadeInUp" style={{ animationDelay: "0.2s" }}>
-                            <h3 className="font-headline text-2xl font-bold text-center">Skills</h3>
+                            <div className="border-4 border-black p-2 rounded-lg text-center">
+                                <h3 className="font-headline text-2xl font-bold">Skills</h3>
+                            </div>
                             <ul className="space-y-4">
                                 {skillsData.map((skill, index) => (
                                     <React.Fragment key={index}>
@@ -412,7 +414,9 @@ export default function Home() {
                             </ul>
                         </div>
                         <div className="space-y-6 animate-fadeInUp" style={{ animationDelay: "0.4s" }}>
-                            <h3 className="font-headline text-2xl font-bold text-center">Tools I Use</h3>
+                            <div className="border-4 border-black p-2 rounded-lg text-center">
+                                <h3 className="font-headline text-2xl font-bold">Tools I Use</h3>
+                            </div>
                             <ul className="space-y-4">
                                 {toolsData.map((tool, index) => (
                                     <React.Fragment key={index}>
@@ -673,3 +677,4 @@ export default function Home() {
     
 
     
+
