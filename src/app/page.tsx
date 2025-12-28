@@ -234,9 +234,14 @@ export default function Home() {
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-3">
-                <AccordionTrigger>Linking 3 Statement Models</AccordionTrigger>
+                <AccordionTrigger>How To Value Banks?</AccordionTrigger>
                 <AccordionContent>
-                  Mastering the art of dynamically linking the Income Statement, Balance Sheet, and Cash Flow Statement. This is the bedrock of robust financial modeling, ensuring that the model is integrated and reflects the true financial position of a company.
+                  <p>Banks don’t follow the usual valuation playbook—what looks like “debt” is actually their fuel, and growth is governed by regulation, not reinvestment. This shift makes traditional DCFs fail and opens the door to powerful equity-based models like DDM and residual income—click to explore why bank valuation is a world of its own.</p>
+                   <Button asChild variant="link" className="p-0 h-auto text-white mt-2">
+                      <a href="/How To Value Banks?.pdf" target="_blank" rel="noopener noreferrer">
+                        View Details <ArrowUpRight className="ml-2 h-4 w-4" />
+                      </a>
+                  </Button>
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-4">
