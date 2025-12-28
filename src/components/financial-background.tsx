@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 const FinancialBackground = () => {
   const [isClient, setIsClient] = useState(false);
@@ -9,12 +8,6 @@ const FinancialBackground = () => {
     setIsClient(true);
   }, []);
 
-  const heroImage = PlaceHolderImages.find((img) => img.id === 'hero-background');
-
-  if (!heroImage) {
-    return <div className="absolute inset-0 -z-10 bg-background" />;
-  }
-  
   if (!isClient) {
     return null;
   }
@@ -22,11 +15,10 @@ const FinancialBackground = () => {
   return (
     <>
       <Image
-        src={heroImage.imageUrl}
+        src="/background.jpeg"
         alt="Financial data analysis background"
         fill
         className="object-cover -z-20 opacity-10"
-        data-ai-hint={heroImage.imageHint}
         priority
       />
       <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-gray-800 -z-10" />
