@@ -103,16 +103,16 @@ const skills = [
   "Financial Modelling",
   "Valuation",
   "Equity Research",
-  "Advanced Microsoft Excel",
-  "Python For Financial Analysis",
-  "Machine Learning For Predictive Analytics",
-  "Statistics For Finance",
+  "Advanced Excel",
+  "Python For Finance",
+  "Machine Learning",
+  "Statistics",
   "Prompt Engineering",
 ];
 
 const tools = [
   { name: "Python", icon: Code },
-  { name: "Microsoft Excel", icon: Table },
+  { name: "Excel", icon: Table },
   { name: "SQL", icon: Database },
   { name: "Tableau", icon: TrendingUp },
 ];
@@ -181,9 +181,57 @@ const learningJourney = [
     },
 ];
 
+const SkillsCircle = ({ items, open }: { items: string[]; open: boolean }) => {
+  const angleStep = 180 / (items.length - 1);
+  return (
+    <div className={`absolute w-full h-full transition-transform duration-500 ${open ? 'scale-100' : 'scale-0'}`}>
+      {items.map((item, index) => {
+        const angle = - (angleStep * index);
+        return (
+          <div
+            key={item}
+            className="absolute top-1/2 left-1/2 w-48 h-12 origin-[0_50%]"
+            style={{ transform: `rotate(${angle}deg)` }}
+          >
+            <div className="bg-white/10 backdrop-blur-sm border border-white/20 text-white p-2 rounded-lg text-center" style={{ transform: `rotate(${-angle}deg)`}}>
+              {item}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+const ToolsCircle = ({ items, open }: { items: { name: string; icon: React.ElementType }[], open: boolean }) => {
+  const angleStep = 180 / (items.length - 1);
+  return (
+    <div className={`absolute w-full h-full transition-transform duration-500 ${open ? 'scale-100' : 'scale-0'}`}>
+      {items.map((item, index) => {
+        const angle = - (angleStep * index);
+        const Icon = item.icon;
+        return (
+          <div
+            key={item.name}
+            className="absolute top-1/2 left-1/2 w-48 h-12 origin-[0_50%]"
+            style={{ transform: `rotate(${angle}deg)` }}
+          >
+             <div className="flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white p-2 rounded-lg" style={{ transform: `rotate(${-angle}deg)`}}>
+              <Icon className="h-5 w-5" />
+              <span>{item.name}</span>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
 
 export default function Home() {
   const isMobile = useIsMobile();
+  const [skillsOpen, setSkillsOpen] = React.useState(false);
+  const [toolsOpen, setToolsOpen] = React.useState(false);
 
   return (
     <div className="flex min-h-screen w-full flex-col bg-background text-foreground">
@@ -343,7 +391,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="skills" className="relative w-full py-12 md:py-24 lg:py-32 text-foreground">
+        <section id="skills" className="relative w-full py-12 md:py-24 lg:py-32 text-foreground overflow-hidden">
           <Image
               src="/new_background.png"
               alt="Skills and Tools background"
@@ -351,47 +399,30 @@ export default function Home() {
               className="object-cover"
           />
           <div className="absolute inset-0 bg-black/60" />
-          <div className="container relative z-10 space-y-12">
+          <div className="container relative z-10 flex flex-col items-center justify-center space-y-12 h-96 md:h-auto">
             <div className="text-center">
               <h2 className="font-headline text-3xl font-bold tracking-tighter text-white sm:text-4xl md:text-5xl">
                 Skills & Tools
               </h2>
             </div>
-            <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
-              <div className="space-y-8 text-center">
-                <h3 className="font-headline text-2xl font-bold text-white">Skills</h3>
-                <div className="flex flex-col items-center justify-center space-y-4 text-white">
-                  <div className="text-center">
-                    <p className="text-lg font-semibold tracking-wider uppercase text-gray-300">Foundations</p>
-                    <p className="text-base">Statistics • Excel • Accounting</p>
-                  </div>
-                  <ArrowDown className="h-6 w-6 text-gray-400" />
-                  <div className="text-center">
-                    <p className="text-lg font-semibold tracking-wider uppercase text-gray-300">Core Finance</p>
-                    <p className="text-base">Valuation • Financial Modelling • Equity Research</p>
-                  </div>
-                  <ArrowDown className="h-6 w-6 text-gray-400" />
-                  <div className="text-center">
-                    <p className="text-lg font-semibold tracking-wider uppercase text-gray-300">Advanced Analytics</p>
-                    <p className="text-base">Python • Machine Learning • Monte Carlo • Predictive Models</p>
-                  </div>
+            <div className="grid w-full grid-cols-1 md:grid-cols-2 gap-8 items-center justify-items-center">
+              <div
+                className="relative flex items-center justify-center w-64 h-32 md:w-96 md:h-48 cursor-pointer"
+                onClick={() => { setSkillsOpen(!skillsOpen); setToolsOpen(false); }}
+              >
+                <div className={`absolute transition-opacity duration-300 ${skillsOpen ? 'opacity-0' : 'opacity-100'}`}>
+                  <h3 className="font-headline text-2xl font-bold text-white text-center">Skills</h3>
                 </div>
+                <SkillsCircle items={skills} open={skillsOpen} />
               </div>
-              <div className="space-y-8 text-center">
-                <h3 className="font-headline text-2xl font-bold text-white">Tools I Use</h3>
-                <div className="flex flex-col items-center justify-center space-y-4 text-white">
-                  <div className="w-full max-w-xs space-y-4">
-                    {tools.map((tool, index) => (
-                      <React.Fragment key={tool.name}>
-                        <div className="flex items-center gap-4 text-lg">
-                          <tool.icon className="h-6 w-6" />
-                          <span>{tool.name}</span>
-                        </div>
-                        {index < tools.length - 1 && <div className="h-px w-full bg-white/30" />}
-                      </React.Fragment>
-                    ))}
-                  </div>
+              <div
+                className="relative flex items-center justify-center w-64 h-32 md:w-96 md:h-48 cursor-pointer"
+                onClick={() => { setToolsOpen(!toolsOpen); setSkillsOpen(false); }}
+              >
+                <div className={`absolute transition-opacity duration-300 ${toolsOpen ? 'opacity-0' : 'opacity-100'}`}>
+                  <h3 className="font-headline text-2xl font-bold text-white text-center">Tools I Use</h3>
                 </div>
+                <ToolsCircle items={tools} open={toolsOpen} />
               </div>
             </div>
           </div>
@@ -621,3 +652,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
