@@ -559,7 +559,7 @@ export default function Home() {
                           </div>
                           <ul className="mt-3 list-disc list-inside space-y-1 text-sm text-gray-300">
                             {exp.description.map((point, j) => (
-                              <li keyj={j}>{point}</li>
+                              <li key={j}>{point}</li>
                             ))}
                           </ul>
                         </li>
