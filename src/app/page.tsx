@@ -33,6 +33,12 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs";
 import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import {
   Dialog,
   DialogContent,
   DialogHeader,
@@ -52,6 +58,7 @@ import ContactForm from "@/components/contact-form";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import Link from "next/link";
 import FinancialBackground from "@/components/financial-background";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const aboutImage = PlaceHolderImages.find((img) => img.id === 'profile-about');
 const contactImage = PlaceHolderImages.find((img) => img.id === 'profile-contact');
@@ -129,7 +136,7 @@ const workExperience: { name: string, issuer: string }[] = [
 const learningJourney = [
     {
       icon: FileText,
-      title: "A Three Statement Financial Model",
+      title: "A Three Statement FinancialModel",
       description: "The foundational interconnected model of the Income Statement, Balance Sheet, and Cash Flow Statement.",
       link: "/A Three - Statement Financial Model.pdf",
     },
@@ -161,6 +168,8 @@ const learningJourney = [
 
 
 export default function Home() {
+  const isMobile = useIsMobile();
+
   return (
     <div className="flex min-h-screen w-full flex-col bg-background text-foreground">
       <Header />
@@ -339,64 +348,151 @@ export default function Home() {
              <h2 className="mb-12 text-center font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
               Education &amp; Achievements
             </h2>
-            <Tabs defaultValue="work-experience" className="mx-auto max-w-4xl">
-              <TabsList className="grid w-full grid-cols-1 md:grid-cols-4 bg-muted text-muted-foreground h-auto md:h-10">
-                <TabsTrigger value="work-experience"><Briefcase className="mr-2 h-4 w-4"/>Work Experience</TabsTrigger>
-                <TabsTrigger value="certifications"><Briefcase className="mr-2 h-4 w-4"/>Certifications</TabsTrigger>
-                <TabsTrigger value="education"><BookOpen className="mr-2 h-4 w-4"/>Education</TabsTrigger>
-                <TabsTrigger value="awards"><Trophy className="mr-2 h-4 w-4"/>Awards</TabsTrigger>
-              </TabsList>
-              <TabsContent value="work-experience" className="mt-6">
-                 {workExperience.length > 0 ? (
+            {isMobile ? (
+              <Accordion type="single" collapsible className="w-full max-w-4xl mx-auto">
+                <AccordionItem value="work-experience">
+                  <AccordionTrigger className="text-black hover:no-underline">
+                    <div className="flex items-center gap-2">
+                      <Briefcase className="h-5 w-5" />
+                      <span className="font-semibold">Work Experience</span>
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    {workExperience.length > 0 ? (
+                      <ul className="space-y-4 pt-4">
+                        {workExperience.map((exp, i) => (
+                          <li key={i} className="flex items-center justify-between rounded-lg bg-background p-4 text-white">
+                            <div>
+                              <p className="font-medium">{exp.name}</p>
+                              <p className="text-sm text-muted-foreground">{exp.issuer}</p>
+                            </div>
+                            <Button variant="ghost" size="icon" asChild><a href="#"><ArrowUpRight/></a></Button>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <div className="flex items-center justify-center rounded-lg bg-background p-4 text-white mt-4">
+                        <p className="text-muted-foreground">Your work experiences will appear here.</p>
+                      </div>
+                    )}
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="certifications">
+                  <AccordionTrigger className="text-black hover:no-underline">
+                    <div className="flex items-center gap-2">
+                      <Briefcase className="h-5 w-5" />
+                      <span className="font-semibold">Certifications</span>
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <ul className="space-y-4 pt-4">
+                      {certifications.map((cert, i) => (
+                        <li key={i} className="flex items-center justify-between rounded-lg bg-background p-4 text-white">
+                            <div>
+                              <p className="font-medium">{cert.name}</p>
+                              <p className="text-sm text-muted-foreground">{cert.issuer}</p>
+                            </div>
+                            <Button variant="ghost" size="icon" asChild><a href="#"><ArrowUpRight/></a></Button>
+                        </li>
+                      ))}
+                    </ul>
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="education">
+                  <AccordionTrigger className="text-black hover:no-underline">
+                    <div className="flex items-center gap-2">
+                      <BookOpen className="h-5 w-5" />
+                      <span className="font-semibold">Education</span>
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <ul className="space-y-4 pt-4">
+                      {education.map((edu, i) => (
+                        <li key={i} className="flex items-center rounded-lg bg-background p-4 text-white">
+                            <p className="font-medium">{edu.name} - <span className="text-muted-foreground">{edu.institution}</span></p>
+                        </li>
+                      ))}
+                    </ul>
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="awards">
+                  <AccordionTrigger className="text-black hover:no-underline border-b-0">
+                     <div className="flex items-center gap-2">
+                      <Trophy className="h-5 w-5" />
+                      <span className="font-semibold">Awards</span>
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <ul className="space-y-4 pt-4">
+                      {awards.map((award, i) => (
+                        <li key={i} className="flex items-center rounded-lg bg-background p-4 text-white">
+                            <p className="font-medium">{award.name} - <span className="text-muted-foreground">{award.event}</span></p>
+                        </li>
+                      ))}
+                    </ul>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            ) : (
+              <Tabs defaultValue="work-experience" className="mx-auto max-w-4xl">
+                <TabsList className="grid w-full grid-cols-1 md:grid-cols-4 bg-muted text-muted-foreground h-auto md:h-10">
+                  <TabsTrigger value="work-experience"><Briefcase className="mr-2 h-4 w-4"/>Work Experience</TabsTrigger>
+                  <TabsTrigger value="certifications"><Briefcase className="mr-2 h-4 w-4"/>Certifications</TabsTrigger>
+                  <TabsTrigger value="education"><BookOpen className="mr-2 h-4 w-4"/>Education</TabsTrigger>
+                  <TabsTrigger value="awards"><Trophy className="mr-2 h-4 w-4"/>Awards</TabsTrigger>
+                </TabsList>
+                <TabsContent value="work-experience" className="mt-6">
+                  {workExperience.length > 0 ? (
+                    <ul className="space-y-4">
+                      {workExperience.map((exp, i) => (
+                        <li key={i} className="flex items-center justify-between rounded-lg bg-background p-4 text-white">
+                          <div>
+                            <p className="font-medium">{exp.name}</p>
+                            <p className="text-sm text-muted-foreground">{exp.issuer}</p>
+                          </div>
+                          <Button variant="ghost" size="icon" asChild><a href="#"><ArrowUpRight/></a></Button>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <div className="flex items-center justify-center rounded-lg bg-background p-4 text-white">
+                      <p className="text-muted-foreground">Your work experiences will appear here.</p>
+                    </div>
+                  )}
+                </TabsContent>
+                <TabsContent value="certifications" className="mt-6">
                   <ul className="space-y-4">
-                    {workExperience.map((exp, i) => (
+                    {certifications.map((cert, i) => (
                       <li key={i} className="flex items-center justify-between rounded-lg bg-background p-4 text-white">
-                        <div>
-                          <p className="font-medium">{exp.name}</p>
-                          <p className="text-sm text-muted-foreground">{exp.issuer}</p>
-                        </div>
-                        <Button variant="ghost" size="icon" asChild><a href="#"><ArrowUpRight/></a></Button>
+                          <div>
+                            <p className="font-medium">{cert.name}</p>
+                            <p className="text-sm text-muted-foreground">{cert.issuer}</p>
+                          </div>
+                          <Button variant="ghost" size="icon" asChild><a href="#"><ArrowUpRight/></a></Button>
                       </li>
                     ))}
                   </ul>
-                 ) : (
-                  <div className="flex items-center justify-center rounded-lg bg-background p-4 text-white">
-                    <p className="text-muted-foreground">Your work experiences will appear here.</p>
-                  </div>
-                 )}
-              </TabsContent>
-              <TabsContent value="certifications" className="mt-6">
-                <ul className="space-y-4">
-                  {certifications.map((cert, i) => (
-                     <li key={i} className="flex items-center justify-between rounded-lg bg-background p-4 text-white">
-                        <div>
-                          <p className="font-medium">{cert.name}</p>
-                          <p className="text-sm text-muted-foreground">{cert.issuer}</p>
-                        </div>
-                        <Button variant="ghost" size="icon" asChild><a href="#"><ArrowUpRight/></a></Button>
-                     </li>
-                  ))}
-                </ul>
-              </TabsContent>
-               <TabsContent value="education" className="mt-6">
-                <ul className="space-y-4">
-                  {education.map((edu, i) => (
-                     <li key={i} className="flex items-center rounded-lg bg-background p-4 text-white">
-                        <p className="font-medium">{edu.name} - <span className="text-muted-foreground">{edu.institution}</span></p>
-                     </li>
-                  ))}
-                </ul>
-              </TabsContent>
-              <TabsContent value="awards" className="mt-6">
-                <ul className="space-y-4">
-                  {awards.map((award, i) => (
-                     <li key={i} className="flex items-center rounded-lg bg-background p-4 text-white">
-                        <p className="font-medium">{award.name} - <span className="text-muted-foreground">{award.event}</span></p>
-                     </li>
-                  ))}
-                </ul>
-              </TabsContent>
-            </Tabs>
+                </TabsContent>
+                <TabsContent value="education" className="mt-6">
+                  <ul className="space-y-4">
+                    {education.map((edu, i) => (
+                      <li key={i} className="flex items-center rounded-lg bg-background p-4 text-white">
+                          <p className="font-medium">{edu.name} - <span className="text-muted-foreground">{edu.institution}</span></p>
+                      </li>
+                    ))}
+                  </ul>
+                </TabsContent>
+                <TabsContent value="awards" className="mt-6">
+                  <ul className="space-y-4">
+                    {awards.map((award, i) => (
+                      <li key={i} className="flex items-center rounded-lg bg-background p-4 text-white">
+                          <p className="font-medium">{award.name} - <span className="text-muted-foreground">{award.event}</span></p>
+                      </li>
+                    ))}
+                  </ul>
+                </TabsContent>
+              </Tabs>
+            )}
           </div>
         </section>
 
@@ -456,5 +552,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
