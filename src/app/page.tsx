@@ -332,17 +332,17 @@ export default function Home() {
         </section>
 
         <section id="skills" className="w-full bg-background py-12 text-foreground md:py-24 lg:py-32">
-          <div className="container flex justify-center items-center px-4 md:px-6">
-            <div className="relative w-full max-w-6xl">
-              <Image
-                src="/Skills_tools.jpeg"
-                alt="Skills and Tools"
-                width={1200}
-                height={600}
-                className="rounded-lg shadow-lg object-contain w-full h-auto"
-              />
+            <div className="container flex justify-center items-center px-4 md:px-6">
+                <div className="relative w-full max-w-4xl">
+                    <Image
+                        src="/Skills_tools.jpeg"
+                        alt="Skills and Tools"
+                        width={1200}
+                        height={600}
+                        className="rounded-lg shadow-lg object-contain w-full h-auto"
+                    />
+                </div>
             </div>
-          </div>
         </section>
 
 
@@ -352,7 +352,7 @@ export default function Home() {
               Education &amp; Achievements
             </h2>
             <Tabs defaultValue="work-experience" className="mx-auto max-w-4xl">
-              <TabsList className="grid w-full grid-cols-4 bg-muted text-muted-foreground">
+              <TabsList className="grid w-full grid-cols-1 md:grid-cols-4 bg-muted text-muted-foreground h-auto md:h-10">
                 <TabsTrigger value="work-experience"><Briefcase className="mr-2 h-4 w-4"/>Work Experience</TabsTrigger>
                 <TabsTrigger value="certifications"><Briefcase className="mr-2 h-4 w-4"/>Certifications</TabsTrigger>
                 <TabsTrigger value="education"><BookOpen className="mr-2 h-4 w-4"/>Education</TabsTrigger>
@@ -468,10 +468,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
-
-    
-
-    
-
