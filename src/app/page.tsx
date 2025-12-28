@@ -350,28 +350,34 @@ export default function Home() {
               className="object-cover"
           />
           <div className="absolute inset-0 bg-black/60" />
-          <div className="container relative z-10 grid grid-cols-1 gap-12 px-4 md:grid-cols-2 md:px-6">
-            <div className="space-y-6">
-              <h3 className="font-headline text-3xl font-bold text-white">Skills</h3>
-              <ul className="space-y-3">
-                {skills.map((skill) => (
-                  <li key={skill} className="flex items-center text-lg text-gray-200 transition-transform duration-300 hover:translate-x-2">
-                    <ChevronRight className="mr-2 h-5 w-5 text-accent-foreground" />
-                    <span>{skill}</span>
-                  </li>
-                ))}
-              </ul>
+          <div className="container relative z-10 space-y-12">
+            <div className="text-center">
+              <h2 className="font-headline text-3xl font-bold tracking-tighter text-white sm:text-4xl md:text-5xl">
+                Skills & Tools
+              </h2>
             </div>
-            <div className="space-y-6">
-              <h3 className="font-headline text-3xl font-bold text-white">Tools I Use</h3>
-              <ul className="space-y-3">
-                {tools.map((tool) => (
-                  <li key={tool.name} className="flex items-center text-lg text-gray-200 transition-transform duration-300 hover:translate-x-2">
-                    <tool.icon className="mr-3 h-6 w-6 text-accent-foreground" />
-                    <span>{tool.name}</span>
-                  </li>
-                ))}
-              </ul>
+            <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
+              <div className="space-y-6">
+                <h3 className="font-headline text-2xl font-bold text-white text-center">Core Skills</h3>
+                <div className="flex flex-wrap justify-center gap-3">
+                  {skills.map((skill) => (
+                    <div key={skill} className="rounded-full border border-white/50 bg-white/10 px-4 py-2 text-white transition-all duration-300 hover:scale-105 hover:border-white hover:bg-white/20">
+                      {skill}
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="space-y-6">
+                <h3 className="font-headline text-2xl font-bold text-white text-center">Tools I Use</h3>
+                <div className="flex flex-wrap justify-center gap-4">
+                  {tools.map((tool) => (
+                    <div key={tool.name} className="flex items-center gap-3 rounded-full border border-white/50 bg-white/10 px-4 py-2 text-white transition-all duration-300 hover:scale-105 hover:border-white hover:bg-white/20">
+                      <tool.icon className="h-5 w-5" />
+                      <span>{tool.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -600,5 +606,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
