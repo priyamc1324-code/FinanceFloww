@@ -88,11 +88,6 @@ const projects = [
     description: "• Waaree Renewables • Ratio Analysis • Dupont Analysis • ROE Vs ROCE • Financial Dashboard",
     link: "/Equity_Research_Report.pdf",
   },
-  {
-    title: "Monte Carlo Simulation for Amazon Stock",
-    description: "• Monte Carlo simulation for AMZN stock. • Risk, volatility & outcome analysis.",
-    link: "/Monte_Carlo.pdf",
-  },
 ];
 
 const skills = [
@@ -262,6 +257,17 @@ export default function Home() {
                   <p>An analysis using regression to calculate and forecast profit for Waaree Renewables.</p>
                    <Button asChild variant="link" className="p-0 h-auto text-white mt-2">
                       <a href="/Profit Calculator Using Regression.pdf" target="_blank" rel="noopener noreferrer">
+                        View Details <ArrowUpRight className="ml-2 h-4 w-4" />
+                      </a>
+                  </Button>
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-7">
+                <AccordionTrigger>Monte Carlo Simulation - Amazon Stock</AccordionTrigger>
+                <AccordionContent>
+                  <p>A simulation modeling potential outcomes for Amazon's stock price to analyze risk and volatility.</p>
+                   <Button asChild variant="link" className="p-0 h-auto text-white mt-2">
+                      <a href="/Monte_Carlo.pdf" target="_blank" rel="noopener noreferrer">
                         View Details <ArrowUpRight className="ml-2 h-4 w-4" />
                       </a>
                   </Button>
