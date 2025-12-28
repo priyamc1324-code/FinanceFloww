@@ -4,7 +4,6 @@
 import Image from "next/image";
 import React from 'react';
 import {
-  ArrowDown,
   ArrowUpRight,
   BookOpen,
   Briefcase,
@@ -17,9 +16,9 @@ import {
   Table,
   TrendingUp,
   Trophy,
+  ChevronRight,
 } from "lucide-react";
 
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -103,10 +102,10 @@ const skills = [
     "Financial Modelling", 
     "Valuation", 
     "Equity Research", 
-    "Advanced Excel",
-    "Python For Finance", 
-    "Machine Learning", 
-    "Statistics", 
+    "Advanced Microsoft Excel",
+    "Python For Financial Analysis", 
+    "Machine Learning For Predictive Analytics", 
+    "Statistics For Finance", 
     "Prompt Engineering"
 ];
 
@@ -181,69 +180,9 @@ const learningJourney = [
     },
 ];
 
-
-const SkillsCircle = ({ items, open }: { items: string[]; open: boolean }) => {
-  const angleStep = 180 / (items.length -1);
-  const radius = 180; // Adjust this for circle size
-
-  return (
-    <div className={`absolute w-full h-full transition-transform duration-500 ${open ? 'scale-100' : 'scale-0'}`}>
-      {items.map((item, index) => {
-        const angle = - (angleStep * index);
-        const x = radius * Math.cos(angle * Math.PI / 180);
-        const y = radius * Math.sin(angle * Math.PI / 180);
-        
-        return (
-          <div
-            key={item}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform transition-transform duration-300"
-            style={{ transform: open ? `translate(${x}px, -${y}px)`: 'translate(-50%, -50%)' }}
-          >
-            <div className="bg-white/10 backdrop-blur-sm border border-white/20 text-white p-2 rounded-lg text-center min-w-[120px]">
-              {item}
-            </div>
-          </div>
-        );
-      })}
-    </div>
-  );
-};
-
-const ToolsCircle = ({ items, open }: { items: { name: string; icon: React.ElementType }[], open: boolean }) => {
-  const angleStep = 180 / (items.length - 1);
-  const radius = 180; // Adjust this for circle size
-
-  return (
-    <div className={`absolute w-full h-full transition-transform duration-500 ${open ? 'scale-100' : 'scale-0'}`}>
-      {items.map((item, index) => {
-        const angle = - (angleStep * index);
-        const Icon = item.icon;
-        const x = radius * Math.cos(angle * Math.PI / 180);
-        const y = radius * Math.sin(angle * Math.PI / 180);
-
-        return (
-          <div
-            key={item.name}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform transition-transform duration-300"
-            style={{ transform: open ? `translate(${x}px, -${y}px)`: 'translate(-50%, -50%)' }}
-          >
-             <div className="flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white p-2 rounded-lg min-w-[120px]">
-              <Icon className="h-5 w-5" />
-              <span>{item.name}</span>
-            </div>
-          </div>
-        );
-      })}
-    </div>
-  );
-};
-
-
 export default function Home() {
   const isMobile = useIsMobile();
-  const [skillsOpen, setSkillsOpen] = React.useState(false);
-  const [toolsOpen, setToolsOpen] = React.useState(false);
-
+  
   return (
     <div className="flex min-h-screen w-full flex-col bg-background text-foreground">
       <Header />
@@ -402,12 +341,12 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="skills" className="relative w-full py-12 md:py-24 lg:py-32 text-foreground overflow-hidden min-h-[500px] md:min-h-[600px]">
+        <section id="skills" className="relative w-full py-12 md:py-24 lg:py-32 text-foreground overflow-hidden">
           <Image
-              src="/new_background.png"
-              alt="Skills and Tools background"
-              fill
-              className="object-cover"
+            src="/new_background.png"
+            alt="Skills and Tools background"
+            fill
+            className="object-cover"
           />
           <div className="absolute inset-0 bg-black/60" />
           <div className="container relative z-10 flex flex-col items-center justify-center space-y-12 h-full">
@@ -416,25 +355,42 @@ export default function Home() {
                 Skills & Tools
               </h2>
             </div>
-            <div className="grid w-full grid-cols-1 md:grid-cols-2 gap-8 items-start justify-items-center h-full pt-10">
-              <div
-                className="relative flex items-center justify-center w-full h-64 md:h-96 cursor-pointer"
-                onClick={() => { setSkillsOpen(!skillsOpen); setToolsOpen(false); }}
-              >
-                <div className={`absolute transition-opacity duration-300 ${skillsOpen ? 'opacity-0' : 'opacity-100'}`}>
-                  <h3 className="font-headline text-2xl font-bold text-white text-center">Skills</h3>
-                </div>
-                <SkillsCircle items={skills} open={skillsOpen} />
+            <div className="grid w-full max-w-4xl grid-cols-1 md:grid-cols-2 gap-16 items-start">
+              
+              {/* Skills Column */}
+              <div className="space-y-4">
+                <h3 className="font-headline text-2xl font-bold text-white text-center">Skills</h3>
+                <ul className="space-y-3">
+                  {skills.map((skill, index) => (
+                    <li
+                      key={skill}
+                      className="group flex items-center gap-3 p-3 border-b border-white/20 transition-all duration-300 hover:bg-white/10 rounded-md"
+                      style={{ animation: `fadeInUp 0.5s ${index * 0.1}s ease-out both` }}
+                    >
+                      <ChevronRight className="h-5 w-5 text-white transition-transform duration-300 group-hover:translate-x-1" />
+                      <span className="text-white">{skill}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <div
-                className="relative flex items-center justify-center w-full h-64 md:h-96 cursor-pointer"
-                onClick={() => { setToolsOpen(!toolsOpen); setSkillsOpen(false); }}
-              >
-                <div className={`absolute transition-opacity duration-300 ${toolsOpen ? 'opacity-0' : 'opacity-100'}`}>
-                  <h3 className="font-headline text-2xl font-bold text-white text-center">Tools I Use</h3>
-                </div>
-                <ToolsCircle items={tools} open={toolsOpen} />
+
+              {/* Tools Column */}
+              <div className="space-y-4">
+                <h3 className="font-headline text-2xl font-bold text-white text-center">Tools I Use</h3>
+                <ul className="space-y-3">
+                  {tools.map((tool, index) => (
+                    <li
+                      key={tool.name}
+                      className="group flex items-center gap-3 p-3 border-b border-white/20 transition-all duration-300 hover:bg-white/10 rounded-md"
+                      style={{ animation: `fadeInUp 0.5s ${ (skills.length + index) * 0.1}s ease-out both` }}
+                    >
+                      <tool.icon className="h-5 w-5 text-white" />
+                      <span className="text-white">{tool.name}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
+
             </div>
           </div>
         </section>
@@ -660,6 +616,18 @@ export default function Home() {
       <footer className="flex w-full shrink-0 flex-col items-center justify-center gap-2 border-t px-4 py-6 sm:flex-row md:px-6 bg-background text-foreground">
         <p className="text-xs text-muted-foreground">&copy; {new Date().getFullYear()} FinanceFlow Portfolio. All rights reserved.</p>
       </footer>
+      <style jsx>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </div>
   );
 }
