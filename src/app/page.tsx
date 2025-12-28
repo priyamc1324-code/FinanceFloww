@@ -100,14 +100,14 @@ const projects = [
 ];
 
 const skills = [
-  "Financial Modelling",
-  "Valuation",
-  "Equity Research",
-  "Advanced Excel",
-  "Python For Finance",
-  "Machine Learning",
-  "Statistics",
-  "Prompt Engineering",
+    "Financial Modelling", 
+    "Valuation", 
+    "Equity Research", 
+    "Advanced Excel",
+    "Python For Finance", 
+    "Machine Learning", 
+    "Statistics", 
+    "Prompt Engineering"
 ];
 
 const tools = [
@@ -181,19 +181,25 @@ const learningJourney = [
     },
 ];
 
+
 const SkillsCircle = ({ items, open }: { items: string[]; open: boolean }) => {
-  const angleStep = 180 / (items.length - 1);
+  const angleStep = 180 / (items.length -1);
+  const radius = 180; // Adjust this for circle size
+
   return (
     <div className={`absolute w-full h-full transition-transform duration-500 ${open ? 'scale-100' : 'scale-0'}`}>
       {items.map((item, index) => {
         const angle = - (angleStep * index);
+        const x = radius * Math.cos(angle * Math.PI / 180);
+        const y = radius * Math.sin(angle * Math.PI / 180);
+        
         return (
           <div
             key={item}
-            className="absolute top-1/2 left-1/2 w-48 h-12 origin-[0_50%]"
-            style={{ transform: `rotate(${angle}deg)` }}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform transition-transform duration-300"
+            style={{ transform: open ? `translate(${x}px, -${y}px)`: 'translate(-50%, -50%)' }}
           >
-            <div className="bg-white/10 backdrop-blur-sm border border-white/20 text-white p-2 rounded-lg text-center" style={{ transform: `rotate(${-angle}deg)`}}>
+            <div className="bg-white/10 backdrop-blur-sm border border-white/20 text-white p-2 rounded-lg text-center min-w-[120px]">
               {item}
             </div>
           </div>
@@ -205,18 +211,23 @@ const SkillsCircle = ({ items, open }: { items: string[]; open: boolean }) => {
 
 const ToolsCircle = ({ items, open }: { items: { name: string; icon: React.ElementType }[], open: boolean }) => {
   const angleStep = 180 / (items.length - 1);
+  const radius = 180; // Adjust this for circle size
+
   return (
     <div className={`absolute w-full h-full transition-transform duration-500 ${open ? 'scale-100' : 'scale-0'}`}>
       {items.map((item, index) => {
         const angle = - (angleStep * index);
         const Icon = item.icon;
+        const x = radius * Math.cos(angle * Math.PI / 180);
+        const y = radius * Math.sin(angle * Math.PI / 180);
+
         return (
           <div
             key={item.name}
-            className="absolute top-1/2 left-1/2 w-48 h-12 origin-[0_50%]"
-            style={{ transform: `rotate(${angle}deg)` }}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform transition-transform duration-300"
+            style={{ transform: open ? `translate(${x}px, -${y}px)`: 'translate(-50%, -50%)' }}
           >
-             <div className="flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white p-2 rounded-lg" style={{ transform: `rotate(${-angle}deg)`}}>
+             <div className="flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white p-2 rounded-lg min-w-[120px]">
               <Icon className="h-5 w-5" />
               <span>{item.name}</span>
             </div>
@@ -391,7 +402,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="skills" className="relative w-full py-12 md:py-24 lg:py-32 text-foreground overflow-hidden">
+        <section id="skills" className="relative w-full py-12 md:py-24 lg:py-32 text-foreground overflow-hidden min-h-[500px] md:min-h-[600px]">
           <Image
               src="/new_background.png"
               alt="Skills and Tools background"
@@ -399,15 +410,15 @@ export default function Home() {
               className="object-cover"
           />
           <div className="absolute inset-0 bg-black/60" />
-          <div className="container relative z-10 flex flex-col items-center justify-center space-y-12 h-96 md:h-auto">
+          <div className="container relative z-10 flex flex-col items-center justify-center space-y-12 h-full">
             <div className="text-center">
               <h2 className="font-headline text-3xl font-bold tracking-tighter text-white sm:text-4xl md:text-5xl">
                 Skills & Tools
               </h2>
             </div>
-            <div className="grid w-full grid-cols-1 md:grid-cols-2 gap-8 items-center justify-items-center">
+            <div className="grid w-full grid-cols-1 md:grid-cols-2 gap-8 items-start justify-items-center h-full pt-10">
               <div
-                className="relative flex items-center justify-center w-64 h-32 md:w-96 md:h-48 cursor-pointer"
+                className="relative flex items-center justify-center w-full h-64 md:h-96 cursor-pointer"
                 onClick={() => { setSkillsOpen(!skillsOpen); setToolsOpen(false); }}
               >
                 <div className={`absolute transition-opacity duration-300 ${skillsOpen ? 'opacity-0' : 'opacity-100'}`}>
@@ -416,7 +427,7 @@ export default function Home() {
                 <SkillsCircle items={skills} open={skillsOpen} />
               </div>
               <div
-                className="relative flex items-center justify-center w-64 h-32 md:w-96 md:h-48 cursor-pointer"
+                className="relative flex items-center justify-center w-full h-64 md:h-96 cursor-pointer"
                 onClick={() => { setToolsOpen(!toolsOpen); setSkillsOpen(false); }}
               >
                 <div className={`absolute transition-opacity duration-300 ${toolsOpen ? 'opacity-0' : 'opacity-100'}`}>
@@ -548,7 +559,7 @@ export default function Home() {
                           </div>
                           <ul className="mt-3 list-disc list-inside space-y-1 text-sm text-gray-300">
                             {exp.description.map((point, j) => (
-                              <li key={j}>{point}</li>
+                              <li keyj={j}>{point}</li>
                             ))}
                           </ul>
                         </li>
@@ -652,5 +663,6 @@ export default function Home() {
     </div>
   );
 }
+    
 
     
