@@ -328,21 +328,18 @@ export default function Home() {
 
         <section id="skills" className="w-full overflow-x-hidden bg-background py-12 text-foreground md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
-            <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-24">
+            <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-24">
               <div className="space-y-6" data-aos="fade-right">
                 <h3 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
                   Skills & Expertise
                 </h3>
                 <div className="space-y-4">
                   {skills.map((skill, index) => (
-                    <div
-                      key={index}
-                      className="group relative rounded-lg bg-gray-800/20 p-4 transition-all duration-300 hover:bg-gray-800/50"
-                    >
-                      <div className="absolute top-0 left-0 h-full w-1 bg-accent/0 transition-all duration-300 group-hover:bg-accent"></div>
-                      <p className="pl-4 text-base font-medium text-gray-300 transition-colors group-hover:text-white sm:text-lg">
+                    <div key={index} className="group relative">
+                      <p className="text-lg font-medium text-gray-300 transition-colors group-hover:text-white">
                         {skill}
                       </p>
+                      <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-primary transition-all duration-300 group-hover:w-full"></div>
                     </div>
                   ))}
                 </div>
@@ -355,9 +352,9 @@ export default function Home() {
                   {tools.map((tool, index) => (
                     <div
                       key={index}
-                      className="group flex flex-col items-center justify-center gap-2 rounded-lg bg-gray-800/30 p-4 text-center transition-transform duration-300 hover:scale-105 hover:bg-gray-800/60"
+                      className="group flex flex-col items-center justify-center gap-2 rounded-lg p-4 text-center transition-transform duration-300 hover:scale-110"
                     >
-                      <tool.icon className="h-10 w-10 text-accent transition-colors group-hover:text-white" />
+                      <tool.icon className="h-10 w-10 text-gray-400 transition-colors group-hover:text-white" />
                       <p className="text-sm font-medium text-gray-400 transition-colors group-hover:text-white">
                         {tool.name}
                       </p>
