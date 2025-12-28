@@ -277,7 +277,7 @@ export default function Home() {
 
         <section id="skills" className="w-full py-12 md:py-24 lg:py-32 bg-background text-foreground">
           <div className="container px-4 md:px-6">
-            <div className="space-y-12">
+            <div className="grid gap-12">
               <div className="space-y-4">
                 <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
                   Skills & Expertise
@@ -423,8 +423,4 @@ export default function Home() {
       </footer>
     </div>
   );
-
-    
-
-
-    
+}
