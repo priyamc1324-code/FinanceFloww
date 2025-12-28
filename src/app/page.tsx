@@ -54,7 +54,7 @@ const projects = [
   {
     title: "A Three Statement Financial Model",
     description: "The foundational interconnected model of the Income Statement, Balance Sheet, and Cash Flow Statement.",
-    link: "/3 - Statement Financial Model.xlsx",
+    link: "/Three_Statement_Financial_Model_.xlsx",
   },
   {
     title: "Comparable Comps Valuation",
