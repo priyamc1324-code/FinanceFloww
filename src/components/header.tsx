@@ -19,44 +19,27 @@ const navLinks = [
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isClient, setIsClient] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
-    setIsClient(true);
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
-      const sections = navLinks.map(link => document.querySelector(link.href));
-      const scrollPosition = window.scrollY + 100;
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
-        if (section && (section as HTMLElement).offsetTop <= scrollPosition) {
-          setActiveSection(navLinks[i].href.substring(1));
-          break;
+      
+      let currentSection = 'home';
+      navLinks.forEach(link => {
+        const section = document.querySelector(link.href) as HTMLElement;
+        if (section && window.scrollY >= section.offsetTop - 100) {
+          currentSection = link.href.substring(1);
         }
-      }
+      });
+      setActiveSection(currentSection);
     };
+
     window.addEventListener("scroll", handleScroll);
+    handleScroll(); 
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  
-  const getLinkClass = (section: string) => {
-    if (!isClient) return 'text-white';
-    const sectionEl = document.getElementById(section);
-    if (!sectionEl) return 'text-white';
-
-    const style = window.getComputedStyle(sectionEl);
-    const bgColor = style.backgroundColor;
-
-    // Simplified check for dark background
-    const isDark = bgColor === 'rgb(31, 41, 55)'; // Corresponds to gray-900
-
-    if (activeSection === section) {
-      return isDark ? 'text-white font-bold' : 'text-gray-900 font-bold';
-    }
-    return isDark ? 'text-gray-300' : 'text-gray-600';
-  };
 
   const NavLinks = ({ isMobile = false }) => (
     <>
@@ -67,10 +50,13 @@ export default function Header() {
           variant="link"
           className={cn(
             "transition-colors",
-            isClient && (scrolled || activeSection !== 'home' 
-              ? (activeSection === href.substring(1) ? 'text-gray-900 font-bold underline' : 'text-gray-600')
-              : (activeSection === href.substring(1) ? 'text-white font-bold underline' : 'text-gray-300')),
-            isMobile && "w-full justify-start text-gray-900"
+            {
+              "w-full justify-start text-gray-900": isMobile,
+              "text-gray-900 font-bold underline": !isMobile && activeSection === href.substring(1) && (scrolled || activeSection !== 'home'),
+              "text-gray-600": !isMobile && activeSection !== href.substring(1) && (scrolled || activeSection !== 'home'),
+              "text-white font-bold underline": !isMobile && activeSection === href.substring(1) && !scrolled && activeSection === 'home',
+              "text-gray-300": !isMobile && activeSection !== href.substring(1) && !scrolled && activeSection === 'home',
+            }
           )}
           onClick={() => isMobile && setMobileMenuOpen(false)}
         >
@@ -80,7 +66,7 @@ export default function Header() {
     </>
   );
 
-  const headerBgClass = scrolled ? "bg-white/80 shadow-md backdrop-blur-sm" : "bg-transparent";
+  const headerBgClass = scrolled || activeSection !== 'home' ? "bg-white/80 shadow-md backdrop-blur-sm" : "bg-transparent";
   const headerTextClass = scrolled || activeSection !== 'home' ? "text-gray-900" : "text-white";
 
   return (
@@ -92,7 +78,7 @@ export default function Header() {
     >
       <div className="container mx-auto flex h-16 items-center justify-between">
         <Link href="/" className={cn("flex items-center gap-2 font-headline text-xl font-bold", headerTextClass)}>
-          <BarChart2 className={cn("h-6 w-6", scrolled || activeSection !== 'home' ? 'text-gray-900' : 'text-white')} />
+          <BarChart2 className={cn("h-6 w-6")} />
           <span>FinanceFlow</span>
         </Link>
         <nav className="hidden items-center gap-2 md:flex">
@@ -112,20 +98,28 @@ export default function Header() {
           ))}
         </nav>
         <div className="md:hidden">
-         {isClient && (
             <Sheet open={isMobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon" className={headerTextClass}>
                   <Menu />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right">
+              <SheetContent side="right" className="bg-white text-black">
                 <nav className="flex flex-col gap-4 pt-8">
-                  <NavLinks isMobile />
+                  {navLinks.map(({ href, label }) => (
+                    <Button
+                      key={label}
+                      asChild
+                      variant="link"
+                      className="w-full justify-start text-gray-900"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      <a href={href}>{label}</a>
+                    </Button>
+                  ))}
                 </nav>
               </SheetContent>
             </Sheet>
-          )}
         </div>
       </div>
     </header>
