@@ -245,12 +245,23 @@ export default function Home() {
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-4">
+                <AccordionTrigger>Profit Calculator Using Regression - Waaree Renewables</AccordionTrigger>
+                <AccordionContent>
+                  <p>An analysis using regression to calculate and forecast profit for Waaree Renewables.</p>
+                   <Button asChild variant="link" className="p-0 h-auto text-white mt-2">
+                      <a href="/Profit Calculator Using Regression.pdf" target="_blank" rel="noopener noreferrer">
+                        View Details <ArrowUpRight className="ml-2 h-4 w-4" />
+                      </a>
+                  </Button>
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-5">
                 <AccordionTrigger>Valuation Multiples Explained</AccordionTrigger>
                 <AccordionContent>
                   Developing a nuanced understanding of various valuation multiples and their applications. For example, using P/E for mature, profitable companies, EV/EBITDA for comparing companies with different capital structures, and P/TBV for financial institutions.
                 </AccordionContent>
               </AccordionItem>
-               <AccordionItem value="item-5">
+               <AccordionItem value="item-6">
                 <AccordionTrigger>Understanding Statistical Concepts</AccordionTrigger>
                 <AccordionContent>
                   Applying key statistical concepts in finance, such as using regression analysis for forecasting, interpreting R-squared to understand model fit, and using p-value to determine the statistical significance of results.
@@ -434,3 +445,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
