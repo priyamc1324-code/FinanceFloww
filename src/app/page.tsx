@@ -91,7 +91,7 @@ const projects = [
   {
     title: "Monte Carlo Simulation for Amazon Stock",
     description: "• Monte Carlo simulation for AMZN stock. • Risk, volatility & outcome analysis.",
-    link: "/Monte_Carlo_Amazon.pdf",
+    link: "/Monte_Carlo.pdf",
   },
 ];
 
