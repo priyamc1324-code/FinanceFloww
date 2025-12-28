@@ -95,15 +95,14 @@ export default function Header() {
                 </SheetHeader>
                 <nav className="flex flex-col gap-4 pt-8">
                   {navLinks.map(({ href, label }) => (
-                    <Button
+                     <a
                       key={label}
-                      asChild
-                      variant="link"
-                      className="w-full justify-start text-lg text-gray-900"
+                      href={href}
                       onClick={() => setMobileMenuOpen(false)}
+                      className="w-full justify-start text-lg text-gray-900 px-4 py-2 rounded-md hover:bg-gray-100"
                     >
-                      <a href={href}>{label}</a>
-                    </Button>
+                      {label}
+                    </a>
                   ))}
                 </nav>
               </SheetContent>
