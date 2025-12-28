@@ -338,18 +338,19 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="skills" className="w-full bg-background py-12 text-foreground md:py-24 lg:py-32">
-            <div className="container flex justify-center items-center px-4 md:px-6">
-                <div className="relative w-full max-w-6xl">
-                    <Image
-                        src="/Skills_tools.jpeg"
-                        alt="Skills and Tools"
-                        width={1200}
-                        height={600}
-                        className="rounded-lg shadow-lg object-contain w-full h-auto"
-                    />
-                </div>
-            </div>
+        <section id="skills" className="relative w-full py-12 md:py-24 lg:py-32 text-foreground">
+          <Image
+              src="/new_background.png"
+              alt="Skills and Tools background"
+              fill
+              className="object-cover"
+          />
+          <div className="absolute inset-0 bg-black/50" />
+          <div className="container relative z-10 flex justify-center items-center px-4 md:px-6">
+              <h2 className="text-center font-headline text-3xl font-bold tracking-tighter text-white sm:text-4xl md:text-5xl">
+                  Skills & Tools
+              </h2>
+          </div>
         </section>
 
 
