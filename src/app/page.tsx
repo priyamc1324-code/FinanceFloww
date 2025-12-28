@@ -362,13 +362,13 @@ export default function Home() {
                         <div className="flex justify-between items-center mb-4">
                             <button
                                 onClick={() => handleAccordionClick("skills")}
-                                className="text-xl font-bold flex items-center"
+                                className="border-4 border-black p-2 rounded-lg text-xl font-bold flex items-center"
                             >
                                 Skills <ChevronDown className={cn("ml-2 h-5 w-5 transition-transform", activeAccordion === 'skills' && "rotate-180")} />
                             </button>
                             <button
                                 onClick={() => handleAccordionClick("tools")}
-                                className="text-xl font-bold flex items-center"
+                                className="border-4 border-black p-2 rounded-lg text-xl font-bold flex items-center"
                             >
                                 Tools I Use <ChevronDown className={cn("ml-2 h-5 w-5 transition-transform", activeAccordion === 'tools' && "rotate-180")} />
                             </button>
@@ -677,4 +677,3 @@ export default function Home() {
     
 
     
-
