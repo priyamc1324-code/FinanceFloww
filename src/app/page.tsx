@@ -88,6 +88,11 @@ const projects = [
     description: "• Waaree Renewables • Ratio Analysis • Dupont Analysis • ROE Vs ROCE • Financial Dashboard",
     link: "/Equity_Research_Report.pdf",
   },
+  {
+    title: "Monte Carlo Simulation for Amazon Stock",
+    description: "• Monte Carlo simulation for AMZN stock. • Risk, volatility & outcome analysis.",
+    link: "/Monte_Carlo_Amazon.pdf",
+  },
 ];
 
 const skills = [
