@@ -2,7 +2,7 @@
 "use client";
 
 import Image from "next/image";
-import React from 'react';
+import React, { useState } from 'react';
 import {
   ArrowUpRight,
   BookOpen,
@@ -64,8 +64,8 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 import Link from "next/link";
 import FinancialBackground from "@/components/financial-background";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { useState } from "react";
 import { cn } from "@/lib/utils";
+import type { MessageInput } from "@/components/contact-form";
 
 
 const aboutImage = PlaceHolderImages.find((img) => img.id === 'profile-about');
@@ -189,6 +189,11 @@ const learningJourney = [
 export default function Home() {
   const isMobile = useIsMobile();
   const [activeAccordion, setActiveAccordion] = useState<string | null>(null);
+  const [messages, setMessages] = useState<MessageInput[]>([]);
+
+  const handleSendMessage = (message: MessageInput) => {
+    setMessages((prevMessages) => [...prevMessages, message]);
+  };
 
   const handleAccordionClick = (value: string) => {
     setActiveAccordion(activeAccordion === value ? null : value);
@@ -613,7 +618,6 @@ export default function Home() {
             </div>
         </section>
 
-
         <section id="contact" className="w-full py-12 md:py-24 lg:py-32 bg-secondary text-secondary-foreground">
           <div className="container grid items-center gap-8 px-4 md:px-6 lg:grid-cols-2 lg:gap-16">
             <div className="space-y-8">
@@ -645,10 +649,38 @@ export default function Home() {
               </div>
             </div>
             <div className="w-full">
-              <ContactForm/>
+              <ContactForm onSendMessage={handleSendMessage} />
             </div>
           </div>
         </section>
+
+        {process.env.NODE_ENV === 'development' && (
+          <section id="messages" className="w-full py-12 md:py-24 lg:py-32 bg-background text-foreground">
+            <div className="container px-4 md:px-6">
+              <h2 className="mb-12 text-center font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                View Messages
+              </h2>
+              {messages.length > 0 ? (
+                <div className="space-y-6 max-w-4xl mx-auto">
+                  {messages.map((message, index) => (
+                    <Card key={index} className="bg-secondary text-secondary-foreground">
+                      <CardHeader>
+                        <CardTitle>{message.name}</CardTitle>
+                        <CardDescription>{message.email}</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <p>{message.message}</p>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-center text-muted-foreground">No messages yet. Send one from the contact form to see it here.</p>
+              )}
+            </div>
+          </section>
+        )}
+
       </main>
 
       <footer className="flex w-full shrink-0 flex-col items-center justify-center gap-2 border-t px-4 py-6 sm:flex-row md:px-6 bg-background text-foreground">
@@ -672,8 +704,4 @@ export default function Home() {
     </div>
   );
 }
-    
-
-    
-
     

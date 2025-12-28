@@ -17,7 +17,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { sendMessage } from "@/ai/flows/send-message-flow";
 import { useState } from "react";
 
 const formSchema = z.object({
@@ -32,7 +31,14 @@ const formSchema = z.object({
   }),
 });
 
-export default function ContactForm() {
+export type MessageInput = z.infer<typeof formSchema>;
+
+type ContactFormProps = {
+  onSendMessage: (message: MessageInput) => void;
+};
+
+
+export default function ContactForm({ onSendMessage }: ContactFormProps) {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -48,7 +54,8 @@ export default function ContactForm() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
     try {
-      await sendMessage(values);
+      // Instead of sending to a backend, we call the passed-in function
+      onSendMessage(values);
 
       toast({
         title: "Message Sent! 🚀",
@@ -57,11 +64,11 @@ export default function ContactForm() {
 
       form.reset();
     } catch (error) {
-      console.error("Error sending message:", error);
+      console.error("Error saving message:", error);
       toast({
         variant: "destructive",
         title: "Uh oh! Something went wrong.",
-        description: "There was a problem sending your message. Please try again.",
+        description: "There was a problem saving your message. Please try again.",
       });
     } finally {
       setIsSubmitting(false);
