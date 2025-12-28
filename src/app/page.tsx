@@ -5,18 +5,14 @@ import {
   ArrowUpRight,
   BookOpen,
   Briefcase,
+  FileText,
   Linkedin,
   Mail,
   Phone,
+  TrendingUp,
   Trophy,
 } from "lucide-react";
 
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -122,6 +118,39 @@ const workExperience: { name: string, issuer: string }[] = [
   // Add your work experience here
 ];
 
+const learningJourney = [
+    {
+      icon: FileText,
+      title: "A Three Statement Financial Model",
+      description: "The foundational interconnected model of the Income Statement, Balance Sheet, and Cash Flow Statement.",
+      link: "/A Three - Statement Financial Model.pdf",
+    },
+    {
+      icon: TrendingUp,
+      title: "Understanding Valuation Multiples",
+      description: "Learn how to select and apply valuation multiples based on business models, ensuring consistency and avoiding common pitfalls for accurate valuation.",
+      link: "/Understanding Valuation Multiples.pdf",
+    },
+    {
+      icon: BookOpen,
+      title: "Understanding How to Value Banks",
+      description: "Explore why traditional DCF fails for banks and how equity-based models like DDM and residual income provide a more accurate valuation.",
+      link: "/Understanding How To Value Banks.pdf",
+    },
+    {
+      icon: FileText,
+      title: "Profit Calculator Using Regression - Waaree Renewables",
+      description: "An analysis using regression to calculate and forecast profit for Waaree Renewables.",
+      link: "/Profit Calculator Using Regression.pdf",
+    },
+    {
+        icon: TrendingUp,
+        title: "Monte Carlo Simulation - Amazon Stock",
+        description: "A simulation model to forecast Amazon’s stock price by modeling uncertainty and analyzing probable outcomes.",
+        link: "/Monte_Carlo_Amazon.pdf",
+    },
+];
+
 
 export default function Home() {
   return (
@@ -214,66 +243,40 @@ export default function Home() {
 
         <section id="journey" className="w-full py-12 md:py-24 lg:py-32 bg-background text-foreground">
           <div className="container px-4 md:px-6">
-            <h2 className="mb-12 text-center font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+            <h2 className="mb-16 text-center font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
               My Learning Journey
             </h2>
-            <Accordion type="single" collapsible className="mx-auto max-w-3xl">
-              <AccordionItem value="item-1">
-                <AccordionTrigger>A Three Statement Financial Model</AccordionTrigger>
-                <AccordionContent>
-                  <p>The foundational interconnected model of the Income Statement, Balance Sheet, and Cash Flow Statement.</p>
-                  <Button asChild variant="link" className="p-0 h-auto text-white mt-2">
-                      <a href="/A Three - Statement Financial Model.pdf" target="_blank" rel="noopener noreferrer">
-                        View Details <ArrowUpRight className="ml-2 h-4 w-4" />
-                      </a>
-                  </Button>
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="item-2">
-                <AccordionTrigger>Understanding Valuation Multiples</AccordionTrigger>
-                <AccordionContent>
-                  <p>Valuation multiples must be selected based on a company’s business model, capital structure, and stage of profitability, as no single multiple applies universally across firms or sectors. Ensuring strict numerator–denominator consistency is critical, as misalignment between value measures and financial drivers can lead to distorted and misleading valuation conclusions.</p>
-                  <Button asChild variant="link" className="p-0 h-auto text-white mt-2">
-                      <a href="/Understanding Valuation Multiples.pdf" target="_blank" rel="noopener noreferrer">
-                        View Details <ArrowUpRight className="ml-2 h-4 w-4" />
-                      </a>
-                  </Button>
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="item-3">
-                <AccordionTrigger>Understanding How to Value Banks</AccordionTrigger>
-                <AccordionContent>
-                  <p>Banks don’t follow the usual valuation playbook—what looks like “debt” is actually their fuel, and growth is governed by regulation, not reinvestment. This shift makes traditional DCFs fail and opens the door to powerful equity-based models like DDM and residual income—click to explore why bank valuation is a world of its own.</p>
-                   <Button asChild variant="link" className="p-0 h-auto text-white mt-2">
-                      <a href="/Understanding How To Value Banks.pdf" target="_blank" rel="noopener noreferrer">
-                        View Details <ArrowUpRight className="ml-2 h-4 w-4" />
-                      </a>
-                  </Button>
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="item-4">
-                <AccordionTrigger>Profit Calculator Using Regression - Waaree Renewables</AccordionTrigger>
-                <AccordionContent>
-                  <p>An analysis using regression to calculate and forecast profit for Waaree Renewables.</p>
-                   <Button asChild variant="link" className="p-0 h-auto text-white mt-2">
-                      <a href="/Profit Calculator Using Regression.pdf" target="_blank" rel="noopener noreferrer">
-                        View Details <ArrowUpRight className="ml-2 h-4 w-4" />
-                      </a>
-                  </Button>
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="item-5">
-                <AccordionTrigger>Monte Carlo Simulation - Amazon Stock</AccordionTrigger>
-                <AccordionContent>
-                  <p>A simulation model to forecast Amazon’s stock price by modeling uncertainty and analyzing probable outcomes.</p>
-                   <Button asChild variant="link" className="p-0 h-auto text-white mt-2">
-                      <a href="/Monte_Carlo_Amazon.pdf" target="_blank" rel="noopener noreferrer">
-                        View Details <ArrowUpRight className="ml-2 h-4 w-4" />
-                      </a>
-                  </Button>
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
+            <div className="relative mx-auto max-w-5xl">
+              <div className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 bg-border"></div>
+              {learningJourney.map((item, index) => (
+                <div key={index} className="group relative mb-8 flex w-full items-center">
+                  <div className="absolute left-1/2 -translate-x-1/2 transform">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-secondary text-secondary-foreground shadow-md transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                      <item.icon className="h-6 w-6" />
+                    </div>
+                  </div>
+                  <div className={`flex w-full ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
+                    <div className="w-1/2 px-4">
+                      <Card className={`transform transition-transform duration-300 group-hover:scale-105 ${index % 2 === 0 ? 'text-left' : 'text-right'}`}>
+                        <CardHeader>
+                          <CardTitle>{item.title}</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <p className="text-muted-foreground">{item.description}</p>
+                        </CardContent>
+                        <CardFooter className={`${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
+                          <Button asChild variant="link" className="p-0 h-auto text-white">
+                            <a href={item.link} target="_blank" rel="noopener noreferrer">
+                              View Details <ArrowUpRight className="ml-2 h-4 w-4" />
+                            </a>
+                          </Button>
+                        </CardFooter>
+                      </Card>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -464,3 +467,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
