@@ -77,9 +77,9 @@ const projects = [
     link: "https://priyam709.github.io/Profit-Calculator-Using-Regression/",
   },
   {
-    title: "Prospera - Risk & Portfolio Recommendation",
-    description: "• Investment risk analysis. • Provides portfolio recommendations.",
-    link: "#",
+    title: "Equity Research Report",
+    description: "• Waaree Renewables • Ratio Analysis • Dupont Analysis • ROE Vs ROCE • Financial Dashboard",
+    link: "/Equity Research Report - Waaree Renewables.pdf",
   },
 ];
 
@@ -447,3 +447,4 @@ export default function Home() {
 }
 
     
+
