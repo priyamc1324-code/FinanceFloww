@@ -62,9 +62,9 @@ const projects = [
     link: "https://docs.google.com/spreadsheets/d/1kDff1Gp9vKbPg18E8a3tj67rOhiLmIfuvepsyMv5I5U/edit?usp=sharing",
   },
   {
-    title: "Startup Valuation",
-    description: "Valuation models tailored for early-stage and high-growth startups.",
-    link: "#",
+    title: "Discounted Cash flow Valuation ( DCF )",
+    description: "This DCF valuation model estimates a company’s intrinsic value by forecasting future cash flows and discounting them to the present, capturing the true economic worth of the business beyond short-term market noise.",
+    link: "https://docs.google.com/spreadsheets/d/1r40DyjRoooLnMTJgE2V9f-7ap2KqdwnWGwsefzsv1Fo/edit?usp=sharing",
   },
   {
     title: "Equity Research Report",
