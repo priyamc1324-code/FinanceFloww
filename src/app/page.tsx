@@ -230,20 +230,8 @@ export default function Home() {
               <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-black">
                 About Me
               </h2>
-              <p className="text-black md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed font-bold">
-                I am a passionate and driven finance student with a strong
-                quantitative background and a keen interest in the intersection
-                of finance and technology. My journey has equipped me with a
-                solid foundation in financial modeling, valuation, and data
-                analysis using Python. I thrive on dissecting complex financial
-                problems and building models that provide clear, actionable
-                insights.
-              </p>
-              <p className="text-black md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed font-bold">
-                What sets me apart is my ability to bridge the gap between
-                traditional finance principles and modern analytical techniques.
-                This portfolio showcases my key projects, skills, and the
-                continuous learning journey that shapes my professional growth.
+              <p className="text-black md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed font-bold text-justify">
+                I am a passionate and driven finance student with a strong quantitative background and a keen interest in the intersection of finance and technology. My journey has equipped me with a solid foundation in financial modeling, valuation, and data analysis using Python. I thrive on dissecting complex financial problems and building models that provide clear, actionable insights. What sets me apart is my ability to bridge the gap between traditional finance principles and modern analytical techniques. This portfolio showcases my key projects, skills, and the continuous learning journey that shapes my professional growth.
               </p>
             </div>
           </div>
@@ -468,3 +456,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
