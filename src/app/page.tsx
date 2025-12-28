@@ -129,8 +129,18 @@ const awards = [
   { name: "Featured in Times of India", event: "Academic Achievement" },
 ];
 
-const workExperience: { name: string, issuer: string }[] = [
-  // Add your work experience here
+const workExperience = [
+  {
+    company: "Mu Sigma",
+    role: "Full-Time Intern",
+    duration: "2025 – Present",
+    description: [
+      "Delivered data-driven analytics for a Fortune 500 client on asset reliability, cost, and ROIC.",
+      "Developed a Python-based predictive maintenance model to forecast equipment failures.",
+      "Analyzed maintenance cycles to identify a potential 15-20% reduction in operating costs.",
+      "Guided capital allocation and improved efficiency by 10-15% through asset performance analysis.",
+    ],
+  },
 ];
 
 const learningJourney = [
@@ -361,12 +371,19 @@ export default function Home() {
                     {workExperience.length > 0 ? (
                       <ul className="space-y-4 pt-4">
                         {workExperience.map((exp, i) => (
-                          <li key={i} className="flex items-center justify-between rounded-lg bg-background p-4 text-white">
-                            <div>
-                              <p className="font-medium">{exp.name}</p>
-                              <p className="text-sm text-muted-foreground">{exp.issuer}</p>
+                          <li key={i} className="flex flex-col items-start rounded-lg bg-background p-4 text-white">
+                            <div className="w-full flex justify-between items-start">
+                              <div>
+                                <p className="font-bold">{exp.company}</p>
+                                <p className="text-sm text-muted-foreground">{exp.role}</p>
+                              </div>
+                              <p className="text-xs text-muted-foreground">{exp.duration}</p>
                             </div>
-                            <Button variant="ghost" size="icon" asChild><a href="#"><ArrowUpRight/></a></Button>
+                            <ul className="mt-2 list-disc list-inside space-y-1 text-sm">
+                              {exp.description.map((point, j) => (
+                                <li key={j}>{point}</li>
+                              ))}
+                            </ul>
                           </li>
                         ))}
                       </ul>
@@ -445,12 +462,19 @@ export default function Home() {
                   {workExperience.length > 0 ? (
                     <ul className="space-y-4">
                       {workExperience.map((exp, i) => (
-                        <li key={i} className="flex items-center justify-between rounded-lg bg-background p-4 text-white">
-                          <div>
-                            <p className="font-medium">{exp.name}</p>
-                            <p className="text-sm text-muted-foreground">{exp.issuer}</p>
+                        <li key={i} className="flex flex-col items-start rounded-lg bg-background p-4 text-white">
+                          <div className="w-full flex justify-between items-start">
+                            <div>
+                              <p className="font-bold text-lg">{exp.company}</p>
+                              <p className="text-md text-muted-foreground">{exp.role}</p>
+                            </div>
+                            <p className="text-sm text-muted-foreground">{exp.duration}</p>
                           </div>
-                          <Button variant="ghost" size="icon" asChild><a href="#"><ArrowUpRight/></a></Button>
+                          <ul className="mt-3 list-disc list-inside space-y-1 text-sm text-gray-300">
+                            {exp.description.map((point, j) => (
+                              <li key={j}>{point}</li>
+                            ))}
+                          </ul>
                         </li>
                       ))}
                     </ul>
