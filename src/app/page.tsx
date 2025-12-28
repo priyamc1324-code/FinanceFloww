@@ -326,45 +326,23 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="skills" className="w-full overflow-x-hidden bg-background py-12 text-foreground md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
-            <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-24">
-              <div className="space-y-6" data-aos="fade-right">
-                <h3 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
-                  Skills & Expertise
-                </h3>
-                <div className="space-y-4">
-                  {skills.map((skill, index) => (
-                    <div key={index} className="group relative">
-                      <p className="text-lg font-medium text-gray-300 transition-colors group-hover:text-white">
-                        {skill}
-                      </p>
-                      <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-primary transition-all duration-300 group-hover:w-full"></div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="space-y-6" data-aos="fade-left">
-                <h3 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
-                  Tools I Use
-                </h3>
-                <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4">
-                  {tools.map((tool, index) => (
-                    <div
-                      key={index}
-                      className="group flex flex-col items-center justify-center gap-2 rounded-lg p-4 text-center transition-transform duration-300 hover:scale-110"
-                    >
-                      <tool.icon className="h-10 w-10 text-gray-400 transition-colors group-hover:text-white" />
-                      <p className="text-sm font-medium text-gray-400 transition-colors group-hover:text-white">
-                        {tool.name}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
+        <section id="skills" className="w-full bg-background py-12 text-foreground md:py-24 lg:py-32">
+          <div className="container px-4 md:px-6 flex flex-col items-center">
+            <h2 className="mb-12 text-center font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+              Skills & Tools
+            </h2>
+            <div className="relative w-full max-w-4xl">
+              <Image
+                src="/skills-and-tools.png"
+                alt="Skills and Tools"
+                width={1200}
+                height={600}
+                className="rounded-lg shadow-lg object-contain"
+              />
             </div>
           </div>
         </section>
+
 
         <section id="education" className="w-full py-12 md:py-24 lg:py-32 bg-secondary text-secondary-foreground">
           <div className="container px-4 md:px-6">
@@ -488,6 +466,8 @@ export default function Home() {
     </div>
   );
 }
+
+    
 
     
 
