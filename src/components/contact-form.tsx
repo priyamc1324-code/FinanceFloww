@@ -48,8 +48,7 @@ export default function ContactForm() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
     
-    // IMPORTANT: Replace with your own access key from web3forms.com
-    const accessKey = "YOUR_ACCESS_KEY_HERE";
+    const accessKey = "83321c5f-e1c4-48e8-b8fa-c5b7c2a7a5ae";
 
     const formData = new FormData();
     formData.append("access_key", accessKey);
