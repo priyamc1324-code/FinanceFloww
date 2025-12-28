@@ -5,10 +5,13 @@ import {
   ArrowUpRight,
   BookOpen,
   Briefcase,
+  Code,
+  Database,
   FileText,
   Linkedin,
   Mail,
   Phone,
+  Table,
   TrendingUp,
   Trophy,
 } from "lucide-react";
@@ -90,7 +93,12 @@ const skills = [
   "Machine Learning for Predictive Analytics",
 ];
 
-const tools = ["Python", "Microsoft Excel", "SQL", "Tableau"];
+const tools = [
+    { name: "Python", icon: Code },
+    { name: "Microsoft Excel", icon: Table },
+    { name: "SQL", icon: Database },
+    { name: "Tableau", icon: TrendingUp },
+];
 
 const certifications = [
   { name: "Microsoft Advanced Excel", issuer: "Microsoft" },
@@ -139,10 +147,10 @@ const learningJourney = [
       link: "/Profit Calculator Using Regression.pdf",
     },
     {
-        icon: TrendingUp,
-        title: "Monte Carlo Simulation - Amazon Stock",
-        description: "A simulation model to forecast Amazon’s stock price by modeling uncertainty and analyzing probable outcomes.",
-        link: "/Monte_Carlo_Amazon.pdf",
+      icon: TrendingUp,
+      title: "Monte Carlo Simulation - Amazon Stock",
+      description: "A simulation model to forecast Amazon’s stock price by modeling uncertainty and analyzing probable outcomes.",
+      link: "/Monte_Carlo_Amazon.pdf",
     },
 ];
 
@@ -159,7 +167,7 @@ export default function Home() {
               Priyam Chandan
             </h1>
             <p className="mt-4 font-body text-sm uppercase tracking-widest text-gray-300 md:text-base">
-              Finance & Analytics | Valuation | Equity Research | Financial Modelling | Python For Financial Analysis
+              Finance &amp; Analytics | Valuation | Equity Research | Financial Modelling | Python For Financial Analysis
             </p>
             
             <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
@@ -320,24 +328,32 @@ export default function Home() {
 
         <section id="skills" className="w-full py-12 md:py-24 lg:py-32 bg-background text-foreground">
           <div className="container px-4 md:px-6">
-            <div className="grid gap-12">
-              <div className="space-y-4">
-                <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
-                  Skills & Expertise
+            <div className="grid gap-16">
+              <div className="space-y-8">
+                <h2 className="text-center font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
+                  Skills &amp; Expertise
                 </h2>
-                <div className="flex flex-wrap gap-2">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
                   {skills.map((skill, index) => (
-                    <Badge key={index} variant="outline" className="border-gray-600 text-gray-300">{skill}</Badge>
+                    <div key={index} className="group relative flex items-center justify-center rounded-lg border border-gray-700 bg-gray-800/20 p-6 text-center transition-all duration-300 hover:bg-gray-800/50">
+                      <div className="absolute inset-0 rounded-lg border-2 border-transparent transition-all duration-300 group-hover:border-accent"></div>
+                      <p className="text-sm font-medium text-gray-300 group-hover:text-white sm:text-base">{skill}</p>
+                    </div>
                   ))}
                 </div>
               </div>
-              <div className="space-y-4">
-                <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
+              <div className="space-y-8">
+                <h2 className="text-center font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
                   Tools I Use
                 </h2>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap justify-center gap-6 md:gap-8">
                   {tools.map((tool, index) => (
-                    <Badge key={index} variant="secondary" className="text-black bg-white">{tool}</Badge>
+                     <div key={index} className="flex flex-col items-center gap-3 text-center">
+                      <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gray-800/50 transition-all duration-300 hover:bg-accent/20 hover:scale-110">
+                        <tool.icon className="h-10 w-10 text-accent" />
+                      </div>
+                      <p className="text-sm font-medium text-gray-300">{tool.name}</p>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -348,7 +364,7 @@ export default function Home() {
         <section id="education" className="w-full py-12 md:py-24 lg:py-32 bg-secondary text-secondary-foreground">
           <div className="container px-4 md:px-6">
              <h2 className="mb-12 text-center font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-              Education & Achievements
+              Education &amp; Achievements
             </h2>
             <Tabs defaultValue="work-experience" className="mx-auto max-w-4xl">
               <TabsList className="grid w-full grid-cols-4 bg-muted text-muted-foreground">
@@ -467,5 +483,7 @@ export default function Home() {
     </div>
   );
 }
+
+    
 
     
