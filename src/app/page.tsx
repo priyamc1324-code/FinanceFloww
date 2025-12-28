@@ -5,7 +5,6 @@ import {
   ArrowUpRight,
   BookOpen,
   Briefcase,
-  Github,
   Linkedin,
   Mail,
   Phone,
@@ -46,6 +45,7 @@ import Header from "@/components/header";
 import ContactForm from "@/components/contact-form";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import Link from "next/link";
+import FinancialBackground from "@/components/financial-background";
 
 const aboutImage = PlaceHolderImages.find((img) => img.id === 'profile-about');
 const contactImage = PlaceHolderImages.find((img) => img.id === 'profile-contact');
@@ -121,8 +121,8 @@ export default function Home() {
     <div className="flex min-h-screen w-full flex-col bg-background text-foreground">
       <Header />
       <main className="flex-1">
-        <section id="home" className="relative h-screen w-full bg-background text-foreground">
-          <div className="absolute inset-0 -z-10 bg-gradient-to-br from-gray-900 via-black to-gray-800" />
+        <section id="home" className="relative h-screen w-full">
+          <FinancialBackground />
           <div className="container relative z-10 flex h-full flex-col items-center justify-center text-center">
             <h1 className="font-headline text-5xl font-bold tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl">
               Priyam Chandan
@@ -423,4 +423,5 @@ export default function Home() {
       </footer>
     </div>
   );
-}
+
+    
