@@ -53,32 +53,32 @@ const contactImage = PlaceHolderImages.find((img) => img.id === 'profile-contact
 const projects = [
   {
     title: "A Three Statement Financial Model",
-    description: "The foundational interconnected model of the Income Statement, Balance Sheet, and Cash Flow Statement.",
+    description: "• Foundational interconnected model of Income Statement, Balance Sheet, and Cash Flow.",
     link: "https://docs.google.com/spreadsheets/d/1kwMfAqfVWhnHLtKcYRn7V2D7jBS-OZ3ACCVTRIEYOjs/edit?usp=sharing",
   },
   {
     title: "Basic Comparable Comps Model",
-    description: "Relative valuation using market multiples for industry benchmarking.",
+    description: "• Relative valuation using market multiples. • Industry benchmarking.",
     link: "https://docs.google.com/spreadsheets/d/1kDff1Gp9vKbPg18E8a3tj67rOhiLmIfuvepsyMv5I5U/edit?usp=sharing",
   },
   {
     title: "Discounted Cash flow Valuation ( DCF )",
-    description: "This DCF valuation model estimates a company’s intrinsic value by forecasting future cash flows and discounting them to the present, capturing the true economic worth of the business beyond short-term market noise.",
+    description: "• Intrinsic value estimation. • Future cash flow forecasting. • Present value discounting.",
     link: "https://docs.google.com/spreadsheets/d/1r40DyjRoooLnMTJgE2V9f-7ap2KqdwnWGwsefzsv1Fo/edit?usp=sharing",
   },
   {
     title: "Advanced Trading Comps Model",
-    description: "An advanced trading comparables model that benchmarks companies like Tesco and Sainsbury’s using LTM financials, normalized income statements, and sector-relevant multiples, ensuring clean peer comparability and valuation accuracy.",
+    description: "• Benchmarks Tesco & Sainsbury’s. • Uses LTM financials & normalized income. • Sector-relevant multiples for accuracy.",
     link: "https://docs.google.com/spreadsheets/d/1oVlCkSajWWbvtoAKD4ewbBdEYf_oLtyTfIgY7wSZQ90/edit?usp=sharing",
   },
   {
     title: "Forecast Calculator using Regression",
-    description: "Python-based tool for financial forecasting using statistical regression.",
+    description: "• Python-based financial forecasting. • Utilizes statistical regression analysis.",
     link: "#",
   },
   {
     title: "Prospera - Risk & Portfolio Recommendation",
-    description: "A system for analyzing investment risk and providing portfolio recommendations.",
+    description: "• Investment risk analysis. • Provides portfolio recommendations.",
     link: "#",
   },
 ];
@@ -434,5 +434,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
