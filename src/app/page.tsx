@@ -17,6 +17,7 @@ import {
   TrendingUp,
   Trophy,
   ChevronRight,
+  ChevronDown,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -99,14 +100,14 @@ const projects = [
 ];
 
 const skills = [
-    "Financial Modelling", 
-    "Valuation", 
-    "Equity Research", 
-    "Advanced Microsoft Excel",
-    "Python For Financial Analysis", 
-    "Machine Learning For Predictive Analytics", 
-    "Statistics For Finance", 
-    "Prompt Engineering"
+  "Financial Modelling", 
+  "Valuation", 
+  "Equity Research", 
+  "Advanced Microsoft Excel",
+  "Python For Financial Analysis", 
+  "Machine Learning For Predictive Analytics", 
+  "Statistics For Finance", 
+  "Prompt Engineering"
 ];
 
 const tools = [
@@ -341,25 +342,17 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="skills" className="relative w-full py-12 md:py-24 lg:py-32 text-foreground overflow-hidden">
-          <Image
-            src="/new_background.png"
-            alt="Skills and Tools background"
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-black/60" />
-          <div className="container relative z-10 flex flex-col items-center justify-center space-y-12 h-full">
+        <section id="skills" className="w-full py-12 md:py-24 lg:py-32 bg-gray-900 text-white">
+          <div className="container flex flex-col items-center justify-center space-y-12 h-full px-4 md:px-6">
             <div className="text-center">
-              <h2 className="font-headline text-3xl font-bold tracking-tighter text-white sm:text-4xl md:text-5xl">
+              <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                 Skills & Tools
               </h2>
             </div>
             <div className="grid w-full max-w-4xl grid-cols-1 md:grid-cols-2 gap-16 items-start">
               
-              {/* Skills Column */}
               <div className="space-y-4">
-                <h3 className="font-headline text-2xl font-bold text-white text-center">Skills</h3>
+                <h3 className="font-headline text-2xl font-bold text-center">Skills</h3>
                 <ul className="space-y-3">
                   {skills.map((skill, index) => (
                     <li
@@ -367,16 +360,15 @@ export default function Home() {
                       className="group flex items-center gap-3 p-3 border-b border-white/20 transition-all duration-300 hover:bg-white/10 rounded-md"
                       style={{ animation: `fadeInUp 0.5s ${index * 0.1}s ease-out both` }}
                     >
-                      <ChevronRight className="h-5 w-5 text-white transition-transform duration-300 group-hover:translate-x-1" />
-                      <span className="text-white">{skill}</span>
+                      <ChevronRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+                      <span>{skill}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              {/* Tools Column */}
               <div className="space-y-4">
-                <h3 className="font-headline text-2xl font-bold text-white text-center">Tools I Use</h3>
+                <h3 className="font-headline text-2xl font-bold text-center">Tools I Use</h3>
                 <ul className="space-y-3">
                   {tools.map((tool, index) => (
                     <li
@@ -384,8 +376,8 @@ export default function Home() {
                       className="group flex items-center gap-3 p-3 border-b border-white/20 transition-all duration-300 hover:bg-white/10 rounded-md"
                       style={{ animation: `fadeInUp 0.5s ${ (skills.length + index) * 0.1}s ease-out both` }}
                     >
-                      <tool.icon className="h-5 w-5 text-white" />
-                      <span className="text-white">{tool.name}</span>
+                      <tool.icon className="h-5 w-5" />
+                      <span>{tool.name}</span>
                     </li>
                   ))}
                 </ul>
@@ -636,3 +628,4 @@ export default function Home() {
     
 
     
+
