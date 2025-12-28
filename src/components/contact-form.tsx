@@ -31,14 +31,7 @@ const formSchema = z.object({
   }),
 });
 
-export type MessageInput = z.infer<typeof formSchema>;
-
-type ContactFormProps = {
-  onSendMessage: (message: MessageInput) => void;
-};
-
-
-export default function ContactForm({ onSendMessage }: ContactFormProps) {
+export default function ContactForm() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -54,8 +47,8 @@ export default function ContactForm({ onSendMessage }: ContactFormProps) {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
     try {
-      // Instead of sending to a backend, we call the passed-in function
-      onSendMessage(values);
+      // Here you would typically send the form data to your backend
+      console.log("Form submitted with values:", values);
 
       toast({
         title: "Message Sent! 🚀",
@@ -64,11 +57,11 @@ export default function ContactForm({ onSendMessage }: ContactFormProps) {
 
       form.reset();
     } catch (error) {
-      console.error("Error saving message:", error);
+      console.error("Error submitting form:", error);
       toast({
         variant: "destructive",
         title: "Uh oh! Something went wrong.",
-        description: "There was a problem saving your message. Please try again.",
+        description: "There was a problem sending your message. Please try again.",
       });
     } finally {
       setIsSubmitting(false);
