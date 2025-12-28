@@ -18,7 +18,8 @@ import {
   Trophy,
   ChevronRight,
   ChevronDown,
-  ArrowDown
+  ArrowDown,
+  ArrowLeft
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -63,6 +64,9 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 import Link from "next/link";
 import FinancialBackground from "@/components/financial-background";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useState } from "react";
+import { cn } from "@/lib/utils";
+
 
 const aboutImage = PlaceHolderImages.find((img) => img.id === 'profile-about');
 const contactImage = PlaceHolderImages.find((img) => img.id === 'profile-contact');
@@ -100,13 +104,18 @@ const projects = [
   },
 ];
 
-const skillsData = {
-  foundations: ["Statistics", "Excel", "Accounting"],
-  coreFinance: ["Valuation", "Financial Modelling", "Equity Research"],
-  advancedAnalytics: ["Python", "Machine Learning", "Monte Carlo", "Predictive Models"],
-};
+const skillsData = [
+    "Financial Modelling",
+    "Valuation",
+    "Equity Research",
+    "Advanced Microsoft Excel",
+    "Python For Financial Analysis",
+    "Machine Learning For Predictive Analytics",
+    "Statistics For Finance",
+    "Prompt Engineering",
+];
 
-const tools = [
+const toolsData = [
   { name: "Python", icon: Code },
   { name: "Excel", icon: Table },
   { name: "SQL", icon: Database },
@@ -179,6 +188,11 @@ const learningJourney = [
 
 export default function Home() {
   const isMobile = useIsMobile();
+  const [activeAccordion, setActiveAccordion] = useState<string | null>(null);
+
+  const handleAccordionClick = (value: string) => {
+    setActiveAccordion(activeAccordion === value ? null : value);
+  };
   
   return (
     <div className="flex min-h-screen w-full flex-col bg-background text-foreground">
@@ -338,60 +352,83 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="skills" className="w-full py-12 md:py-24 lg:py-32 bg-gray-300 text-black">
-          <div className="container flex flex-col items-center justify-center space-y-12 h-full px-4 md:px-6">
-            <div className="text-center">
-              <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                Skills &amp; Tools
-              </h2>
-            </div>
-            <div className="grid w-full max-w-4xl grid-cols-1 md:grid-cols-2 gap-16 items-start">
-              
-              <div className="space-y-6">
-                <h3 className="text-2xl font-bold text-center font-headline">Skills</h3>
-                <div className="flex flex-col items-center space-y-4">
-                  <div className="text-center">
-                    <h4 className="font-semibold">Foundations</h4>
-                    <p className="text-sm text-gray-600">{skillsData.foundations.join(" • ")}</p>
-                  </div>
-                  <ArrowDown className="text-gray-500" />
-                  <div className="text-center">
-                    <h4 className="font-semibold">Core Finance</h4>
-                    <p className="text-sm text-gray-600">{skillsData.coreFinance.join(" • ")}</p>
-                  </div>
-                   <ArrowDown className="text-gray-500" />
-                  <div className="text-center">
-                    <h4 className="font-semibold">Advanced Analytics</h4>
-                    <p className="text-sm text-gray-600">{skillsData.advancedAnalytics.join(" • ")}</p>
-                  </div>
-                </div>
-              </div>
+        <section id="skills" className="w-full py-12 md:py-24 lg:py-32 bg-gray-400 text-black">
+            <div className="container px-4 md:px-6">
+                <h2 className="mb-12 text-center font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                    Skills &amp; Tools
+                </h2>
+                {isMobile ? (
+                    <div className="relative w-full">
+                        <div className="flex justify-between items-center mb-4">
+                            <button
+                                onClick={() => handleAccordionClick("skills")}
+                                className="text-xl font-bold flex items-center"
+                            >
+                                Skills <ChevronDown className={cn("ml-2 h-5 w-5 transition-transform", activeAccordion === 'skills' && "rotate-180")} />
+                            </button>
+                            <button
+                                onClick={() => handleAccordionClick("tools")}
+                                className="text-xl font-bold flex items-center"
+                            >
+                                <ChevronDown className={cn("mr-2 h-5 w-5 transition-transform", activeAccordion === 'tools' && "rotate-180")} /> Tools I Use
+                            </button>
+                        </div>
+                        
+                        {activeAccordion === 'skills' && (
+                            <ul className="space-y-3 animate-fadeInUp">
+                                {skillsData.map((skill, index) => (
+                                    <li key={index} className="flex items-center text-left">
+                                        <ChevronRight className="h-5 w-5 mr-2" />
+                                        <span>{skill}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
 
-              <div className="space-y-6">
-                <h3 className="font-headline text-2xl font-bold text-center">Tools I Use</h3>
-                <ul className="space-y-4">
-                  {tools.map((tool, index) => (
-                    <li
-                      key={tool.name}
-                      className="flex flex-col items-center"
-                      style={{ animation: `fadeInUp 0.5s ${ (index) * 0.1}s ease-out both` }}
-                    >
-                      <div
-                        className="flex items-center gap-3"
-                      >
-                        <tool.icon className="h-5 w-5" />
-                        <span>{tool.name}</span>
-                      </div>
-                      {index < tools.length - 1 && <hr className="w-full border-t border-gray-400 my-4" />}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
+                        {activeAccordion === 'tools' && (
+                            <ul className="space-y-3 animate-fadeInUp text-right">
+                                {toolsData.map((tool, index) => (
+                                    <li key={index} className="flex items-center justify-end">
+                                        <span>{tool.name}</span>
+                                        <ArrowLeft className="h-5 w-5 ml-2" />
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                    </div>
+                ) : (
+                    <div className="grid w-full max-w-5xl grid-cols-1 md:grid-cols-2 gap-16 items-start mx-auto">
+                        <div className="space-y-6 animate-fadeInUp" style={{ animationDelay: "0.2s" }}>
+                            <h3 className="font-headline text-2xl font-bold text-center">Skills</h3>
+                            <ul className="space-y-4">
+                                {skillsData.map((skill, index) => (
+                                    <React.Fragment key={index}>
+                                        <li className="flex items-center">
+                                            <span>{skill}</span>
+                                        </li>
+                                        {index < skillsData.length - 1 && <hr className="border-gray-600" />}
+                                    </React.Fragment>
+                                ))}
+                            </ul>
+                        </div>
+                        <div className="space-y-6 animate-fadeInUp" style={{ animationDelay: "0.4s" }}>
+                            <h3 className="font-headline text-2xl font-bold text-center">Tools I Use</h3>
+                            <ul className="space-y-4">
+                                {toolsData.map((tool, index) => (
+                                    <React.Fragment key={index}>
+                                        <li className="flex items-center gap-3">
+                                            <tool.icon className="h-5 w-5" />
+                                            <span>{tool.name}</span>
+                                        </li>
+                                        {index < toolsData.length - 1 && <hr className="border-gray-600" />}
+                                    </React.Fragment>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                )}
             </div>
-          </div>
         </section>
-
 
         <section id="education" className="w-full py-12 md:py-24 lg:py-32 bg-secondary text-secondary-foreground">
           <div className="container px-4 md:px-6">
@@ -623,6 +660,9 @@ export default function Home() {
             opacity: 1;
             transform: translateY(0);
           }
+        }
+        .animate-fadeInUp {
+          animation: fadeInUp 0.5s ease-out forwards;
         }
       `}</style>
     </div>
