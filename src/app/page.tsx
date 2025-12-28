@@ -1,4 +1,5 @@
 
+
 "use client";
 
 import Image from "next/image";
@@ -129,7 +130,16 @@ const certifications = [
 ];
 
 const education = [
-    { name: "BBA Decision Science", institution: "Christ University" }
+    {
+      degree: "BBA Decision Science",
+      institution: "Christ University",
+      detail: "GPA - 3.91/4"
+    },
+    {
+      degree: "St Josephs Pre University College",
+      institution: "",
+      detail: "12th Board - 96.5%"
+    }
 ];
 
 const awards = [
@@ -505,8 +515,9 @@ export default function Home() {
                   <AccordionContent>
                     <ul className="space-y-4 pt-4">
                       {education.map((edu, i) => (
-                        <li key={i} className="flex items-center rounded-lg bg-background p-4 text-white">
-                            <p className="font-medium">{edu.name} - <span className="text-muted-foreground">{edu.institution}</span></p>
+                        <li key={i} className="rounded-lg bg-background p-4 text-white">
+                            <p className="font-medium">{edu.degree}{edu.institution && ` - ${edu.institution}`}</p>
+                            <p className="text-sm text-muted-foreground">{edu.detail}</p>
                         </li>
                       ))}
                     </ul>
@@ -580,8 +591,9 @@ export default function Home() {
                 <TabsContent value="education" className="mt-6">
                   <ul className="space-y-4">
                     {education.map((edu, i) => (
-                      <li key={i} className="flex items-center rounded-lg bg-background p-4 text-white">
-                          <p className="font-medium">{edu.name} - <span className="text-muted-foreground">{edu.institution}</span></p>
+                      <li key={i} className="rounded-lg bg-background p-4 text-white">
+                          <p className="font-medium">{edu.degree}{edu.institution && ` - ${edu.institution}`}</p>
+                          <p className="text-sm text-muted-foreground">{edu.detail}</p>
                       </li>
                     ))}
                   </ul>
