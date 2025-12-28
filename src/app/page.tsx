@@ -284,8 +284,8 @@ export default function Home() {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="bg-black text-white border-black hover:bg-gray-800 hover:text-white" />
-              <CarouselNext className="bg-black text-white border-black hover:bg-gray-800 hover:text-white" />
+              <CarouselPrevious className="bg-white text-black border-white hover:bg-gray-200 hover:text-black sm:-left-12 -left-4" />
+              <CarouselNext className="bg-white text-black border-white hover:bg-gray-200 hover:text-black sm:-right-12 -right-4" />
             </Carousel>
           </div>
         </section>
@@ -322,15 +322,15 @@ export default function Home() {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="bg-black text-white border-black hover:bg-gray-800 hover:text-white" />
-              <CarouselNext className="bg-black text-white border-black hover:bg-gray-800 hover:text-white" />
+              <CarouselPrevious className="bg-white text-black border-white hover:bg-gray-200 hover:text-black sm:-left-12 -left-4" />
+              <CarouselNext className="bg-white text-black border-white hover:bg-gray-200 hover:text-black sm:-right-12 -right-4" />
             </Carousel>
           </div>
         </section>
 
         <section id="skills" className="w-full bg-background py-12 text-foreground md:py-24 lg:py-32">
             <div className="container flex justify-center items-center px-4 md:px-6">
-                <div className="relative w-full max-w-4xl">
+                <div className="relative w-full max-w-6xl">
                     <Image
                         src="/Skills_tools.jpeg"
                         alt="Skills and Tools"
