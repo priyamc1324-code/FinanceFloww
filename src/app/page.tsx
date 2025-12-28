@@ -2,7 +2,9 @@
 "use client";
 
 import Image from "next/image";
+import React from 'react';
 import {
+  ArrowDown,
   ArrowUpRight,
   BookOpen,
   Briefcase,
@@ -15,7 +17,6 @@ import {
   Table,
   TrendingUp,
   Trophy,
-  ChevronRight,
 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
@@ -356,26 +357,40 @@ export default function Home() {
                 Skills & Tools
               </h2>
             </div>
-            <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
-              <div className="space-y-6">
-                <h3 className="font-headline text-2xl font-bold text-white text-center">Core Skills</h3>
-                <div className="flex flex-wrap justify-center gap-3">
-                  {skills.map((skill) => (
-                    <div key={skill} className="rounded-full border border-white/50 bg-white/10 px-4 py-2 text-white transition-all duration-300 hover:scale-105 hover:border-white hover:bg-white/20">
-                      {skill}
-                    </div>
-                  ))}
+            <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
+              <div className="space-y-8 text-center">
+                <h3 className="font-headline text-2xl font-bold text-white">Skills</h3>
+                <div className="flex flex-col items-center justify-center space-y-4 text-white">
+                  <div className="text-center">
+                    <p className="text-lg font-semibold tracking-wider uppercase text-gray-300">Foundations</p>
+                    <p className="text-base">Statistics • Excel • Accounting</p>
+                  </div>
+                  <ArrowDown className="h-6 w-6 text-gray-400" />
+                  <div className="text-center">
+                    <p className="text-lg font-semibold tracking-wider uppercase text-gray-300">Core Finance</p>
+                    <p className="text-base">Valuation • Financial Modelling • Equity Research</p>
+                  </div>
+                  <ArrowDown className="h-6 w-6 text-gray-400" />
+                  <div className="text-center">
+                    <p className="text-lg font-semibold tracking-wider uppercase text-gray-300">Advanced Analytics</p>
+                    <p className="text-base">Python • Machine Learning • Monte Carlo • Predictive Models</p>
+                  </div>
                 </div>
               </div>
-              <div className="space-y-6">
-                <h3 className="font-headline text-2xl font-bold text-white text-center">Tools I Use</h3>
-                <div className="flex flex-wrap justify-center gap-4">
-                  {tools.map((tool) => (
-                    <div key={tool.name} className="flex items-center gap-3 rounded-full border border-white/50 bg-white/10 px-4 py-2 text-white transition-all duration-300 hover:scale-105 hover:border-white hover:bg-white/20">
-                      <tool.icon className="h-5 w-5" />
-                      <span>{tool.name}</span>
-                    </div>
-                  ))}
+              <div className="space-y-8 text-center">
+                <h3 className="font-headline text-2xl font-bold text-white">Tools I Use</h3>
+                <div className="flex flex-col items-center justify-center space-y-4 text-white">
+                  <div className="w-full max-w-xs space-y-4">
+                    {tools.map((tool, index) => (
+                      <React.Fragment key={tool.name}>
+                        <div className="flex items-center gap-4 text-lg">
+                          <tool.icon className="h-6 w-6" />
+                          <span>{tool.name}</span>
+                        </div>
+                        {index < tools.length - 1 && <div className="h-px w-full bg-white/30" />}
+                      </React.Fragment>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
