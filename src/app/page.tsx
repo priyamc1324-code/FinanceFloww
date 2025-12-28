@@ -137,9 +137,9 @@ const workExperience = [
     duration: "2025 – Present",
     description: [
       "Delivered data-driven analytics for a Fortune 500 client, focusing on asset reliability, cost efficiency, and ROIC improvement.",
-      "Developed a Python-based predictive maintenance model to forecast equipment failures.",
-      "Analyzed maintenance cycles to identify a potential 15-20% reduction in operating costs.",
-      "Guided capital allocation and improved efficiency by 10-15% through asset performance analysis.",
+      "Developed a Python-based predictive maintenance model using sensor data to forecast equipment failures and support preventive CAPEX planning.",
+      "Analyzed maintenance cycles and asset performance to optimize repair schedules, enabling a 15–20% potential reduction in operating costs.",
+      "Identified high-risk and high-performing assets to guide capital allocation, maintenance prioritization, and lifecycle cost management, improving operational efficiency by 10–15%.",
     ],
   },
 ];
@@ -338,7 +338,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="skills" className="w-full py-12 md:py-24 lg:py-32 bg-gray-200 text-black">
+        <section id="skills" className="w-full py-12 md:py-24 lg:py-32 bg-gray-300 text-black">
           <div className="container flex flex-col items-center justify-center space-y-12 h-full px-4 md:px-6">
             <div className="text-center">
               <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
@@ -354,12 +354,12 @@ export default function Home() {
                     <h4 className="font-semibold">Foundations</h4>
                     <p className="text-sm text-gray-600">{skillsData.foundations.join(" • ")}</p>
                   </div>
-                  <ArrowDown className="text-gray-400" />
+                  <ArrowDown className="text-gray-500" />
                   <div className="text-center">
                     <h4 className="font-semibold">Core Finance</h4>
                     <p className="text-sm text-gray-600">{skillsData.coreFinance.join(" • ")}</p>
                   </div>
-                   <ArrowDown className="text-gray-400" />
+                   <ArrowDown className="text-gray-500" />
                   <div className="text-center">
                     <h4 className="font-semibold">Advanced Analytics</h4>
                     <p className="text-sm text-gray-600">{skillsData.advancedAnalytics.join(" • ")}</p>
@@ -633,4 +633,3 @@ export default function Home() {
     
 
     
-
