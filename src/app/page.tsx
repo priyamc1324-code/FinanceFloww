@@ -84,6 +84,11 @@ const projects = [
     description: "• Waaree Renewables • Ratio Analysis • Dupont Analysis • ROE Vs ROCE • Financial Dashboard",
     link: "/Equity_Research_Report.pdf",
   },
+  {
+    title: "Monte Carlo Simulation - Amazon Stock",
+    description: "• Stock price modeling under uncertainty • Risk & volatility analysis",
+    link: "/Monte_Carlo_Amazon.pdf",
+  },
 ];
 
 const skills = [
@@ -257,15 +262,15 @@ export default function Home() {
                   </div>
                   <div className={`flex w-full ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
                     <div className="w-1/2 px-4">
-                      <Card className={`transform transition-transform duration-300 group-hover:scale-105 ${index % 2 === 0 ? 'text-left' : 'text-right'}`}>
+                       <Card className={`transform transition-transform duration-300 group-hover:scale-105 ${index % 2 === 0 ? 'text-left' : 'text-right'} bg-gray-200 text-black`}>
                         <CardHeader>
-                          <CardTitle>{item.title}</CardTitle>
+                          <CardTitle className="font-bold">{item.title}</CardTitle>
                         </CardHeader>
                         <CardContent>
-                          <p className="text-muted-foreground">{item.description}</p>
+                          <p>{item.description}</p>
                         </CardContent>
                         <CardFooter className={`${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
-                          <Button asChild variant="link" className="p-0 h-auto text-white">
+                          <Button asChild variant="link" className="p-0 h-auto text-black font-bold">
                             <a href={item.link} target="_blank" rel="noopener noreferrer">
                               View Details <ArrowUpRight className="ml-2 h-4 w-4" />
                             </a>
@@ -467,5 +472,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
