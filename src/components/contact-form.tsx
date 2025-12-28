@@ -1,3 +1,4 @@
+
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -46,16 +47,43 @@ export default function ContactForm() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
-    try {
-      // Here you would typically send the form data to your backend
-      console.log("Form submitted with values:", values);
+    
+    // IMPORTANT: Replace with your own access key from web3forms.com
+    const accessKey = "YOUR_ACCESS_KEY_HERE";
 
-      toast({
-        title: "Message Sent! 🚀",
-        description: "Thanks for reaching out. I'll get back to you soon.",
+    const formData = new FormData();
+    formData.append("access_key", accessKey);
+    formData.append("name", values.name);
+    formData.append("email", values.email);
+    formData.append("message", values.message);
+    formData.append("subject", `New message from ${values.name} via your portfolio`);
+    formData.append("from_name", "Portfolio Contact Form");
+    // This will redirect to your email after submission
+    formData.append("redirect", "https://web3forms.com/success");
+
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
       });
 
-      form.reset();
+      const result = await response.json();
+
+      if (result.success) {
+        toast({
+          title: "Message Sent! 🚀",
+          description: "Thanks for reaching out. I'll get back to you soon.",
+        });
+        form.reset();
+      } else {
+        console.error("Error from Web3Forms:", result);
+        toast({
+          variant: "destructive",
+          title: "Uh oh! Something went wrong.",
+          description: result.message || "There was a problem sending your message. Please try again.",
+        });
+      }
     } catch (error) {
       console.error("Error submitting form:", error);
       toast({
