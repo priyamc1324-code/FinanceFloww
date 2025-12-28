@@ -57,9 +57,9 @@ const projects = [
     link: "https://docs.google.com/spreadsheets/d/1kwMfAqfVWhnHLtKcYRn7V2D7jBS-OZ3ACCVTRIEYOjs/edit?usp=sharing",
   },
   {
-    title: "Comparable Comps Valuation",
+    title: "Basic Comparable Comps Model",
     description: "Relative valuation using market multiples for industry benchmarking.",
-    link: "#",
+    link: "https://docs.google.com/spreadsheets/d/1kDff1Gp9vKbPg18E8a3tj67rOhiLmIfuvepsyMv5I5U/edit?usp=sharing",
   },
   {
     title: "Startup Valuation",
