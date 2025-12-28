@@ -82,6 +82,11 @@ const projects = [
     description: "• Waaree Renewables • Ratio Analysis • Dupont Analysis • ROE Vs ROCE • Financial Dashboard",
     link: "/Equity_Research_Report.pdf",
   },
+  {
+    title: "Profit forecast calculator using regression",
+    description: "An analysis using regression to calculate and forecast profit.",
+    link: "https://priyam709.github.io/Profit-Calculator-Using-Regression/",
+  },
 ];
 
 const skills = [
@@ -469,3 +474,4 @@ export default function Home() {
     
 
     
+
