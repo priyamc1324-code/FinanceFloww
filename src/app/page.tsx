@@ -67,9 +67,9 @@ const projects = [
     link: "https://docs.google.com/spreadsheets/d/1r40DyjRoooLnMTJgE2V9f-7ap2KqdwnWGwsefzsv1Fo/edit?usp=sharing",
   },
   {
-    title: "Equity Research Report",
-    description: "Comprehensive reports on publicly traded companies with buy/hold/sell recommendations.",
-    link: "#",
+    title: "Advanced Trading Comps Model",
+    description: "An advanced trading comparables model that benchmarks companies like Tesco and Sainsbury’s using LTM financials, normalized income statements, and sector-relevant multiples, ensuring clean peer comparability and valuation accuracy.",
+    link: "https://docs.google.com/spreadsheets/d/1oVlCkSajWWbvtoAKD4ewbBdEYf_oLtyTfIgY7wSZQ90/edit?usp=sharing",
   },
   {
     title: "Forecast Calculator using Regression",
@@ -434,3 +434,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
