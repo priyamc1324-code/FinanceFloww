@@ -75,19 +75,9 @@ const projects = [
     link: "https://docs.google.com/spreadsheets/d/1oVlCkSajWWbvtoAKD4ewbBdEYf_oLtyTfIgY7wSZQ90/edit?usp=sharing",
   },
   {
-    title: "Forecast Calculator using Regression",
-    description: "• Python-based financial forecasting. • Utilizes statistical regression analysis.",
-    link: "https://priyam709.github.io/Profit-Calculator-Using-Regression/",
-  },
-  {
     title: "Equity Research Report",
     description: "• Waaree Renewables • Ratio Analysis • Dupont Analysis • ROE Vs ROCE • Financial Dashboard",
     link: "/Equity_Research_Report.pdf",
-  },
-  {
-    title: "Monte Carlo Simulation - Amazon Stock",
-    description: "• Stock price modeling under uncertainty • Risk & volatility analysis",
-    link: "/Monte_Carlo_Amazon.pdf",
   },
 ];
 
@@ -248,28 +238,31 @@ export default function Home() {
 
         <section id="journey" className="w-full py-12 md:py-24 lg:py-32 bg-background text-foreground">
           <div className="container px-4 md:px-6">
-            <h2 className="mb-16 text-center font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+            <h2 className="mb-12 text-center font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
               My Learning Journey
             </h2>
-            <div className="relative mx-auto max-w-5xl">
-              <div className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 bg-border"></div>
-              {learningJourney.map((item, index) => (
-                <div key={index} className="group relative mb-8 flex w-full items-center">
-                  <div className="absolute left-1/2 -translate-x-1/2 transform">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-secondary text-secondary-foreground shadow-md transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                      <item.icon className="h-6 w-6" />
-                    </div>
-                  </div>
-                  <div className={`flex w-full ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
-                    <div className="w-1/2 px-4">
-                       <Card className={`transform transition-transform duration-300 group-hover:scale-105 ${index % 2 === 0 ? 'text-left' : 'text-right'} bg-gray-200 text-black`}>
-                        <CardHeader>
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full max-w-4xl mx-auto"
+            >
+              <CarouselContent>
+                {learningJourney.map((item, index) => (
+                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                    <div className="p-1 h-full">
+                      <Card className="flex flex-col h-full bg-gray-200 text-black transform transition-transform duration-300 hover:scale-105">
+                        <CardHeader className="items-center text-center">
+                          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-background text-foreground mb-4">
+                            <item.icon className="h-6 w-6" />
+                          </div>
                           <CardTitle className="font-bold">{item.title}</CardTitle>
                         </CardHeader>
-                        <CardContent>
+                        <CardContent className="text-center flex-grow">
                           <p>{item.description}</p>
                         </CardContent>
-                        <CardFooter className={`${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
+                        <CardFooter className="justify-center mt-auto">
                           <Button asChild variant="link" className="p-0 h-auto text-black font-bold">
                             <a href={item.link} target="_blank" rel="noopener noreferrer">
                               View Details <ArrowUpRight className="ml-2 h-4 w-4" />
@@ -278,10 +271,12 @@ export default function Home() {
                         </CardFooter>
                       </Card>
                     </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="bg-black text-white border-black hover:bg-gray-800 hover:text-white" />
+              <CarouselNext className="bg-black text-white border-black hover:bg-gray-800 hover:text-white" />
+            </Carousel>
           </div>
         </section>
 
@@ -472,3 +467,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
