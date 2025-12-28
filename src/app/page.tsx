@@ -262,6 +262,17 @@ export default function Home() {
                   </Button>
                 </AccordionContent>
               </AccordionItem>
+              <AccordionItem value="item-5">
+                <AccordionTrigger>Monte Carlo Simulation - Amazon Stock</AccordionTrigger>
+                <AccordionContent>
+                  <p>A simulation model to forecast Amazon’s stock price by modeling uncertainty and analyzing probable outcomes.</p>
+                   <Button asChild variant="link" className="p-0 h-auto text-white mt-2">
+                      <a href="/Monte_Carlo_Amazon.pdf" target="_blank" rel="noopener noreferrer">
+                        View Details <ArrowUpRight className="ml-2 h-4 w-4" />
+                      </a>
+                  </Button>
+                </AccordionContent>
+              </AccordionItem>
             </Accordion>
           </div>
         </section>
