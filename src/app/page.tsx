@@ -79,7 +79,7 @@ const projects = [
   {
     title: "Equity Research Report",
     description: "• Waaree Renewables • Ratio Analysis • Dupont Analysis • ROE Vs ROCE • Financial Dashboard",
-    link: "/Equity%20Research%20Report%20-%20Waaree%20Renewables.pdf",
+    link: "/Equity_Research_Report_Waaree_Renewables.pdf",
   },
 ];
 
@@ -445,9 +445,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
-
-
-
-    
