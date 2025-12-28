@@ -326,33 +326,41 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="skills" className="w-full py-12 md:py-24 lg:py-32 bg-background text-foreground">
+        <section id="skills" className="w-full overflow-x-hidden bg-background py-12 text-foreground md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
-            <div className="grid gap-16">
-              <div className="space-y-8">
-                <h2 className="text-center font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
-                  Skills &amp; Expertise
-                </h2>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+            <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-24">
+              <div className="space-y-6" data-aos="fade-right">
+                <h3 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
+                  Skills & Expertise
+                </h3>
+                <div className="space-y-4">
                   {skills.map((skill, index) => (
-                    <div key={index} className="group relative flex items-center justify-center rounded-lg border border-gray-700 bg-gray-800/20 p-6 text-center transition-all duration-300 hover:bg-gray-800/50">
-                      <div className="absolute inset-0 rounded-lg border-2 border-transparent transition-all duration-300 group-hover:border-accent"></div>
-                      <p className="text-sm font-medium text-gray-300 group-hover:text-white sm:text-base">{skill}</p>
+                    <div
+                      key={index}
+                      className="group relative rounded-lg bg-gray-800/20 p-4 transition-all duration-300 hover:bg-gray-800/50"
+                    >
+                      <div className="absolute top-0 left-0 h-full w-1 bg-accent/0 transition-all duration-300 group-hover:bg-accent"></div>
+                      <p className="pl-4 text-base font-medium text-gray-300 transition-colors group-hover:text-white sm:text-lg">
+                        {skill}
+                      </p>
                     </div>
                   ))}
                 </div>
               </div>
-              <div className="space-y-8">
-                <h2 className="text-center font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
+              <div className="space-y-6" data-aos="fade-left">
+                <h3 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
                   Tools I Use
-                </h2>
-                <div className="flex flex-wrap justify-center gap-6 md:gap-8">
+                </h3>
+                <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4">
                   {tools.map((tool, index) => (
-                     <div key={index} className="flex flex-col items-center gap-3 text-center">
-                      <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gray-800/50 transition-all duration-300 hover:bg-accent/20 hover:scale-110">
-                        <tool.icon className="h-10 w-10 text-accent" />
-                      </div>
-                      <p className="text-sm font-medium text-gray-300">{tool.name}</p>
+                    <div
+                      key={index}
+                      className="group flex flex-col items-center justify-center gap-2 rounded-lg bg-gray-800/30 p-4 text-center transition-transform duration-300 hover:scale-105 hover:bg-gray-800/60"
+                    >
+                      <tool.icon className="h-10 w-10 text-accent transition-colors group-hover:text-white" />
+                      <p className="text-sm font-medium text-gray-400 transition-colors group-hover:text-white">
+                        {tool.name}
+                      </p>
                     </div>
                   ))}
                 </div>
