@@ -74,7 +74,7 @@ const projects = [
   {
     title: "Forecast Calculator using Regression",
     description: "• Python-based financial forecasting. • Utilizes statistical regression analysis.",
-    link: "#",
+    link: "https://priyam709.github.io/Profit-Calculator-Using-Regression/",
   },
   {
     title: "Prospera - Risk & Portfolio Recommendation",
