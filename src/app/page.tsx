@@ -310,8 +310,8 @@ export default function Home() {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
+              <CarouselPrevious className="bg-black text-white border-black hover:bg-gray-800 hover:text-white" />
+              <CarouselNext className="bg-black text-white border-black hover:bg-gray-800 hover:text-white" />
             </Carousel>
           </div>
         </section>
