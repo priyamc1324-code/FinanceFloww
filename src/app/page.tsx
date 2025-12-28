@@ -223,9 +223,14 @@ export default function Home() {
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-2">
-                <AccordionTrigger>Why Python for Financial Analysis?</AccordionTrigger>
+                <AccordionTrigger>Understanding Valuation Multiples</AccordionTrigger>
                 <AccordionContent>
-                  While Excel is powerful, I use Python for its scalability, automation capabilities, and access to advanced statistical and machine learning libraries. It allows for more complex modeling, backtesting strategies, and handling large datasets efficiently.
+                  <p>Valuation multiples must be selected based on a company’s business model, capital structure, and stage of profitability, as no single multiple applies universally across firms or sectors. Ensuring strict numerator–denominator consistency is critical, as misalignment between value measures and financial drivers can lead to distorted and misleading valuation conclusions.</p>
+                  <Button asChild variant="link" className="p-0 h-auto text-white mt-2">
+                      <a href="/Understanding Valuation Multiples.pdf" target="_blank" rel="noopener noreferrer">
+                        View Details <ArrowUpRight className="ml-2 h-4 w-4" />
+                      </a>
+                  </Button>
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-3">
