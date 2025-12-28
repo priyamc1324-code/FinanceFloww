@@ -267,7 +267,7 @@ export default function Home() {
                 <AccordionContent>
                   <p>A simulation modeling potential outcomes for Amazon's stock price to analyze risk and volatility.</p>
                    <Button asChild variant="link" className="p-0 h-auto text-white mt-2">
-                      <a href="/Monte_Carlo.pdf" target="_blank" rel="noopener noreferrer">
+                      <a href="/Monte Carlo.pdf" target="_blank" rel="noopener noreferrer">
                         View Details <ArrowUpRight className="ml-2 h-4 w-4" />
                       </a>
                   </Button>
