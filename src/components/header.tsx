@@ -51,8 +51,9 @@ export default function Header() {
     }
   }, []);
 
-  const headerBgClass = scrolled || activeSection !== 'home' ? "bg-white/80 shadow-md backdrop-blur-sm" : "bg-transparent";
-  const headerTextClass = scrolled || activeSection !== 'home' ? "text-gray-900" : "text-white";
+  const headerBgClass = scrolled || (activeSection !== 'home' && !isMobile) ? "bg-white/80 shadow-md backdrop-blur-sm" : "bg-transparent";
+  const headerTextClass = scrolled || (activeSection !== 'home' && !isMobile) ? "text-gray-900" : "text-white";
+
 
   return (
     <header
@@ -95,14 +96,14 @@ export default function Header() {
                 </SheetHeader>
                 <nav className="flex flex-col gap-4 pt-8">
                   {navLinks.map(({ href, label }) => (
-                     <a
+                     <Link
                       key={label}
                       href={href}
                       onClick={() => setMobileMenuOpen(false)}
                       className="w-full justify-start text-lg text-gray-900 px-4 py-2 rounded-md hover:bg-gray-100"
                     >
                       {label}
-                    </a>
+                    </Link>
                   ))}
                 </nav>
               </SheetContent>
