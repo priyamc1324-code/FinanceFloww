@@ -14,6 +14,7 @@ import {
   Table,
   TrendingUp,
   Trophy,
+  ChevronRight,
 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
@@ -101,15 +102,17 @@ const skills = [
   "Valuation",
   "Equity Research",
   "Advanced Microsoft Excel",
-  "Python for Financial Analysis",
-  "Machine Learning for Predictive Analytics",
+  "Python For Financial Analysis",
+  "Machine Learning For Predictive Analytics",
+  "Statistics For Finance",
+  "Prompt Engineering",
 ];
 
 const tools = [
-    { name: "Python", icon: Code },
-    { name: "Microsoft Excel", icon: Table },
-    { name: "SQL", icon: Database },
-    { name: "Tableau", icon: TrendingUp },
+  { name: "Python", icon: Code },
+  { name: "Microsoft Excel", icon: Table },
+  { name: "SQL", icon: Database },
+  { name: "Tableau", icon: TrendingUp },
 ];
 
 const certifications = [
@@ -345,11 +348,30 @@ export default function Home() {
               fill
               className="object-cover"
           />
-          <div className="absolute inset-0 bg-black/50" />
-          <div className="container relative z-10 flex justify-center items-center px-4 md:px-6">
-              <h2 className="text-center font-headline text-3xl font-bold tracking-tighter text-white sm:text-4xl md:text-5xl">
-                  Skills & Tools
-              </h2>
+          <div className="absolute inset-0 bg-black/60" />
+          <div className="container relative z-10 grid grid-cols-1 gap-12 px-4 md:grid-cols-2 md:px-6">
+            <div className="space-y-6">
+              <h3 className="font-headline text-3xl font-bold text-white">Skills</h3>
+              <ul className="space-y-3">
+                {skills.map((skill) => (
+                  <li key={skill} className="flex items-center text-lg text-gray-200 transition-transform duration-300 hover:translate-x-2">
+                    <ChevronRight className="mr-2 h-5 w-5 text-accent-foreground" />
+                    <span>{skill}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="space-y-6">
+              <h3 className="font-headline text-3xl font-bold text-white">Tools I Use</h3>
+              <ul className="space-y-3">
+                {tools.map((tool) => (
+                  <li key={tool.name} className="flex items-center text-lg text-gray-200 transition-transform duration-300 hover:translate-x-2">
+                    <tool.icon className="mr-3 h-6 w-6 text-accent-foreground" />
+                    <span>{tool.name}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </section>
 
