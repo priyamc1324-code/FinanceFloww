@@ -41,6 +41,13 @@ import {
   DialogDescription,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import Header from "@/components/header";
 import ContactForm from "@/components/contact-form";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
@@ -276,23 +283,36 @@ export default function Home() {
             <h2 className="mb-12 text-center font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
               Featured Projects
             </h2>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {projects.map((project, index) => (
-                <Card key={index} className="flex flex-col bg-background text-foreground">
-                  <CardHeader>
-                    <CardTitle>{project.title}</CardTitle>
-                    <CardDescription>{project.description}</CardDescription>
-                  </CardHeader>
-                  <CardFooter className="mt-auto">
-                    <Button asChild variant="link" className="p-0 h-auto text-white">
-                      <a href={project.link} target="_blank" rel="noopener noreferrer">
-                        View Project <ArrowUpRight className="ml-2 h-4 w-4" />
-                      </a>
-                    </Button>
-                  </CardFooter>
-                </Card>
-              ))}
-            </div>
+            <Carousel
+              opts={{
+                align: "start",
+              }}
+              className="w-full"
+            >
+              <CarouselContent>
+                {projects.map((project, index) => (
+                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                    <div className="p-1 h-full">
+                       <Card key={index} className="flex flex-col h-full bg-background text-foreground">
+                        <CardHeader>
+                          <CardTitle>{project.title}</CardTitle>
+                          <CardDescription>{project.description}</CardDescription>
+                        </CardHeader>
+                        <CardFooter className="mt-auto">
+                          <Button asChild variant="link" className="p-0 h-auto text-white">
+                            <a href={project.link} target="_blank" rel="noopener noreferrer">
+                              View Project <ArrowUpRight className="ml-2 h-4 w-4" />
+                            </a>
+                          </Button>
+                        </CardFooter>
+                      </Card>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
           </div>
         </section>
 
