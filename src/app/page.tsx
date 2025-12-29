@@ -223,6 +223,9 @@ export default function Home() {
                   View Projects
                 </Button>
               </Link>
+              <Button size="lg" asChild className="w-48 bg-primary text-primary-foreground hover:bg-primary/90">
+                <a href="/Priyam_Cv.pdf" download>View My Resume</a>
+              </Button>
               <Dialog>
                 <DialogTrigger asChild>
                   <Button size="lg" variant="outline" className="w-48 border-white bg-transparent text-white hover:bg-white hover:text-black">
