@@ -99,3 +99,14 @@ html {
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+  .animate-blink {
+    animation: blink 1s step-end infinite;
+  }
+}

@@ -1,5 +1,4 @@
 
-
 "use client";
 
 import Image from "next/image";
@@ -66,6 +65,7 @@ import Link from "next/link";
 import FinancialBackground from "@/components/financial-background";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
+import TypewriterButton from "@/components/typewriter-button";
 
 
 const aboutImage = PlaceHolderImages.find((img) => img.id === 'profile-about');
@@ -198,11 +198,6 @@ const learningJourney = [
 export default function Home() {
   const isMobile = useIsMobile();
   const [activeAccordion, setActiveAccordion] = useState<string | null>(null);
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
 
   const handleAccordionClick = (value: string) => {
     setActiveAccordion(activeAccordion === value ? null : value);
@@ -223,44 +218,28 @@ export default function Home() {
             </p>
             
             <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
-              <Link href="#projects" passHref>
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  className={cn(
-                    "w-48 border-white bg-transparent text-white hover:bg-white hover:text-black font-bold",
-                    isMounted ? "animate-button-pop" : "opacity-0"
-                  )}
-                  style={{ animationDelay: '0.2s' }}
-                >
-                  View Projects
-                </Button>
-              </Link>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                asChild 
-                className={cn(
-                  "w-48 border-white bg-transparent text-white hover:bg-white hover:text-black font-bold",
-                  isMounted ? "animate-button-pop" : "opacity-0"
-                )}
-                style={{ animationDelay: '0.4s' }}
-              >
-                <a href="/Priyam_Cv.pdf" download>View My Resume</a>
-              </Button>
+              <TypewriterButton
+                text="View Projects"
+                href="#projects"
+                startDelay={0}
+                className="w-48 border-white bg-transparent text-white hover:bg-white hover:text-black font-bold"
+              />
+              <TypewriterButton
+                text="View My Resume"
+                href="/Priyam_Cv.pdf"
+                startDelay={1500}
+                download
+                className="w-48 border-white bg-white text-black hover:bg-gray-200 font-bold"
+              />
               <Dialog>
                 <DialogTrigger asChild>
-                  <Button 
-                    size="lg" 
-                    variant="outline" 
-                    className={cn(
-                      "w-48 border-white bg-transparent text-white hover:bg-white hover:text-black font-bold",
-                      isMounted ? "animate-button-pop" : "opacity-0"
-                    )}
-                    style={{ animationDelay: '0.6s' }}
-                  >
-                    Contact Me
-                  </Button>
+                  <div className="w-48">
+                    <TypewriterButton
+                      text="Contact Me"
+                      startDelay={3000}
+                      className="w-full border-white bg-transparent text-white hover:bg-white hover:text-black font-bold"
+                    />
+                  </div>
                 </DialogTrigger>
                 <DialogContent className="bg-white text-black">
                   <DialogHeader className="text-center">
@@ -711,19 +690,6 @@ export default function Home() {
         }
         .animate-fadeInUp {
           animation: fadeInUp 0.5s ease-out forwards;
-        }
-        @keyframes button-pop {
-          from {
-            opacity: 0;
-            transform: translateY(20px) scale(0.95);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-          }
-        }
-        .animate-button-pop {
-          animation: button-pop 0.5s ease-out forwards;
         }
       `}</style>
     </div>
