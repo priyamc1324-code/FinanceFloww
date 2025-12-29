@@ -219,16 +219,16 @@ export default function Home() {
             
             <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
               <Link href="#projects" passHref>
-                <Button size="lg" className="w-48 bg-primary text-primary-foreground hover:bg-primary/90">
+                <Button size="lg" variant="outline" className="w-48 border-white bg-transparent text-white hover:bg-white hover:text-black font-bold">
                   View Projects
                 </Button>
               </Link>
-              <Button size="lg" asChild className="w-48 bg-primary text-primary-foreground hover:bg-primary/90">
+              <Button size="lg" variant="outline" asChild className="w-48 border-white bg-transparent text-white hover:bg-white hover:text-black font-bold">
                 <a href="/Priyam_Cv.pdf" download>View My Resume</a>
               </Button>
               <Dialog>
                 <DialogTrigger asChild>
-                  <Button size="lg" variant="outline" className="w-48 border-white bg-transparent text-white hover:bg-white hover:text-black">
+                  <Button size="lg" variant="outline" className="w-48 border-white bg-transparent text-white hover:bg-white hover:text-black font-bold">
                     Contact Me
                   </Button>
                 </DialogTrigger>
