@@ -136,9 +136,9 @@ const education = [
       detail: "GPA - 3.91/4"
     },
     {
-      degree: "St Josephs Pre University College",
-      institution: "",
-      detail: "12th Board - 96.5%"
+      degree: "12th Board",
+      institution: "St Josephs Pre University College",
+      detail: "96.5%"
     }
 ];
 
