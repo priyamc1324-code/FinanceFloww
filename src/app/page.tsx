@@ -245,7 +245,7 @@ export default function Home() {
                   <DialogHeader className="text-center">
                     <DialogTitle className="font-bold">Get in Touch</DialogTitle>
                     <DialogDescription className="text-black font-bold">
-                      I&apos;d love to hear from you!
+                      I'd love to hear from you!
                     </DialogDescription>
                   </DialogHeader>
                   <div className="flex flex-col items-center space-y-4 py-4">
