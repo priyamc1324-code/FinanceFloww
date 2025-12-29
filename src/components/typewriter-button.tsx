@@ -37,7 +37,7 @@ const TypewriterButton: React.FC<TypewriterButtonProps> = ({
           clearInterval(interval);
           setIsTyping(false);
         }
-      }, 100);
+      }, 75);
     };
 
     const timeout = setTimeout(startTyping, startDelay);
