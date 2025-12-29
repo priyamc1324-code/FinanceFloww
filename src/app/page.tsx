@@ -3,7 +3,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   ArrowUpRight,
   BookOpen,
@@ -198,6 +198,11 @@ const learningJourney = [
 export default function Home() {
   const isMobile = useIsMobile();
   const [activeAccordion, setActiveAccordion] = useState<string | null>(null);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const handleAccordionClick = (value: string) => {
     setActiveAccordion(activeAccordion === value ? null : value);
@@ -219,16 +224,41 @@ export default function Home() {
             
             <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
               <Link href="#projects" passHref>
-                <Button size="lg" variant="outline" className="w-48 border-white bg-transparent text-white hover:bg-white hover:text-black font-bold">
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className={cn(
+                    "w-48 border-white bg-transparent text-white hover:bg-white hover:text-black font-bold",
+                    isMounted ? "animate-button-pop" : "opacity-0"
+                  )}
+                  style={{ animationDelay: '0.2s' }}
+                >
                   View Projects
                 </Button>
               </Link>
-              <Button size="lg" variant="outline" asChild className="w-48 border-white bg-transparent text-white hover:bg-white hover:text-black font-bold">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                asChild 
+                className={cn(
+                  "w-48 border-white bg-transparent text-white hover:bg-white hover:text-black font-bold",
+                  isMounted ? "animate-button-pop" : "opacity-0"
+                )}
+                style={{ animationDelay: '0.4s' }}
+              >
                 <a href="/Priyam_Cv.pdf" download>View My Resume</a>
               </Button>
               <Dialog>
                 <DialogTrigger asChild>
-                  <Button size="lg" variant="outline" className="w-48 border-white bg-transparent text-white hover:bg-white hover:text-black font-bold">
+                  <Button 
+                    size="lg" 
+                    variant="outline" 
+                    className={cn(
+                      "w-48 border-white bg-transparent text-white hover:bg-white hover:text-black font-bold",
+                      isMounted ? "animate-button-pop" : "opacity-0"
+                    )}
+                    style={{ animationDelay: '0.6s' }}
+                  >
                     Contact Me
                   </Button>
                 </DialogTrigger>
@@ -681,6 +711,19 @@ export default function Home() {
         }
         .animate-fadeInUp {
           animation: fadeInUp 0.5s ease-out forwards;
+        }
+        @keyframes button-pop {
+          from {
+            opacity: 0;
+            transform: translateY(20px) scale(0.95);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+        }
+        .animate-button-pop {
+          animation: button-pop 0.5s ease-out forwards;
         }
       `}</style>
     </div>
