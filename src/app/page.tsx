@@ -165,7 +165,7 @@ const workExperience = [
 const learningJourney = [
     {
       icon: FileText,
-      title: "A Three Statement FinancialModel",
+      title: "A Three Statement Financial Model",
       description: "The foundational interconnected model of the Income Statement, Balance Sheet, and Cash Flow Statement.",
       link: "/A Three - Statement Financial Model.pdf",
     },
@@ -285,7 +285,7 @@ export default function Home() {
                 About Me
               </h2>
               <p className="text-black md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed font-bold text-justify">
-                I am a passion driven finance student with a strong quantitative background and a keen interest in the intersection of finance and technology. My journey has equipped me with a solid foundation in financial modeling, valuation, and data analysis using Python. I thrive on dissecting complex financial problems and building models that provide clear, actionable insights. What sets me apart is my ability to bridge the gap between traditional finance principles and modern analytical techniques. This portfolio showcases my key projects, skills, and the continuous learning journey that shapes my professional growth.
+                I am a passion-driven finance student with a strong quantitative background and a keen interest in the intersection of finance and technology. My journey has equipped me with a solid foundation in financial modeling, valuation, and data analysis using Python. I thrive on dissecting complex financial problems and building models that provide clear, actionable insights. What sets me apart is my ability to bridge the gap between traditional finance principles and modern analytical techniques. This portfolio showcases my key projects, skills, and the continuous learning journey that shapes my professional growth.
               </p>
             </div>
           </div>
@@ -511,7 +511,7 @@ export default function Home() {
                               <p className="font-medium">{cert.name}</p>
                               <p className="text-sm text-muted-foreground">{cert.issuer}</p>
                             </div>
-                            <Button variant="ghost" size="icon" asChild><a href="#"><ArrowUpRight/></a></Button>
+                            <Button variant="ghost" size="icon" asChild><a href="#" rel="noopener noreferrer"><ArrowUpRight/></a></Button>
                         </li>
                       ))}
                     </ul>
@@ -595,7 +595,7 @@ export default function Home() {
                             <p className="font-medium">{cert.name}</p>
                             <p className="text-sm text-muted-foreground">{cert.issuer}</p>
                           </div>
-                          <Button variant="ghost" size="icon" asChild><a href="#"><ArrowUpRight/></a></Button>
+                          <Button variant="ghost" size="icon" asChild><a href="#" rel="noopener noreferrer"><ArrowUpRight/></a></Button>
                       </li>
                     ))}
                   </ul>

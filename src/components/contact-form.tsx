@@ -48,7 +48,18 @@ export default function ContactForm() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
     
-    const accessKey = "83321c5f-e1c4-48e8-b8fa-c5b7c2a7a5ae";
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+
+    if (!accessKey) {
+        console.error("Web3Forms access key is not defined.");
+        toast({
+            variant: "destructive",
+            title: "Configuration Error",
+            description: "The contact form is not set up correctly. Please contact the site owner.",
+        });
+        setIsSubmitting(false);
+        return;
+    }
 
     const formData = new FormData();
     formData.append("access_key", accessKey);
