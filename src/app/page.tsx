@@ -44,14 +44,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import {
   Carousel,
   CarouselContent,
   CarouselItem,
@@ -59,7 +51,6 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Header from "@/components/header";
-import ContactForm from "@/components/contact-form";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import Link from "next/link";
 import FinancialBackground from "@/components/financial-background";
@@ -157,7 +148,7 @@ const workExperience = [
       "Delivered data-driven analytics for a Fortune 500 client, focusing on asset reliability, cost efficiency, and ROIC improvement.",
       "Developed a Python-based predictive maintenance model using sensor data to forecast equipment failures and support preventive CAPEX planning.",
       "Analyzed maintenance cycles and asset performance to optimize repair schedules, enabling a 15–20% potential reduction in operating costs.",
-      "Identified high-risk and high-performing assets to guide capital allocation, maintenance prioritization, and lifecycle cost management, improving operational efficiency by 10–15%.",
+      "Identified high-risk and high-performing assets to guide capital allocation, maintenance prioritization, and lifecycle cost management, improving operational efficiency by 10–15%."
     ],
   },
 ];
@@ -231,39 +222,13 @@ export default function Home() {
                 download
                 className="w-48 border-white bg-transparent text-white hover:bg-white hover:text-black font-bold"
               />
-              <Dialog>
-                <DialogTrigger asChild>
-                  <div className="w-48">
-                    <TypewriterButton
-                      text="Contact Me"
-                      startDelay={3000}
-                      className="w-full border-white bg-white text-black hover:bg-gray-200 font-bold"
-                    />
-                  </div>
-                </DialogTrigger>
-                <DialogContent className="bg-white text-black">
-                  <DialogHeader className="text-center">
-                    <DialogTitle className="font-bold">Get in Touch</DialogTitle>
-                    <DialogDescription className="text-black font-bold">
-                      I'd love to hear from you!
-                    </DialogDescription>
-                  </DialogHeader>
-                  <div className="flex flex-col items-center space-y-4 py-4">
-                    <a href="mailto:priyamc1324@gmail.com" className="flex items-center gap-4 text-lg font-bold text-black hover:text-gray-700 transition-colors">
-                      <Mail className="h-6 w-6"/>
-                      <span>priyamc1324@gmail.com</span>
-                    </a>
-                    <a href="https://www.linkedin.com/in/priyam-chandan-568835285?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-lg font-bold text-black hover:text-gray-700 transition-colors">
-                      <Linkedin className="h-6 w-6"/>
-                      <span>Connect on LinkedIn</span>
-                    </a>
-                    <a href="tel:+916360840120" className="flex items-center gap-4 text-lg font-bold text-black hover:text-gray-700 transition-colors">
-                      <Phone className="h-6 w-6"/>
-                      <span>+91 6360840120</span>
-                    </a>
-                  </div>
-                </DialogContent>
-              </Dialog>
+               <a href="mailto:priyamc1324@gmail.com" className="w-48">
+                <TypewriterButton
+                  text="Contact Me"
+                  startDelay={3000}
+                  className="w-full border-white bg-white text-black hover:bg-gray-200 font-bold"
+                />
+              </a>
             </div>
             
           </div>
@@ -666,9 +631,6 @@ export default function Home() {
                 </a>
               </div>
             </div>
-            <div className="w-full">
-              <ContactForm />
-            </div>
           </div>
         </section>
 
@@ -695,4 +657,3 @@ export default function Home() {
     </div>
   );
 }
-    
